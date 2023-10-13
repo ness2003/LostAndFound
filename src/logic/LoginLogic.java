@@ -1,4 +1,4 @@
-package controller;
+package logic;
 
 import java.util.HashMap;
 
@@ -12,5 +12,4 @@ public class LoginLogic {
 		return logsAndPasswds.containsKey(enterLogin) && logsAndPasswds.get(enterLogin).equals(enterPass);
 	}
 
-	
 }

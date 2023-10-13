@@ -1,6 +1,10 @@
-package controller;
+package command;
 
 import javax.servlet.http.HttpServletRequest;
+
+import logic.LoginLogic;
+import resource.ConfigurationManager;
+import resource.MessageManager;
 
 public class LoginCommand implements ActionCommand {
 	private static final String PARAM_NAME_LOGIN = "login";
@@ -29,5 +33,5 @@ public class LoginCommand implements ActionCommand {
 
 		return page;
 	}
-	
+
 }

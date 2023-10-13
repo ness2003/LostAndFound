@@ -1,4 +1,4 @@
-package controller;
+package resource;
 
 import com.prutzkow.resourcer.*;
 
@@ -12,6 +12,5 @@ public class ConfigurationManager {
 	public static String getProperty(String key) {
 		return resource.getString(key);
 	}
-	
-	
+
 }

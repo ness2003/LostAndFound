@@ -1,6 +1,8 @@
-package controller;
+package command;
 
 import javax.servlet.http.HttpServletRequest;
+
+import resource.ConfigurationManager;
 
 public class LogoutCommand implements ActionCommand {
 	@Override
@@ -10,7 +12,5 @@ public class LogoutCommand implements ActionCommand {
 		request.getSession().invalidate();
 		return page;
 	}
-	
-	
-	
+
 }

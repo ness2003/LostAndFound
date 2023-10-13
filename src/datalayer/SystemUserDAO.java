@@ -7,5 +7,6 @@ import datalayer.data.SystemUser;
 
 public interface SystemUserDAO {
 	List<SystemUser> getSystemUsers();
-	HashMap<String,String> getLoginsAndPasswds();
+
+	HashMap<String, String> getLoginsAndPasswds();
 }

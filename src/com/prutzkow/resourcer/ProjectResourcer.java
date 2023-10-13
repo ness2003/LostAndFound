@@ -24,7 +24,7 @@ public class ProjectResourcer implements Resourcer {
 
 	private static final String DEFAULT_PROPERTY_NAME = "resources.text";
 	private static String basename = DEFAULT_PROPERTY_NAME;
-
+	
 	private ProjectResourcer() {
 	}
 

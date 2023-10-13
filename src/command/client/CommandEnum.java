@@ -1,4 +1,10 @@
-package controller;
+package command.client;
+
+import command.ActionCommand;
+import command.FindingsCommand;
+import command.LoginCommand;
+import command.LogoutCommand;
+import controller.UserProfile;
 
 public enum CommandEnum {
 	LOGIN {
@@ -16,10 +22,10 @@ public enum CommandEnum {
 			this.command = new FindingsCommand();
 		}
 	},
-	GETUSERPROFILE{
+	GETUSERPROFILE {
 		{
-		this.command = new UserProfile();
-	}
+			this.command = new UserProfile();
+		}
 	};
 
 	ActionCommand command;
@@ -27,7 +33,5 @@ public enum CommandEnum {
 	public ActionCommand getCurrentCommand() {
 		return command;
 	}
-	
 
-	
 }

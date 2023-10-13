@@ -31,7 +31,7 @@ public class OracleDBDAOFactory extends DAOFactory {
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String user = "SYS AS SYSDBA";
 		String password = "Ness21083!";
-		System.out.print("Устанавливаю соединение");
+		System.out.print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 		connection = DriverManager.getConnection(url, user, password);
 		System.out.println("Connected to oracle DB!");
 	}
@@ -41,17 +41,15 @@ public class OracleDBDAOFactory extends DAOFactory {
 			try {
 				this.connection.close();
 			} catch (SQLException e) {
-				System.err.println("Сonnection close error: " + e);
+				System.err.println("пїЅonnection close error: " + e);
 			}
 		}
 	}
 
-
-
-	/**@Override
-	public LoadStudyDAO getLoadStudyDAO() {
-		return new OracleLoadStudyDAO(connection);
-	}**/
+	/**
+	 * @Override public LoadStudyDAO getLoadStudyDAO() { return new
+	 *           OracleLoadStudyDAO(connection); }
+	 **/
 
 	@Override
 	public SystemUserDAO getSystemUserDAO() {

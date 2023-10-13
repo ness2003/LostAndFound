@@ -15,7 +15,6 @@ import com.prutzkow.resourcer.*;
 import datalayer.SystemUserDAO;
 import datalayer.data.SystemUser;
 
-
 public class OracleSystemUserDAO implements SystemUserDAO {
 
 	private Connection connection;
@@ -41,9 +40,9 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 		try {
 			System.out.print(resourcer.getString("select.all.system.users"));
 			statement = connection.createStatement();
-			System.out.print("Все ок1");
+			System.out.print("пїЅпїЅпїЅ пїЅпїЅ1");
 			resultSet = statement.executeQuery(resourcer.getString("select.all.system.users"));
-			System.out.print("Все ок");
+			System.out.print("пїЅпїЅпїЅ пїЅпїЅ");
 			while (resultSet.next()) {
 				System.out.print(resultSet.getString(2));
 
@@ -81,16 +80,16 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 
 	@Override
 	public HashMap<String, String> getLoginsAndPasswds() {
-		
-		HashMap<String,String> loginsAndPasswds = new HashMap<String,String>();
+
+		HashMap<String, String> loginsAndPasswds = new HashMap<String, String>();
 		ArrayList<SystemUser> userList = (ArrayList<SystemUser>) this.getSystemUsers();
 		Iterator<SystemUser> iterator = userList.iterator();
 		while (iterator.hasNext()) {
-			SystemUser user  = iterator.next();
+			SystemUser user = iterator.next();
 			loginsAndPasswds.put(user.getLogin(), user.getPassword());
 		}
 		return loginsAndPasswds;
-			
+
 	}
 
 }

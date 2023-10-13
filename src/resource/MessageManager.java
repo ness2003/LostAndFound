@@ -1,4 +1,4 @@
-package controller;
+package resource;
 
 import com.prutzkow.resourcer.ProjectResourcer;
 import com.prutzkow.resourcer.Resourcer;
@@ -13,5 +13,5 @@ public class MessageManager {
 	public static String getProperty(String key) {
 		return resource.getString(key);
 	}
-	
+
 }

@@ -1,8 +1,14 @@
-package controller;
+package command.factory;
 
 import javax.servlet.http.HttpServletRequest;
 
+import command.ActionCommand;
+import command.EmptyCommand;
+import command.client.CommandEnum;
+import resource.MessageManager;
+
 public class ActionFactory {
+
 	public ActionCommand defineCommand(HttpServletRequest request) {
 		ActionCommand current = new EmptyCommand();
 
@@ -22,7 +28,6 @@ public class ActionFactory {
 		}
 
 		return current;
-		
-		
+
 	}
 }

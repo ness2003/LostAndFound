@@ -9,12 +9,10 @@ public class SystemUser {
 	private int status;
 	private int group;
 
-
 	public static final SystemUser NULL_SYSTEM_USER = new SystemUser() {
 	};
 
-	public SystemUser(int userID, String fullName, String email, String login, String password,
-			int status, int group) {
+	public SystemUser(int userID, String fullName, String email, String login, String password, int status, int group) {
 		this.setUserID(userID);
 		this.setFullName(fullName);
 		this.setEmail(email);
@@ -83,9 +81,5 @@ public class SystemUser {
 	public void setGroup(int group) {
 		this.group = group;
 	}
-
-
-
-	
 
 }

@@ -2,8 +2,10 @@ package controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class UserProfile implements ActionCommand{
-	
+import command.ActionCommand;
+import resource.ConfigurationManager;
+
+public class UserProfile implements ActionCommand {
 
 	@Override
 	public String execute(HttpServletRequest request) {
