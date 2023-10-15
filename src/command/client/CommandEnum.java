@@ -2,9 +2,10 @@ package command.client;
 
 import command.ActionCommand;
 import command.FindingsCommand;
+import command.InformationAboutProjectCommand;
 import command.LoginCommand;
 import command.LogoutCommand;
-import controller.UserProfile;
+import command.PfrofileCommand;
 
 public enum CommandEnum {
 	LOGIN {
@@ -17,14 +18,19 @@ public enum CommandEnum {
 			this.command = new LogoutCommand();
 		}
 	},
-	FINDINGS {
+	FINDS {
 		{
 			this.command = new FindingsCommand();
 		}
 	},
-	GETUSERPROFILE {
+	MYPROFILE {
 		{
-			this.command = new UserProfile();
+			this.command = new PfrofileCommand();
+		}
+	},
+	ABOUTPROJECT {
+		{
+			this.command = new InformationAboutProjectCommand();
 		}
 	};
 

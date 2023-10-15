@@ -12,7 +12,7 @@
 		 
 		<li><a href="/dashboard">Находки</a></li>
 		<li><a href="/Lost/findings">Пользователи</a></li>
-		<li><a href=controller?command=logout>Logout</a></li>
+		<li><a href=home?command=logout>Logout</a></li>
 	</ul>
 
 

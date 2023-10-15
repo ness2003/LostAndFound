@@ -45,7 +45,7 @@ public class FrontController extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else {
 			// установка страницы c cообщением об ошибке
-			page = ConfigurationManager.getProperty("path.page.index");
+			page = ConfigurationManager.getProperty("path.page.index"); // /index.jsp
 			request.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
 			response.sendRedirect(request.getContextPath() + page);
 		}

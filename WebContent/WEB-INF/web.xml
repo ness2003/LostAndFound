@@ -1,58 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>Lost-And-Found</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <servlet-name>controller</servlet-name>
-    <servlet-class>controller.FrontController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>controller</servlet-name>
-    <url-pattern>/controller</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>JSPerror</servlet-name>
-    <jsp-file>/jsp/error.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JSPerror</servlet-name>
-    <url-pattern>/error</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>JSPuserfindings</servlet-name>
-    <jsp-file>/jsp/user_interface/findings.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JSPuserfindings</servlet-name>
-    <url-pattern>/findings</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>JSPmyuserfindings</servlet-name>
-    <jsp-file>/jsp/user_interface/myfindings.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JSPmyuserfindings</servlet-name>
-    <url-pattern>/myfindings</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>JSPmyprofile</servlet-name>
-    <jsp-file>/jsp/user_interface/myprofile.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JSPmyprofile</servlet-name>
-    <url-pattern>/myprofile</url-pattern>
-  </servlet-mapping>
-  <error-page>
-  <error-code>404</error-code>
-  <location>/jsp/error.jsp</location>
-  </error-page>
-  <error-page>
-  <exception-type>java.lang.RuntimeException</exception-type>
-   <location>/jsp/error.jsp</location>
-  </error-page>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>Lost-And-Found</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	
+	<servlet>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Finds</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Finds</servlet-name>
+		<url-pattern>/finds</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserFinds</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserFinds</servlet-name>
+		<url-pattern>/myfindings</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Profile</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Profile</servlet-name>
+		<url-pattern>/myprofile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AboutProject</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AboutProject</servlet-name>
+		<url-pattern>/aboutproject</url-pattern>
+	</servlet-mapping>
+
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<servlet>
+		<servlet-name>JSPerror</servlet-name>
+		<jsp-file>/jsp/error.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JSPerror</servlet-name>
+		<url-pattern>/error</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/jsp/error.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.RuntimeException</exception-type>
+		<location>/jsp/error.jsp</location>
+	</error-page>
+	
 </web-app>
