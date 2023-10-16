@@ -1,47 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<ul class="menu">
-	<li>
-		<form name="Finds" method="POST" action="finds">
+<table id="header">
+ 		<tr>
+          <td id="buttonHome">
+          <form name="Home" method="POST" action="home">
+			<input type="hidden" name="command" value="home" /> 
+			<input type="hidden" name="client" value="user" />
+			<button id="home" type="submit">На главную</button>
+		</form></td>
+			<td id="finds">
+          <form name="Finds" method="POST" action="finds">
 			<input type="hidden" name="command" value="finds" /> 
 			<input type="hidden" name="client" value="user" />
 			<input type="hidden" name="isuserfinds" value="" />
-			<button type="submit">Каталог находок</button>
+			<button id="finds" type="submit">Каталог находок</button>
 		</form>
-	</li>
-	
-	<li>
-		<form name="MyFinds" method="POST" action="myfindings">
+          </td>
+			<td id="myFindings">
+          <form name="MyFinds" method="POST" action="myfindings">
 			<input type="hidden" name="command" value="finds" /> 
 			<input type="hidden" name="client" value="user" />
 			<input type="hidden" name="isuserfinds" value="true" />
-			<button type="submit">Мои находки</button>
+			<button id="myFindings" type="submit">Мои находки</button>
 		</form>
-	</li>
-	
-	<li>
-		<form name="AboutProject" method="POST" action="aboutproject">
+          </td>
+			<td id="aboutProject">
+              <form name="AboutProject" method="POST" action="aboutproject">
 			<input type="hidden" name="command" value="aboutproject" /> 
 			<input type="hidden" name="client" value="user" />
-			<button type="submit">О проекте</button>
+			<button id="aboutProject" type="submit">О проекте</button>
 		</form>
-	</li>
-	
-	<li>
-		<form name="MyProfile" method="POST" action="myprofile">
+          </td>
+			<td id="profile">
+              <form name="MyProfile" method="POST" action="myprofile">
 			<input type="hidden" name="command" value="myprofile" /> 
 			<input type="hidden" name="client" value="user" />
-			<button type="submit">Мой профиль</button>
+			<button id="profile" type="submit">Мой профиль</button>
 		</form>
-	</li>
-	
-	<li>
-		<form name="LogOut" method="POST" action="home">
+          </td>
+			<td id="logout">
+              <form name="LogOut" method="POST" action="home">
 			<input type="hidden" name="command" value="logout" /> 
 			<input type="hidden" name="client" value="user" />
-			<button type="submit">Выйти</button>
+			<button id="logout" type="submit">Выйти</button>
 		</form>
-	</li>
-	
-</ul>
+          </td>
+			
+		</tr>
+  </table>

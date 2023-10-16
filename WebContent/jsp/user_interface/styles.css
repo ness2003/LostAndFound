@@ -1,49 +1,191 @@
 @charset "UTF-8";
 
-/* Общие стили для страницы */
 body {
-	margin: 0;
-	padding: 0;
-	min-height: 100vh;
-	/* Минимальная высота равная высоте видимой области экрана (100% высоты) */
-}
-/* Стили для меню */
-ul.menu {
-	list-style-type: none;
-	padding: 0;
 	background-color: #333;
-	position: fixed; /* Фиксированное позиционирование */
-	width: 100%;
-	top: 0; /* Расположение вверху страницы */
-}
-
-ul.menu li {
-	display: inline-block; /* Пункты меню в одной строке */
-}
-
-ul.menu li a {
-	display: block;
+	font-family: century gothic;
+	font-size: 15px;
 	color: #fff;
-	text-decoration: none;
-	padding: 10px 20px;
 }
 
-ul.menu li a:hover {
-	background-color: #7DA980;
+table#header {
+	align-self: center;
+	text-align: center;
+	width: 1000px;
+	height: 90px;
+	border: none;
+	padding: 10px;
+	margin-left: 10%;
 }
 
-/* Пространство для контента */
-.content {
-	margin-top: 50px; /* Отступ, чтобы контент не перекрывал меню */
-	padding: 20px;
+table#header button {
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+	font-style: normal;
+	border: none;
+	background-color: #333;
+	transition: transform 0.5s;
+	height: 70px;
+}
+
+table#header button:hover {
+	background: radial-gradient(50.01% 50% at 50% 50%, #FFA800 0%, rgba(255, 168, 0,
+		0.00) 100%);
+	transform: scale(1.3);
+}
+
+table[item="finding"] {
+	border: none;
+	padding: 10px;
+	margin: 2%;
+	margin-left: 4%; margin-right : 4%;
+	border-radius: 30px;
+	background-color: #fff;
+	margin-right: 4%;
+}
+
+td[item="category"] {
+	padding: 10px;
+	color: #0085FF;
+	font-size: 15px;
+	font-style: normal;
+}
+
+td[item="name"] {
+	max-width: 300px;
+	width: 300px;
+	padding: 10px;
+	color: #1E1E1E;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+}
+
+td[item="description"] {
+	padding: 10px 100px 10px 30px;
+	color: #1E1E1E;
+	font-size: 20px;
+	font-style: normal;
+	max-width: 500px;
+	width: 500px;
+}
+
+td[item="date"] {
+	max-width: 300px;
+	padding: 20px 10px 0px;
+	color: #1E1E1E;
+	font-size: 15px;
+	font-style: normal;
+}
+
+td[item="place"] {
+	padding: 0px 10px 5px;
+	color: #333;
+	font-size: 15px;
+	font-style: normal;
+}
+
+button[item="ownership"] {
+	width: 150px;
+	height: 100px;
+	border: none;
+	border-radius: 50px;
+	background: #0085FF;
+	color: #FFF;
+	font-size: 15px;
+	font-style: normal;
+	transition: transform 0.5s;
+	text-align: center;
+}
+
+button[item="ownership"]:hover {
+	background: #FFA800;
+	transform: scale(1.3);
+}
+
+h1#myfindings {
+	display: flex;
+	justify-content: center;
+	margin: 10%;
+	color: #fff;
+	text-align: center;
+	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
+		0.00) 70%);
+}
+
+h1#home {
+	font-size: 50px;
+	display: flex;
+	justify-content: center;
+	margin: 10%;
+	color: #fff;
+	text-align: center;
+	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
+		0.00) 70%);
+}
+
+/* Стили окна myprofile */
+
+h1#profile {
+	max-width: 600px;
+	height: 60px;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	margin-top: 3%;
+	margin-left: 25%;
+	color: #333;
+	text-align: center;
+	border-radius: 30px;
+	background: #FFF;
+	padding-top: 2%;
+}
+
+table#profile {
+	border: none;
+	margin-top: 1%;
+	margin-left: 25%; 
+}
+
+td#profileTitle {
+	width: 200px;
+	max-width: 200px;
+	height: 60px;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	margin-top: 15%;
+	color: #fff;
+	text-align: center;
+	border-radius: 30px;
+	background: #0085FF;
+	padding-top: 8%;
+}
+
+td#profileData {
+	width: 800px;
+	height: 60px;
+	font-size: 30px;
+	color: #fff;
+	text-align: left;
+	padding-top: 4%;
+	padding-left: 3%;
+}
+
+.about_project {
+	font-size: 24px;
+	color: #fff;
+	text-align: justify;
+	margin: 5%;
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
-	text-align: center; /* Выравниваем текст по центру */
-	padding: 10px 0; /* Внутренние отступы сверху и снизу */
-	background-color: #333; /* Цвет фона футера */
-	color: #fff; /* Цвет текста футера */
-	width: 100%;
+	font-size: 24px;
+    background-color: #fff; /* Цвет фона футера */
+    color: #333; /* Цвет текста внутри футера */
+    padding: 10px; /* Внутренние отступы */
+    text-align: center; /* Выравнивание текста по центру */
 }
+
+
+

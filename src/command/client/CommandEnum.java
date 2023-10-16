@@ -2,6 +2,7 @@ package command.client;
 
 import command.ActionCommand;
 import command.FindingsCommand;
+import command.HomeCommand;
 import command.InformationAboutProjectCommand;
 import command.LoginCommand;
 import command.LogoutCommand;
@@ -16,6 +17,11 @@ public enum CommandEnum {
 	LOGOUT {
 		{
 			this.command = new LogoutCommand();
+		}
+	},
+	HOME {
+		{
+			this.command = new HomeCommand();
 		}
 	},
 	FINDS {

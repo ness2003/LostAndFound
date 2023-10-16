@@ -1,14 +1,16 @@
 package datalayer.data;
 
+import java.sql.Date;
+
 public class Finding {
 	private int id;
 	private String name;
 	private String description;
-	private String date;
+	private Date date;
 	private String place;
 	private String category;
 
-	public Finding(int id, String name, String description, String date, String place, String category) {
+	public Finding(int id, String name, String description, Date date, String place, String category) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -20,7 +22,7 @@ public class Finding {
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -41,11 +43,11 @@ public class Finding {
 		this.description = description;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -65,5 +67,4 @@ public class Finding {
 		this.category = category;
 	}
 
-	// Геттеры и сеттеры для полей
 }

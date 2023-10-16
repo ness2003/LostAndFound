@@ -13,6 +13,7 @@
 	
 	<body>
 		<jsp:include page="header.jsp" />
-		<jsp:include page="footer.jsp" />
+		
+		<h1 id="home">Здравствуйте!<br>Что будем искать?</h1>
 	</body>
 </html>

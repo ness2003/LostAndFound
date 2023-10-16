@@ -4,7 +4,7 @@
 <footer>
 	<p>
 		&copy;
-		<%=new java.util.Date().getYear() + 1900%>
+		<%=new java.util.Date().getYear() + 1900%>.
 		Бюро находок. Все права защищены.
 	</p>
 </footer>
