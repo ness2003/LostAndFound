@@ -48,6 +48,5 @@
 
 	<% } %>
 
-	<jsp:include page="/jsp/user_interface/footer.jsp" />
 </body>
 </html>

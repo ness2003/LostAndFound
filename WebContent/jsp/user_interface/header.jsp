@@ -7,7 +7,7 @@
           <form name="Home" method="POST" action="home">
 			<input type="hidden" name="command" value="home" /> 
 			<input type="hidden" name="client" value="user" />
-			<button id="home" type="submit">На главную</button>
+			<button id="home" type="submit"><img src="<%= request.getContextPath() %>/images/home.png" alt="На главную"></button>
 		</form></td>
 			<td id="finds">
           <form name="Finds" method="POST" action="finds">
@@ -43,7 +43,7 @@
               <form name="LogOut" method="POST" action="home">
 			<input type="hidden" name="command" value="logout" /> 
 			<input type="hidden" name="client" value="user" />
-			<button id="logout" type="submit">Выйти</button>
+			<button id="logout" type="submit"><img src="<%= request.getContextPath() %>/images/logout.png" alt="Выйти"></button>
 		</form>
           </td>
 			
