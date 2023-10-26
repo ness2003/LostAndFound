@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<jsp:include page="/jsp/user_interface/header.jsp" />
+	<jsp:include page="/jsp/interface/admin_interface/header.jsp" />
 
 
 
@@ -39,6 +39,6 @@
 		<td id="profileData"><%= systemUser.getEmail() %></td>
 	</tr>
 	</table>
-	
+	<jsp:include page="/jsp/interface/admin_interface/footer.jsp" />
 </body>
 </html>

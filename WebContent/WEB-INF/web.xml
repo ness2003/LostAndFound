@@ -7,9 +7,9 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
-	
+
+	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 	<servlet>
 		<servlet-name>Main</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>
@@ -25,7 +25,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Finds</servlet-name>
-		<url-pattern>/finds</url-pattern>
+		<url-pattern>/findings</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -36,7 +36,7 @@
 		<servlet-name>UserFinds</servlet-name>
 		<url-pattern>/myfindings</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>Profile</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>
@@ -45,7 +45,7 @@
 		<servlet-name>Profile</servlet-name>
 		<url-pattern>/myprofile</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>AboutProject</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>
@@ -54,9 +54,55 @@
 		<servlet-name>AboutProject</servlet-name>
 		<url-pattern>/aboutproject</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>MyTasks</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyTasks</servlet-name>
+		<url-pattern>/mytasks</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Users</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Users</servlet-name>
+		<url-pattern>/users</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AddUser</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddUser</servlet-name>
+		<url-pattern>/users/adduser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ChangeUser</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ChangeUser</servlet-name>
+		<url-pattern>/users/changeuser</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>ChangeFinding</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ChangeFinding</servlet-name>
+		<url-pattern>/findings/changefinding</url-pattern>
+	</servlet-mapping>
 
 
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 	<servlet>
 		<servlet-name>JSPerror</servlet-name>
@@ -66,7 +112,7 @@
 		<servlet-name>JSPerror</servlet-name>
 		<url-pattern>/error</url-pattern>
 	</servlet-mapping>
-	
+
 	<error-page>
 		<error-code>404</error-code>
 		<location>/jsp/error.jsp</location>
@@ -75,5 +121,5 @@
 		<exception-type>java.lang.RuntimeException</exception-type>
 		<location>/jsp/error.jsp</location>
 	</error-page>
-	
+
 </web-app>

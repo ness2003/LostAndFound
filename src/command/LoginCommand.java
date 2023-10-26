@@ -24,6 +24,8 @@ public class LoginCommand implements ActionCommand {
 				page = ConfigurationManager.getProperty("path.page.main_user");
 			} else if (login.equals("admin")) {
 				page = ConfigurationManager.getProperty("path.page.main_admin");
+			}else if (login.equals("moderator")) {
+				page = ConfigurationManager.getProperty("path.page.main_moderator");//Ставлю заглушку, потом свяжем с БД и не будем опираться на логин
 			}
 
 		} else {

@@ -10,7 +10,7 @@
 		</style>
 </head>
 <body>
-	<jsp:include page="/jsp/user_interface/header.jsp" />
+	<jsp:include page="/jsp/interface/user_interface/header.jsp" />
 
 	<div class="about_project">
 		<p>Система "Бюро
@@ -31,6 +31,6 @@
 			найти свои вещи.</p>
 	</div>
 
-	<jsp:include page="/jsp/user_interface/footer.jsp" />
+	<jsp:include page="/jsp/interface/user_interface/footer.jsp" />
 </body>
 </html>

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<jsp:include page="/jsp/user_interface/header.jsp" />
+	<jsp:include page="/jsp/interface/user_interface/header.jsp" />
 
 
 	<% List<Finding> foundItems = (List<Finding>) request.getAttribute("foundItems");

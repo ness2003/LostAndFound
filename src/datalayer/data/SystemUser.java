@@ -7,11 +7,12 @@ public class SystemUser {
 	private String email;
 	private String login;
 	private String password;
-	private int status;
-	private int group;
+	private String status;
+	private String group;
 
 	public static final SystemUser NULL_SYSTEM_USER = new SystemUser() {
 	};
+	
 	
 	public SystemUser(String fullName, String phone, String email) {
 		this.setFullName(fullName);
@@ -19,9 +20,10 @@ public class SystemUser {
 		this.setEmail(email);
 	}
 
-	public SystemUser(int userID, String fullName, String email, String login, String password, int status, int group) {
+	public SystemUser(int userID, String fullName,String phone, String email, String login, String password, String status, String group) {
 		this.setUserID(userID);
 		this.setFullName(fullName);
+		this.setPhone(phone);
 		this.setEmail(email);
 		this.setLogin(login);
 		this.setPassword(password);
@@ -81,20 +83,21 @@ public class SystemUser {
 		this.password = password;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public int getGroup() {
-		return group;
-	}
 
-	public void setGroup(int group) {
+	public void setGroup(String group) {
 		this.group = group;
+	}
+	
+	public String getGroup() {
+		return group;
 	}
 
 }

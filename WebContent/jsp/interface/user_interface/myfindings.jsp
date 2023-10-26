@@ -11,7 +11,7 @@
 		</style>
 	</head>
 	<body>
-		<jsp:include page="/jsp/user_interface/header.jsp" />
+		<jsp:include page="/jsp/interface/user_interface/header.jsp" />
 
 			<h1 id="myfindings">Здесь будут отображаться находки, <br>на которые вы оформили право на собственность.</h1>
 

@@ -6,23 +6,21 @@
           <td id="buttonHome">
           <form name="Home" method="POST" action="home">
 			<input type="hidden" name="command" value="home" /> 
-			<input type="hidden" name="client" value="user" />
+			<input type="hidden" name="client" value="moderator" />
 			<button id="home" type="submit"><img src="<%= request.getContextPath() %>/images/home.png" alt="На главную"></button>
 		</form></td>
-			<td id="finds">
-          <form name="Finds" method="POST" action="finds">
-			<input type="hidden" name="command" value="finds" /> 
-			<input type="hidden" name="client" value="user" />
-			<input type="hidden" name="isuserfinds" value="" />
-			<button id="finds" type="submit">Каталог находок</button>
+			<td id="users">
+          <form name="Users" method="POST" action="users">
+			<input type="hidden" name="command" value="users" /> 
+			<input type="hidden" name="client" value="moderator" />
+			<button id="finds" type="submit">Пользователи</button>
 		</form>
           </td>
-			<td id="myFindings">
-          <form name="MyFinds" method="POST" action="myfindings">
-			<input type="hidden" name="command" value="finds" /> 
-			<input type="hidden" name="client" value="user" />
-			<input type="hidden" name="isuserfinds" value="true" />
-			<button id="myFindings" type="submit">Мои находки</button>
+			<td id="Findings">
+          <form name="Finds" method="POST" action="findings">
+			<input type="hidden" name="command" value="findings" /> 
+			<input type="hidden" name="client" value="moderator" />
+			<button id="myFindings" type="submit">Все находки</button>
 		</form>
           </td>
 			<td id="aboutProject">
@@ -35,14 +33,14 @@
 			<td id="profile">
               <form name="MyProfile" method="POST" action="myprofile">
 			<input type="hidden" name="command" value="myprofile" /> 
-			<input type="hidden" name="client" value="user" />
+			<input type="hidden" name="client" value="moderator" />
 			<button id="profile" type="submit">Мой профиль</button>
 		</form>
           </td>
 			<td id="logout">
               <form name="LogOut" method="POST" action="home">
 			<input type="hidden" name="command" value="logout" /> 
-			<input type="hidden" name="client" value="user" />
+			<input type="hidden" name="client" value="moderator" />
 			<button id="logout" type="submit"><img src="<%= request.getContextPath() %>/images/logout.png" alt="Выйти"></button>
 		</form>
           </td>
