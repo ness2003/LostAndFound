@@ -12,6 +12,73 @@ body {
 	margin-bottom: 100px; /* Задаем нижний отступ, равный высоте футера */
 }
 
+.findingscontainer {
+
+   position: relative; /* Устанавливаем позицию */
+	margin-bottom: 100px; /* Задаем нижний отступ, равный высоте футера */
+}
+
+.finalquestionclass {
+
+   position: relative; /* Устанавливаем позицию */
+	margin-bottom: 100px; /* Задаем нижний отступ, равный высоте футера */
+}
+
+
+table[item="finalquestion"] {
+	border: 2px solid rgba(255, 168, 0, 0);
+	/* Обводка с цветом rgba(255, 168, 0, 0) (полностью прозрачная) */
+	padding: 10px;
+	margin: 2% auto 20px; /* Горизонтальное центрирование и отступ снизу */
+	border-radius: 30px;
+	background-color: #fff;
+	width: 50%; /* Установите ширину в 90% */
+	  table-layout: fixed; 
+	word-wrap: break-word;
+}
+
+table[item="finalquestion"]:hover {
+	border: 2px solid rgba(255, 168, 0, 1);
+	/* Обводка с цветом rgba(255, 168, 0, 1) (полностью непрозрачная) при наведении */
+}
+
+
+table[item="finalquestion"] td {
+    padding: 10px;
+    text-align: center;
+}
+
+table[item="finalquestion"] td[item="question"] {
+    text-align: center; /* Центрирование текста по горизонтали */
+    font-weight: bold;
+}
+
+table[item="finalquestion"] td[item="rightanswer"] {
+    color: green; /* Зеленый цвет текста */
+    transition: color 0.3s, background 0.3s; /* Анимация цвета и фона */
+    background-image: radial-gradient(rgba(0, 128, 0, 0.3), transparent); /* Радиальный градиент с центральной точкой */
+}
+
+table[item="finalquestion"] td[item="rightanswer"]:hover {
+    color: black; /* Черный цвет текста при наведении */
+    background: green; /* Зеленый фон при наведении */
+}
+
+table[item="finalquestion"] td[item="alternativeanswer"] {
+    color: red; /* Красный цвет текста */
+    transition: color 0.3s, background 0.3s; /* Анимация цвета и фона */
+    background-image: radial-gradient(rgba(255, 0, 0, 0.3), transparent); /* Радиальный градиент с центральной точкой */
+}
+
+table[item="finalquestion"] td[item="alternativeanswer"]:hover {
+    color: black; /* Черный цвет текста при наведении */
+    background: red; /* Красный фон при наведении */
+}
+
+
+
+
+
 table#header {
 	align-self: center;
 	text-align: center;
@@ -180,6 +247,7 @@ button[item="adduserbutton"]:hover {
 	transform: scale(1.1);
 }
 
+
 button[id="scrollToBottomButton"] {
 	position: fixed;
 	top: 20;
@@ -198,6 +266,14 @@ button[id="scrollToBottomButton"]:hover {
 	cursor: pointer;
 }
 
+.changefinalquestion {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px; /* Внутренний отступ */
+	color: #333;
+}
 .changefinding {
 	position: absolute;
 	top: 45%;
@@ -207,12 +283,28 @@ button[id="scrollToBottomButton"]:hover {
 	color: #333;
 }
 
+
+#changeFinalQuestionForm label {
+	display: block;
+	margin-bottom: 5px;
+	text-align: left; /* Выравнивание текста внутри label по левому краю */
+}
 #changefindingForm label {
 	display: block;
 	margin-bottom: 5px;
 	text-align: left; /* Выравнивание текста внутри label по левому краю */
 }
-
+#changeFinalQuestionForm {
+	width: 500px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 50px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px; /* Задаем радиус скругления углов */
+	background-color: #fff;
+}
 #changefindingForm {
 	width: 500px;
 	padding: 20px;
@@ -226,6 +318,15 @@ button[id="scrollToBottomButton"]:hover {
 }
 
 #changefindingForm input[type="text"], #changefindingForm input[type="date"]
+	{
+	width: 90%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#changeFinalQuestionForm  input[type="text"]
 	{
 	width: 90%;
 	padding: 10px;
@@ -328,6 +429,8 @@ td#profileData {
 	color: #333;
 }
 
+
+
 table[item="finding"] {
 	border: none;
 	padding: 10px;
@@ -338,6 +441,8 @@ table[item="finding"] {
 	background-color: #fff;
 	margin-right: 4%;
 }
+
+
 
 td[item="category"] {
 	padding: 10px;

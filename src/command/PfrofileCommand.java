@@ -18,8 +18,8 @@ public class PfrofileCommand implements ActionCommand {
 			page = ConfigurationManager.getProperty("path.page.userprofile");
 		} else if (request.getParameter("client").equals("admin")) {
 			page = ConfigurationManager.getProperty("path.page.adminprofile");
-		} else {
-			page = ConfigurationManager.getProperty("path.page.adminprofile");
+		} else if (request.getParameter("client").equals("moderator")){
+			page = ConfigurationManager.getProperty("path.page.moderatorprofile");
 		}
 		return page;
 	}

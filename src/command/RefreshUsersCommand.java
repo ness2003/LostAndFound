@@ -22,10 +22,10 @@ public class RefreshUsersCommand implements ActionCommand {
 				changeUser(request);
 			}
 			request.setAttribute("foundUsers", SystemUsers.userList);
-			page = ConfigurationManager.getProperty("path.page.users");
+			page = ConfigurationManager.getProperty("path.page.users_admin");
 
 		} else if (request.getParameter("client").equals("moderator")) {
-			page = ConfigurationManager.getProperty("path.page.users");
+			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}
 		return page;
 	}

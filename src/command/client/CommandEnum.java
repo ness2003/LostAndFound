@@ -3,9 +3,11 @@ package command.client;
 import command.ActionCommand;
 import command.AddUserCommand;
 import command.BlockUserCommand;
+import command.ChangeFinalQuestionCommand;
 import command.ChangeFindingCommand;
 import command.ChangeUserCommand;
 import command.DeleteUserCommand;
+import command.FinalQuestionsCommand;
 import command.FindingsCommand;
 import command.HomeCommand;
 import command.InformationAboutProjectCommand;
@@ -14,6 +16,7 @@ import command.LogoutCommand;
 import command.MyFindingsCommand;
 import command.MyTasksCommand;
 import command.PfrofileCommand;
+import command.RefreshFinalQuestion;
 import command.RefreshFindingsCommand;
 import command.RefreshUsersCommand;
 import command.UsersCommand;
@@ -39,7 +42,7 @@ public enum CommandEnum {
 			this.command = new FindingsCommand();
 		}
 	},
-	MYFINDINGS{
+	MYFINDINGS {
 		{
 			this.command = new MyFindingsCommand();
 		}
@@ -59,50 +62,65 @@ public enum CommandEnum {
 			this.command = new InformationAboutProjectCommand();
 		}
 	},
-	ADDUSER{
+	ADDUSER {
 		{
 			this.command = new AddUserCommand();
 		}
 	},
-	MYTASKS{
+	MYTASKS {
 		{
 			this.command = new MyTasksCommand();
 		}
 	},
-	REFRESHUSERS{
+	REFRESHUSERS {
 		{
-		this.command = new RefreshUsersCommand();
+			this.command = new RefreshUsersCommand();
 		}
 	},
-	BLOCKUSER{
+	BLOCKUSER {
 		{
 			this.command = new BlockUserCommand();
 		}
-		
+
 	},
-	DELETEUSER{
+	DELETEUSER {
 		{
 			this.command = new DeleteUserCommand();
 		}
-		
+
 	},
-	CHANGEUSER{
+	CHANGEUSER {
 		{
 			this.command = new ChangeUserCommand();
 		}
-		
+
 	},
-	CHANGEFINDING{
+	CHANGEFINDING {
 		{
 			this.command = new ChangeFindingCommand();
 		}
 	},
-	REFRESHFINDINGS{
+	REFRESHFINDINGS {
 		{
 			this.command = new RefreshFindingsCommand();
 		}
+	},
+	FINALQUESTIONS {
+		{
+			this.command = new FinalQuestionsCommand();
+		}
+	},
+	CHANGEFINALQUESTION {
+		{
+			this.command = new ChangeFinalQuestionCommand();
+		}
+	},
+	REFRESHFINALQUESTION{
+		{
+			this.command = new RefreshFinalQuestion();
+		}
+		
 	};
-	
 
 	ActionCommand command;
 

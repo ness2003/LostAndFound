@@ -40,10 +40,10 @@
 							<button item="actionbutton" type="submit" name="action"
 							value="changefinding">Изменить</button>
 						</form>
-						<form name="QuestionsButton" method="POST" action="findings/controlquestions">
-							<input type="hidden" name="command" value="controlquestions" />
+						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
+							<input type="hidden" name="command" value="finalquestions" />
 							<input type="hidden" name="client" value="moderator" />
-							<input type="hidden" name="findingid" value="<%= finding.getId() %>" />
+							<input type="hidden" name="finalquestionid" value="<%= finding.getId() %>" />
 							<button item="actionbutton" type="submit" name="action"
 								value="show">Контрольные<br>вопросы</button>
 						</form>

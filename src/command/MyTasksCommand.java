@@ -9,7 +9,6 @@ public class MyTasksCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		System.out.print("rfe");
 		if (request.getParameter("client").equals("admin")) {
 			page = ConfigurationManager.getProperty("path.page.admintasks");
 		} else if (request.getParameter("client").equals("moderator")) {
