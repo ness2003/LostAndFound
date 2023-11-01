@@ -10,12 +10,20 @@ public class ChangeFinalQuestionCommand implements ActionCommand{
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
+		
 		String finalQuestionID = request.getParameter("finalquestionid");
 		if (finalQuestionID != null) {
 			request.setAttribute("finalQuestion", this.getFinalQuestionForFinalQuestionID(Integer.parseInt(finalQuestionID)));
 		}
-		page = ConfigurationManager.getProperty("path.page.changefinalquestion_moderator");
-		System.out.print(ConfigurationManager.getProperty("path.page.changefinalquestion_moderator"));
+		
+		if (request.getParameter("client").equals("moderator")) {
+			page = ConfigurationManager.getProperty("path.page.changefinalquestion_moderator");
+		}
+		
+		if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.receiver.change_final_question");
+		}
+		
 		return page;
 	}
 	

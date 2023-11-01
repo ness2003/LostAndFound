@@ -21,13 +21,18 @@
 
 <body>
 	<jsp:include page="/jsp/interface/receiver_interface/header.jsp" />
+	
+	<form name="ChangeButton" method="POST" action="findings/addfinding">
+							<input type="hidden" name="command" value="addfinding" /> 
+							<input type="hidden" name="client" value="receiver" />
+							<button id="addfinding" type="submit" name="action"
+							value="addfinding">Добавить находку</button>
+	</form>
 
-<div class="content">
 	<% List<Finding> foundItems = (List<Finding>) request.getAttribute("foundItems");
      for (Finding finding : foundItems) { %>
 
-
-	<table item="finding" width="90%">
+	<table item="finding">
 		<tr>
 			<td item="category"><%= finding.getCategory() %></td>
 			<td item="description" rowspan="4"><%= finding.getDescription() %></td>
@@ -35,16 +40,16 @@
 					<div style="display: flex;">
 						<form name="ChangeButton" method="POST" action="findings/changefinding">
 							<input type="hidden" name="command" value="changefinding" /> 
-							<input type="hidden" name="client" value="moderator" />
+							<input type="hidden" name="client" value="receiver" />
 							<input type="hidden" name="findingid" value="<%= finding.getId()%>" />
-							<button item="actionbutton" type="submit" name="action"
+							<button id="actionbutton" type="submit" name="action"
 							value="changefinding">Изменить</button>
 						</form>
 						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
 							<input type="hidden" name="command" value="finalquestions" />
-							<input type="hidden" name="client" value="moderator" />
+							<input type="hidden" name="client" value="receiver" />
 							<input type="hidden" name="finalquestionid" value="<%= finding.getId() %>" />
-							<button item="actionbutton" type="submit" name="action"
+							<button id="actionbutton" type="submit" name="action"
 								value="show">Контрольные<br>вопросы</button>
 						</form>
 					</div>
@@ -62,7 +67,6 @@
 	</table>
 
 	<% } %>
-</div>
-<jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
+
 </body>
 </html>

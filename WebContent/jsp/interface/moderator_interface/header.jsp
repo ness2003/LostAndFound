@@ -38,7 +38,7 @@
 		</form>
           </td>
 			<td id="logout">
-              <form name="LogOut" method="POST" action="home">
+              <form name="LogOut" method="POST" action="/Lost-And-Found/home">
 			<input type="hidden" name="command" value="logout" /> 
 			<input type="hidden" name="client" value="moderator" />
 			<button id="logout" type="submit"><img src="<%= request.getContextPath() %>/images/logout.png" alt="Выйти"></button>

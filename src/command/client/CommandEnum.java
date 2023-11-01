@@ -1,6 +1,7 @@
 package command.client;
 
 import command.ActionCommand;
+import command.AddFindingCommand;
 import command.AddUserCommand;
 import command.BlockUserCommand;
 import command.ChangeFinalQuestionCommand;
@@ -94,6 +95,11 @@ public enum CommandEnum {
 			this.command = new ChangeUserCommand();
 		}
 
+	},
+	ADDFINDING {
+		{
+			this.command = new AddFindingCommand();
+		}
 	},
 	CHANGEFINDING {
 		{

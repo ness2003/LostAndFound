@@ -1,15 +1,11 @@
 package command;
 
-import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
-
 import coder.Coder;
 import datalayer.data.FinalQuestion;
-import datalayer.data.Finding;
 import resource.ConfigurationManager;
 import temporary.data.FinalQuestions;
-import temporary.data.Findings;
 
 public class RefreshFinalQuestion implements ActionCommand {
 
@@ -19,14 +15,18 @@ public class RefreshFinalQuestion implements ActionCommand {
 		String page = null;
 
 		int finalquestionid = Integer.parseInt(request.getParameter("finalquestionid"));
+		changeFinalQuestion(request);
+
+		request.setAttribute("foundItems",
+				FinalQuestions.getQuestionsForFinding(FinalQuestions.getFindingIdForQuestionId(finalquestionid)));
 
 		if (request.getParameter("client").equals("moderator")) {
-			changeFinalQuestion(request);
-			
-
+			page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");
 		}
-		request.setAttribute("foundItems", FinalQuestions.getQuestionsForFinding(FinalQuestions.getFindingIdForQuestionId(finalquestionid)));
-		page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");
+		if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.receiver.finalquestions");
+		}
+
 		return page;
 	}
 

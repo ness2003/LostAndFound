@@ -91,7 +91,17 @@
 		<url-pattern>/users/changeuser</url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
+		<servlet-name>AddFinding</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddFinding</servlet-name>
+		<url-pattern>/findings/addfinding</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>ChangeFinding</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>
 	</servlet>

@@ -15,7 +15,16 @@ public class ChangeFindingCommand implements ActionCommand {
 		if (findingID != null) {
 			request.setAttribute("finding", this.getFindingForFindingID(Integer.parseInt(findingID)));
 		}
-		page = ConfigurationManager.getProperty("path.page.changefinding_moderator");
+		
+		if (request.getParameter("client").equals("moderator")) {
+			page = ConfigurationManager.getProperty("path.page.changefinding_moderator");
+		}
+		
+		if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.receiver.change_finding");
+			
+		}
+		
 		return page;
 	}
 	

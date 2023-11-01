@@ -9,6 +9,10 @@ public class Finding {
 	private Date date;
 	private String place;
 	private String category;
+	
+	public Finding() {
+
+	}
 
 	public Finding(int id, String name, String description, Date date, String place, String category) {
 		this.id = id;

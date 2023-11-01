@@ -8,27 +8,33 @@ import resource.ConfigurationManager;
 import temporary.data.Findings;
 import java.sql.Date;
 
-public class RefreshFindingsCommand implements ActionCommand{
-	
+public class RefreshFindingsCommand implements ActionCommand {
+
 	@Override
 	public String execute(HttpServletRequest request) {
-		
+
 		String page = null;
 
-		
 		if (request.getParameter("client").equals("user")) {
 			page = ConfigurationManager.getProperty("path.page.findings_user");
-		}else if (request.getParameter("client").equals("moderator")) {
+		} else if (request.getParameter("client").equals("moderator")) {
 			page = ConfigurationManager.getProperty("path.page.findings_moderator");
 			if (request.getParameter("act").equals("edit")) {
 				changeFinding(request);
 			}
+		} else if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.receiver.findings");
+			if (request.getParameter("act").equals("edit")) {
+				changeFinding(request);
+			}
+			if (request.getParameter("act").equals("add")) {
+				addFinding(request);
+			}
 		}
+
 		request.setAttribute("foundItems", Findings.findingsList);
 		return page;
 	}
-
-
 
 	private void changeFinding(HttpServletRequest request) {
 		int findingID = Integer.parseInt(request.getParameter("findingid"));
@@ -42,7 +48,16 @@ public class RefreshFindingsCommand implements ActionCommand{
 			}
 		}
 	}
-
-
+	
+	private void addFinding(HttpServletRequest request) {
+		Finding newFinding = new Finding();
+		newFinding.setId(Findings.findingsList.size()+1);
+		newFinding.setName((Coder.toUTF8(request.getParameter("findingName"))));
+		newFinding.setDescription((Coder.toUTF8(request.getParameter("findingDescription"))));
+		newFinding.setDate(Date.valueOf(Coder.toUTF8(request.getParameter("findingDate"))));
+		newFinding.setPlace((Coder.toUTF8(request.getParameter("findingLocation"))));
+		newFinding.setCategory((Coder.toUTF8(request.getParameter("findingCategory"))));
+		Findings.findingsList.add(newFinding);
+	}
 
 }

@@ -4,13 +4,13 @@
 <table id="header">
  		<tr>
           <td id="buttonHome">
-          <form name="Home" method="POST" action="home">
+          <form name="Home" method="POST" action="/Lost-And-Found/home">
 			<input type="hidden" name="command" value="home" /> 
 			<input type="hidden" name="client" value="receiver" />
 			<button id="home" type="submit"><img src="<%= request.getContextPath() %>/images/home.png" alt="На главную"></button>
 		</form></td>
 			<td id="finds">
-          <form name="Finds" method="POST" action="findings">
+          <form name="Finds" method="POST" action="/Lost-And-Found/findings">
 			<input type="hidden" name="command" value="findings" /> 
 			<input type="hidden" name="client" value="receiver" />
 			<input type="hidden" name="isuserfinds" value="" />
@@ -18,16 +18,18 @@
 		</form>
 		</td>
 			<td id="aboutProject">
-              <form name="AboutProject" method="POST" action="aboutproject">
+              <form name="AboutProject" method="POST" action="/Lost-And-Found/aboutproject">
 			<input type="hidden" name="command" value="aboutproject" /> 
 			<input type="hidden" name="client" value="receiver" />
 			<button id="aboutProject" type="submit">О проекте</button>
 		</form>
           </td>
 			<td id="profile">
-              <form name="MyProfile" method="POST" action="myprofile">
+              <form name="MyProfile" method="POST" action="/Lost-And-Found/myprofile">
 			<input type="hidden" name="command" value="myprofile" /> 
 			<input type="hidden" name="client" value="receiver" />
+			<input type="hidden" name="data" value="" />
+			<input type="hidden" name="userid" value="" />
 			<button id="profile" type="submit">Мой профиль</button>
 		</form>
           </td>

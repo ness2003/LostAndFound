@@ -34,6 +34,11 @@ public class PfrofileCommand implements ActionCommand {
 			page = ConfigurationManager.getProperty("path.page.moderatorprofile");
 		} else if (request.getParameter("client").equals("receiver")){
 			page = ConfigurationManager.getProperty("path.page.receiver.profile");
+			
+			if (request.getParameter("data").equals("refresh")) {
+				changeUser(request);
+				request.setAttribute("saveMessage", "yes");
+			}
 		}
 		
 		return page;

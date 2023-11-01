@@ -23,6 +23,11 @@ public class FinalQuestionsCommand implements ActionCommand{
 			page = ConfigurationManager.getProperty("path.page.user.final_questions");
 		}
 		
+		if (request.getParameter("client").equals("receiver")) {
+			request.setAttribute("foundItems", FinalQuestions.getQuestionsForFinding(finalquestionId));
+			page = ConfigurationManager.getProperty("path.page.receiver.finalquestions");
+		}
+		
 		return page;
 	}
 	
