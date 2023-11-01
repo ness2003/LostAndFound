@@ -21,24 +21,18 @@ public class PfrofileCommand implements ActionCommand {
 		request.setAttribute("saveMessage", "no");
 
 		if (request.getParameter("client").equals("user")) {
-			page = ConfigurationManager.getProperty("path.page.userprofile");
-			
-			if (request.getParameter("data").equals("refresh")) {
-				changeUser(request);
-				request.setAttribute("saveMessage", "yes");
-			}
-			
+			page = ConfigurationManager.getProperty("path.page.userprofile");		
 		} else if (request.getParameter("client").equals("admin")) {
 			page = ConfigurationManager.getProperty("path.page.adminprofile");
 		} else if (request.getParameter("client").equals("moderator")){
 			page = ConfigurationManager.getProperty("path.page.moderatorprofile");
 		} else if (request.getParameter("client").equals("receiver")){
 			page = ConfigurationManager.getProperty("path.page.receiver.profile");
-			
-			if (request.getParameter("data").equals("refresh")) {
-				changeUser(request);
-				request.setAttribute("saveMessage", "yes");
-			}
+		}
+		
+		if (request.getParameter("data").equals("refresh")) {
+			changeUser(request);
+			request.setAttribute("saveMessage", "yes");
 		}
 		
 		return page;

@@ -7,6 +7,21 @@ body {
 	color: #fff;
 }
 
+body#new{
+	background-color: #333;
+	font-family: century gothic;
+	font-size: 15px;
+	color: #fff;
+	
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    padding: 0;
+	margin: 0;
+}
+
 .content {
 	position: relative; /* Устанавливаем позицию */
 	margin-bottom: 100px; /* Задаем нижний отступ, равный высоте футера */
@@ -366,52 +381,81 @@ h1#home {
 		0.00) 70%);
 }
 
-/* Стили окна myprofile */
+/* ------------------------------------------- Стили окна myprofile --------------------------------------------------*/
 h1#profile {
-	max-width: 600px;
-	height: 60px;
+	padding: 15px;
 	font-size: 30px;
-	display: flex;
-	justify-content: center;
-	margin-top: 3%;
-	margin-left: 25%;
 	color: #333;
 	text-align: center;
 	border-radius: 30px;
 	background: #FFF;
-	padding-top: 2%;
+	margin-top: 3%;
 }
 
 table#profile {
-	border: none;
-	margin-top: 1%;
-	margin-left: 25%;
+	text-align: center;
 }
 
-td#profileTitle {
-	width: 200px;
-	max-width: 200px;
-	height: 60px;
+
+label#profileTitle {
+	width: 200px; 
+    display: inline-block;
+	margin: 5px;
+	padding: 20px;
 	font-size: 30px;
-	display: flex;
-	justify-content: center;
-	margin-top: 15%;
 	color: #fff;
 	text-align: center;
 	border-radius: 30px;
 	background: #0085FF;
-	padding-top: 8%;
 }
 
-td#profileData {
-	width: 800px;
-	height: 60px;
+input[type="text"]{
+	width: 500px; 
+    display: inline-block;
+	margin: 5px;
+	padding: 20px;
 	font-size: 30px;
 	color: #fff;
 	text-align: left;
-	padding-top: 4%;
-	padding-left: 3%;
+	border-radius: 30px;
+	border: 2px solid #333;
+	background: #333;
 }
+
+input[type="text"]:hover {
+	border: 2px solid #fff;
+}
+
+input[type="text"]:focus {
+	border: 2px solid #333;
+	background: #fff;
+	color: #333;
+}
+
+button#saveProfileData {
+	text-align: center;
+	width: 170px;
+	height: 80px;
+	border: none;
+	border-radius: 50px;
+	font-size: 25px;
+	font-style: normal;
+	transition: transform 0.5s;
+	text-align: center;
+	margin: 10px;
+	background: #FFA800;
+}
+
+button#saveProfileData:hover {
+	background: #FFA800;
+	transform: scale(1.3);
+}
+
+p#saveMessage {
+	font-size: 25px;
+	color: #52ff33;
+}
+
 
 .mytasks {
 	font-size: 24px;

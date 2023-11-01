@@ -24,11 +24,13 @@
 		</form>
           </td>
 			<td id="profile">
-              <form name="MyProfile" method="POST" action="myprofile">
-			<input type="hidden" name="command" value="myprofile" /> 
-			<input type="hidden" name="client" value="admin" />
-			<button id="profile" type="submit">Мой профиль</button>
-		</form>
+            <form name="MyProfile" method="POST" action="/Lost-And-Found/myprofile">
+				<input type="hidden" name="command" value="myprofile" /> 
+				<input type="hidden" name="client" value="admin" />
+				<input type="hidden" name="data" value="" />
+				<input type="hidden" name="userid" value="" />
+				<button id="profile" type="submit">Мой профиль</button>
+			</form>
           </td>
 			<td id="logout">
               <form name="LogOut" method="POST" action="home">

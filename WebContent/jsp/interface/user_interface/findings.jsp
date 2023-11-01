@@ -31,6 +31,7 @@
 		<tr>
 			<td item="category"><%= finding.getCategory() %></td>
 			<td item="description" rowspan="4"><%= finding.getDescription() %></td>
+
 			<td rowspan="4">
 				<form name="FinalQuestions" method="POST" action="findings/finalquestions">
 					<input type="hidden" name="command" value="finalquestions" /> 

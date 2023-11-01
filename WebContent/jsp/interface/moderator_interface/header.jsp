@@ -34,6 +34,8 @@
               <form name="MyProfile" method="POST" action="/Lost-And-Found/myprofile">
 			<input type="hidden" name="command" value="myprofile" /> 
 			<input type="hidden" name="client" value="moderator" />
+			<input type="hidden" name="data" value="" />
+			<input type="hidden" name="userid" value="" />
 			<button id="profile" type="submit">Мой профиль</button>
 		</form>
           </td>
