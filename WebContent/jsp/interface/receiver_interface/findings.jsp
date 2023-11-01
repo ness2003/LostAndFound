@@ -20,9 +20,9 @@
 </head>
 
 <body>
-	<jsp:include page="/jsp/interface/user_interface/header.jsp" />
+	<jsp:include page="/jsp/interface/receiver_interface/header.jsp" />
 
-
+<div class="content">
 	<% List<Finding> foundItems = (List<Finding>) request.getAttribute("foundItems");
      for (Finding finding : foundItems) { %>
 
@@ -31,9 +31,24 @@
 		<tr>
 			<td item="category"><%= finding.getCategory() %></td>
 			<td item="description" rowspan="4"><%= finding.getDescription() %></td>
-			<td rowspan="4"><button item="ownership" type="submit">
-					Это моё
-				</button></td>
+			<td rowspan="4">
+					<div style="display: flex;">
+						<form name="ChangeButton" method="POST" action="findings/changefinding">
+							<input type="hidden" name="command" value="changefinding" /> 
+							<input type="hidden" name="client" value="moderator" />
+							<input type="hidden" name="findingid" value="<%= finding.getId()%>" />
+							<button item="actionbutton" type="submit" name="action"
+							value="changefinding">Изменить</button>
+						</form>
+						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
+							<input type="hidden" name="command" value="finalquestions" />
+							<input type="hidden" name="client" value="moderator" />
+							<input type="hidden" name="finalquestionid" value="<%= finding.getId() %>" />
+							<button item="actionbutton" type="submit" name="action"
+								value="show">Контрольные<br>вопросы</button>
+						</form>
+					</div>
+				</td>
 		</tr>
 		<tr>
 			<td item="date"><%= finding.getDate() %></td>
@@ -47,6 +62,7 @@
 	</table>
 
 	<% } %>
-
+</div>
+<jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
 </body>
 </html>

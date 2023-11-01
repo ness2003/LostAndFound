@@ -16,7 +16,10 @@ public class FindingsCommand implements ActionCommand {
 			page = ConfigurationManager.getProperty("path.page.findings_user");
 		}else if (request.getParameter("client").equals("moderator")) {
 			page = ConfigurationManager.getProperty("path.page.findings_moderator");
+		} else if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.receiver.findings");
 		}
+
 
 		return page;
 	}

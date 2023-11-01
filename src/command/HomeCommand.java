@@ -16,6 +16,8 @@ public class HomeCommand implements ActionCommand {
 			page = ConfigurationManager.getProperty("path.page.main_admin");
 		} else if (request.getParameter("client").equals("moderator")) {
 			page = ConfigurationManager.getProperty("path.page.main_moderator");
+		} else if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.main_receiver");
 		}
 		return page;
 	}

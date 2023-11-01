@@ -17,13 +17,6 @@
 			<button id="finds" type="submit">Находки</button>
 		</form>
 		</td>
-			<td id="finalQuestion">
-          <form name="finalQuestion" method="POST" action="finalQuestion">
-			<input type="hidden" name="command" value="finalQuestion" /> 
-			<input type="hidden" name="client" value="receiver" />
-			<button id="finalQuestion" type="submit">Контрольные вопросы</button>
-		</form>  
-          </td>
 			<td id="aboutProject">
               <form name="AboutProject" method="POST" action="aboutproject">
 			<input type="hidden" name="command" value="aboutproject" /> 

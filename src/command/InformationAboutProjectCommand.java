@@ -13,8 +13,8 @@ public class InformationAboutProjectCommand implements ActionCommand {
 			page = ConfigurationManager.getProperty("path.page.useraboutproject");
 		} else if (request.getParameter("client").equals("moderator")) {
 			page = ConfigurationManager.getProperty("path.page.moderatoraboutproject");
-		}else if (request.getParameter("client").equals("receiver")) {
-			page = ConfigurationManager.getProperty("path.page.receiveraboutproject");
+		} else if (request.getParameter("client").equals("receiver")) {
+			page = ConfigurationManager.getProperty("path.page.receiver.about_project");
 		}
 
 		return page;

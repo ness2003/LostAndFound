@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<jsp:include page="/jsp/interface/user_interface/header.jsp" />
+	<jsp:include page="/jsp/interface/receiver_interface/header.jsp" />
 
 
 

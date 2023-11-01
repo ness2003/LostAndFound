@@ -9,6 +9,7 @@ public class LoginLogic {
 		logsAndPasswds.put("admin", "Qwe12");
 		logsAndPasswds.put("user", "1");
 		logsAndPasswds.put("moderator", "1");
+		logsAndPasswds.put("receiver", "1");
 
 		return logsAndPasswds.containsKey(enterLogin) && logsAndPasswds.get(enterLogin).equals(enterPass);
 	}
