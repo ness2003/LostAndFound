@@ -53,8 +53,8 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 				String password = resultSet.getString(5);
 				int status = resultSet.getInt(6);
 				int group = resultSet.getInt(7);
-				SystemUser newUser = new SystemUser(userID, fullName, email, login, password, status, group);
-				userList.add(newUser);
+//				SystemUser newUser = new SystemUser(userID, fullName, email, login, password, status, group);
+//				userList.add(newUser);
 			}
 			if (userList.size() == 0) {
 				userList.add(SystemUser.NULL_SYSTEM_USER);

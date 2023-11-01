@@ -31,14 +31,9 @@
 		<tr>
 			<td item="category"><%= finding.getCategory() %></td>
 			<td item="description" rowspan="4"><%= finding.getDescription() %></td>
-			<td rowspan="4">
-				<form name="FinalQuestions" method="POST" action="findings/finalquestions">
-					<input type="hidden" name="command" value="finalquestions" /> 
-					<input type="hidden" name="client" value="user" />
-					<input type="hidden" name="finalquestionid" value="<%= finding.getId()%>" />
-					<button id="ownership" type="submit">Это моё</button>
-				</form>
-			</td>
+			<td rowspan="4"><button item="ownership" type="submit">
+					Это моё
+				</button></td>
 		</tr>
 		<tr>
 			<td item="date"><%= finding.getDate() %></td>
