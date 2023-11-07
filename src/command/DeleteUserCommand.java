@@ -18,10 +18,10 @@ public class DeleteUserCommand implements ActionCommand {
 		String page = null;
 		if (request.getParameter("client").equals("admin")) {
 			request.setAttribute("foundUsers", SystemUsers.userList);
-			page = ConfigurationManager.getProperty("path.page.users");
+			page = ConfigurationManager.getProperty("path.page.users_admin");
 
 		} else if (request.getParameter("client").equals("moderator")) {
-			page = ConfigurationManager.getProperty("path.page.users");
+			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}
 
 		return page;

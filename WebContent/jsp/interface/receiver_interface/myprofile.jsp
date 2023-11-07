@@ -52,8 +52,7 @@
 	
 	
 	</form>
-	
-	<jsp:include page="/jsp/interface/receiver_interface/footer.jsp" />
+
 	
 </body>
 </html>

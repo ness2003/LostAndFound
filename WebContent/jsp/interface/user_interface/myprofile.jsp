@@ -53,6 +53,5 @@
 	
 	</form>
 	
-	<jsp:include page="/jsp/interface/user_interface/footer.jsp" />
 </body>
 </html>

@@ -233,23 +233,28 @@ td#question {
 	text-decoration-color: #0085FF;
     
 }
-
+/*------------------------------------------------------------------------*/
 tr#answer {
-	text-align: center;
-      
+	text-align: center; 
 }
 
 label#answer {
 	font-size: 20px;
 	border-radius: 50px;
 	border: 2px solid #FFF;
-    padding: 5px;
-	padding-right: 10px;  
+    padding: 6px;
+	padding-right: 10px; 
+}
+
+input[type="radio"] {
+	visibility: hidden;
 }
 
 label#answer:hover {
-	background-color: #0085FF; 	
+	background-color: #FFA800; 	
 }
+
+/*------------------------------------------------------------------------*/
 
 button#question {
 	text-align: center;

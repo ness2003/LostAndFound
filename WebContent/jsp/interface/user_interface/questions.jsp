@@ -35,9 +35,10 @@
 			<% List<Answer> answers = questionAnswer.getAnswers();
 			for (Answer answer : answers) { %>
 			
-				<label id="answer" for="answer<%= count%>">
-					<input id="answer<%= count++%>" name="AnswerGroup<%= group%>" type="radio" value="<%= answer.isCorrect()%>" /><%= answer.getText()%>
-				</label><br>
+				
+					<input id="answer<%= count%>" name="AnswerGroup<%= group%>" type="radio" value="<%= answer.isCorrect()%>" />
+					<label id="answer" for="answer<%= count++%>"><%= answer.getText()%>
+					</label><br>
 	
 			<% } %>
 			</td>	
