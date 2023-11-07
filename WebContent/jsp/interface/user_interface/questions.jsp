@@ -37,8 +37,7 @@
 			
 				
 					<input id="answer<%= count%>" name="AnswerGroup<%= group%>" type="radio" value="<%= answer.isCorrect()%>" />
-					<label id="answer" for="answer<%= count++%>"><%= answer.getText()%>
-					</label><br>
+					<label id="answer" for="answer<%= count++%>"><%= answer.getText()%></label><br>
 	
 			<% } %>
 			</td>	
@@ -66,6 +65,8 @@
 	</table>
 
 	
-	
+	<jsp:include page="/jsp/interface/user_interface/result.jsp" />
 </body>
+
+
 </html>
