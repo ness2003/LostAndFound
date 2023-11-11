@@ -12,7 +12,6 @@ public class FinalQuestionsCommand implements ActionCommand{
 		String page = null;
 		int finalquestionId = Integer.parseInt(request.getParameter("finalquestionid"));
 		
-		
 		if (request.getParameter("client").equals("moderator")) {
 			request.setAttribute("foundItems", FinalQuestions.getQuestionsForFinding(finalquestionId));
 			page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");
