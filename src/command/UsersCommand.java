@@ -1,40 +1,20 @@
 package command;
-
-import java.util.ArrayList;
-import temporary.data.*;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
-import datalayer.data.Finding;
-import datalayer.data.SystemUser;
+import logic.UsersLogic;
 import resource.ConfigurationManager;
-
+//РАБОТАЕТ С БД
 public class UsersCommand implements ActionCommand {
-
-
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		
 		if (request.getParameter("client").equals("admin")) {
-			request.setAttribute("foundUsers", SystemUsers.userList);
+			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
 			page = ConfigurationManager.getProperty("path.page.users_admin");
-
 		} else if (request.getParameter("client").equals("moderator")) {
+			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
 			page = ConfigurationManager.getProperty("path.page.users_moderator");
-			request.setAttribute("foundUsers", SystemUsers.clientsList);
 		}
-	
 		return page;
 	}
-	
-	
-
-
-	
-	
-
-
 
 }

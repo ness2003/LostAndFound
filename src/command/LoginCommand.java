@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import logic.LoginLogic;
 import resource.ConfigurationManager;
 import resource.MessageManager;
+import cache.UserIdInSystem;
 
+//РАБОТАЕТ С БД
 public class LoginCommand implements ActionCommand {
 	private static final String PARAM_NAME_LOGIN = "login";
 	private static final String PARAM_NAME_PASSWORD = "password";
@@ -20,17 +22,19 @@ public class LoginCommand implements ActionCommand {
 
 		// проверка логина и пароля
 		if (LoginLogic.checkLogin(login, pass)) {
-			if (login.equals("user")) {
+			UserIdInSystem.userID = LoginLogic.getUserIdForLogin(login);
+			System.out.print(UserIdInSystem.userID);
+			int groupID = LoginLogic.getGroupIdForLogin(login);
+			if (groupID == LoginLogic.getGroupIdForGroupName("Клиент")) {
 				page = ConfigurationManager.getProperty("path.page.main_user");
-			} else if (login.equals("admin")) {
+			} else if (groupID == LoginLogic.getGroupIdForGroupName("Администратор")) {
+				System.out.print("aaaaaaaaa");
 				page = ConfigurationManager.getProperty("path.page.main_admin");
-			} else if (login.equals("moderator")) {
-				page = ConfigurationManager.getProperty("path.page.main_moderator");// Ставлю заглушку, потом свяжем с
-																					// БД и не будем опираться на логин
-			} else if (login.equals("receiver")) {
+			} else if (groupID == LoginLogic.getGroupIdForGroupName("Модератор")) {
+				page = ConfigurationManager.getProperty("path.page.main_moderator");
+			} else if (groupID == LoginLogic.getGroupIdForGroupName("Приемщик")) {
 				page = ConfigurationManager.getProperty("path.page.main_receiver");
 			}
-
 		} else {
 			request.setAttribute("errorLoginPassMessage", MessageManager.getProperty("message.loginerror"));
 			page = ConfigurationManager.getProperty("path.page.login");

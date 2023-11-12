@@ -2,6 +2,8 @@ package datalayer;
 
 import java.sql.SQLException;
 
+import javax.naming.NamingException;
+
 import datalayer.oracledb.OracleDBDAOFactory;
 
 public enum DBType {
@@ -14,6 +16,9 @@ public enum DBType {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return oracleDBDAOFactory;

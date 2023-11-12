@@ -1,25 +1,22 @@
 package command;
-
-import java.sql.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import coder.Coder;
-import datalayer.data.Finding;
-import datalayer.data.SystemUser;
+import logic.ProfileLogic;
 import resource.ConfigurationManager;
-import temporary.data.Findings;
-import temporary.data.SystemUsers;
-
+import cache.UserIdInSystem;
+//РАБОТАЕТ С БД
 public class PfrofileCommand implements ActionCommand {
 
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-
-		request.setAttribute("profileData", SystemUsers.userList.get(0));
+		if (request.getParameter("data").equals("refresh")) {
+			changeUser(request);
+			request.setAttribute("saveMessage", "yes");
+		}
+		request.setAttribute("profileData", ProfileLogic.getSystemUserForID(UserIdInSystem.userID));
 		request.setAttribute("saveMessage", "no");
-
 		if (request.getParameter("client").equals("user")) {
 			page = ConfigurationManager.getProperty("path.page.userprofile");		
 		} else if (request.getParameter("client").equals("admin")) {
@@ -29,24 +26,11 @@ public class PfrofileCommand implements ActionCommand {
 		} else if (request.getParameter("client").equals("receiver")){
 			page = ConfigurationManager.getProperty("path.page.receiver.profile");
 		}
-		
-		if (request.getParameter("data").equals("refresh")) {
-			changeUser(request);
-			request.setAttribute("saveMessage", "yes");
-		}
-		
 		return page;
 	}
 
 	private void changeUser(HttpServletRequest request) {
-		int userId = Integer.parseInt(request.getParameter("userid"));
-		for (SystemUser user : SystemUsers.userList) {
-			if (user.getUserID() == userId) {
-				user.setFullName((Coder.toUTF8(request.getParameter("name"))));
-				user.setPhone((Coder.toUTF8(request.getParameter("phone"))));
-				user.setEmail((Coder.toUTF8(request.getParameter("email"))));
-			}
-		}
+		ProfileLogic.updateUserProfile((Coder.toUTF8(request.getParameter("name"))), (Coder.toUTF8(request.getParameter("phone"))), (Coder.toUTF8(request.getParameter("email"))), Integer.parseInt(request.getParameter("userid")));
 	}
 
 }

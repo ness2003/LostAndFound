@@ -1,17 +1,28 @@
 package logic;
 
 import java.util.HashMap;
+import logic.Logic;
 
 public class LoginLogic {
 
 	public static boolean checkLogin(String enterLogin, String enterPass) {
-		HashMap<String, String> logsAndPasswds = new HashMap<String, String>();
-		logsAndPasswds.put("admin", "Qwe12");
-		logsAndPasswds.put("user", "1");
-		logsAndPasswds.put("moderator", "1");
-		logsAndPasswds.put("receiver", "1");
-
+		HashMap<String, String> logsAndPasswds = Logic.getSystemUser().getLoginsAndPasswds();
 		return logsAndPasswds.containsKey(enterLogin) && logsAndPasswds.get(enterLogin).equals(enterPass);
+	}
+
+	public static int getGroupIdForLogin(String login) {
+		int group = Logic.getSystemUser().getGroupIdForLogin(login);
+		return group;
+	}
+
+	public static int getGroupIdForGroupName(String groupName) {
+		int group = Logic.getUserGroup().getGroupIdForGroupName(groupName);
+		return group;
+	}
+
+	public static int getUserIdForLogin(String login) {
+		int id = Logic.getSystemUser().getUserIDforLogin(login);
+		return id;
 	}
 
 }

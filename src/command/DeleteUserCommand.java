@@ -1,39 +1,28 @@
 package command;
 
 import javax.servlet.http.HttpServletRequest;
-
-import datalayer.data.SystemUser;
+import logic.DeleteUserLogic;
+import logic.UsersLogic;
 import resource.ConfigurationManager;
-import temporary.data.SystemUsers;
-
+import cache.UserIdInSystem;
+//РАБОТАЕТ С БД
 public class DeleteUserCommand implements ActionCommand {
 
 	@Override
 	public String execute(HttpServletRequest request) {
 
-		String userID = request.getParameter("userid");
-		if (userID != null) {
-			this.deleteUser(Integer.parseInt(userID));
+		int userID = Integer.parseInt(request.getParameter("userid"));
+		if ((userID != 0) && (userID != UserIdInSystem.userID)) {
+			DeleteUserLogic.deleteUserForUserID((userID));
 		}
 		String page = null;
 		if (request.getParameter("client").equals("admin")) {
-			request.setAttribute("foundUsers", SystemUsers.userList);
+			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
 			page = ConfigurationManager.getProperty("path.page.users_admin");
-
 		} else if (request.getParameter("client").equals("moderator")) {
+			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
 			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}
-
 		return page;
 	}
-
-	private void deleteUser(int userID) {
-		for (SystemUser user : SystemUsers.userList) {
-			if (user.getUserID() == userID) {
-				SystemUsers.userList.remove(user);
-				break;
-			}
-		}
-	}
-
 }

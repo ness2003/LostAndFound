@@ -2,26 +2,25 @@ package command;
 
 import javax.servlet.http.HttpServletRequest;
 
+import logic.FindingsLogic;
 import resource.ConfigurationManager;
-import temporary.data.Findings;
-
+import cache.UserIdInSystem;
+//РАБОТАЕТ С БД
 public class FindingsCommand implements ActionCommand {
 
 	@Override
 	public String execute(HttpServletRequest request) {
-		String page = null;
-
-		request.setAttribute("foundItems", Findings.findingsList);
+		String page = null;	
 		if (request.getParameter("client").equals("user")) {
+			request.setAttribute("foundItems", FindingsLogic.getFreeFindings());
 			page = ConfigurationManager.getProperty("path.page.findings_user");
-		}else if (request.getParameter("client").equals("moderator")) {
+		} else if (request.getParameter("client").equals("moderator")) {
+			request.setAttribute("foundItems", FindingsLogic.getAllFindings());
 			page = ConfigurationManager.getProperty("path.page.findings_moderator");
 		} else if (request.getParameter("client").equals("receiver")) {
+			request.setAttribute("foundItems", FindingsLogic.getFindingsForReceiver(UserIdInSystem.userID));
 			page = ConfigurationManager.getProperty("path.page.receiver.findings");
 		}
-
-
 		return page;
 	}
-
 }

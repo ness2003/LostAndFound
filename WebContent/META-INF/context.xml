@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/Lost-And-Found">
+	<Resource
+		name="jdbc/LOST_AND_FOUND"
+		author="Container"
+		type="javax.sql.DataSource"
+		maxActive="32"
+		MaxIdle="8"
+		maxWair="10000"
+		username="SYS AS SYSDBA"
+		password="Ness21083!"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:orcl"
+	/>
+</Context>
