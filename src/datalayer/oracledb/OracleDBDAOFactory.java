@@ -1,6 +1,7 @@
 package datalayer.oracledb;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -31,10 +32,10 @@ public class OracleDBDAOFactory extends DAOFactory {
 		//Class.forName("oracle.jdbc.driver.OracleDriver");
 		Context envCtx = (Context) (new InitialContext().lookup("java:comp/env"));
 		DataSource ds = (DataSource) envCtx.lookup("jdbc/LOST_AND_FOUND");
-		//String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		//String user = "SYS AS SYSDBA";
-		//String password = "Ness21083!";
-		//connection = DriverManager.getConnection(url, user, password);
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String user = "SYS AS SYSDBA";
+		String password = "1";
+		connection = DriverManager.getConnection(url, user, password);
 		connection = ds.getConnection();
 		System.out.println("Connected to oracle DB!");
 	}

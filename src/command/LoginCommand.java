@@ -28,7 +28,7 @@ public class LoginCommand implements ActionCommand {
 			if (groupID == LoginLogic.getGroupIdForGroupName("Клиент")) {
 				page = ConfigurationManager.getProperty("path.page.main_user");
 			} else if (groupID == LoginLogic.getGroupIdForGroupName("Администратор")) {
-				System.out.print("aaaaaaaaa");
+//				System.out.print("aaaaaaaaa");
 				page = ConfigurationManager.getProperty("path.page.main_admin");
 			} else if (groupID == LoginLogic.getGroupIdForGroupName("Модератор")) {
 				page = ConfigurationManager.getProperty("path.page.main_moderator");
