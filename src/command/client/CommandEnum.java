@@ -7,6 +7,7 @@ import command.BlockUserCommand;
 import command.ChangeFinalQuestionCommand;
 import command.ChangeFindingCommand;
 import command.ChangeUserCommand;
+import command.CheckAnswerCommand;
 import command.DeleteUserCommand;
 import command.FinalQuestionsCommand;
 import command.FindingsCommand;
@@ -121,11 +122,16 @@ public enum CommandEnum {
 			this.command = new ChangeFinalQuestionCommand();
 		}
 	},
-	REFRESHFINALQUESTION{
+	CHECKANSWER {
+		{
+			this.command = new CheckAnswerCommand();
+		}
+	},
+	REFRESHFINALQUESTION {
 		{
 			this.command = new RefreshFinalQuestion();
 		}
-		
+
 	};
 
 	ActionCommand command;

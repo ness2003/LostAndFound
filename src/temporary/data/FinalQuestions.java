@@ -19,6 +19,9 @@ public class FinalQuestions {
 		finalQuestionsList.add(new FinalQuestion(1, 1, "Какого цвета?", "Желтая", "Синяя", "Красная"));
 		finalQuestionsList.add(new FinalQuestion(2, 1, "Из какого материала?", "Медь", "Золото", "Сталь"));
 		finalQuestionsList.add(new FinalQuestion(3, 1, "Кто на монете изображен?", "Петр 1", "Иван 2", "Григорий 1"));
+		finalQuestionsList.add(new FinalQuestion(1, 2, "Это вопрос 1?", "Желтая", "Синяя", "Красная"));
+		finalQuestionsList.add(new FinalQuestion(2, 2, "Это вопрос 2?", "Медь", "Золото", "Сталь"));
+		finalQuestionsList.add(new FinalQuestion(3, 2, "Это вопрос 3?", "Петр 1", "Иван 2", "Григорий 1"));
 
 	}
 

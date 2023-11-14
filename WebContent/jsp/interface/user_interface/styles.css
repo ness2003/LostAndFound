@@ -126,15 +126,39 @@ h1#myfindings {
 
 /*-------------------------------------------- Стили окна home -------------------------------------------------*/
 
+@keyframes color-change {
+  from {
+    background-color: #F498AD;
+  }
+  50% {
+    background-color: #7F6EDB;
+  }
+  to {
+    background-color: #2E9AFF;
+  }
+}
+
+
 h1#home {
 	font-size: 50px;
 	display: flex;
 	justify-content: center;
-	margin: 10%;
+	margin-top: -10%;
 	color: #fff;
 	text-align: center;
-	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
-		0.00) 70%);
+	filter: blur(0px);
+}
+
+.circle {
+	margin-top: 10%;
+	width: 361px;
+	height: 142px;
+	flex-shrink: 0;
+	border-radius: 561px;
+	background: #0085FF;
+	filter: blur(70px);
+	animation:
+    	color-change 5s alternate linear infinite;
 }
 
 /* ------------------------------------------- Стили окна myprofile --------------------------------------------------*/
@@ -256,29 +280,30 @@ label#answer:hover {
 
 /*------------------------------------------------------------------------*/
 
-button#question {
+button#backToFinds, button#checkAnswer {
 	text-align: center;
 	width: 170px;
 	height: 60px;
 	border: none;
 	border-radius: 50px;
-	color: #FFF;
 	font-size: 25px;
 	font-style: normal;
-	transition: transform 0.5s;
 	text-align: center;
 	margin: 20px;
 }
 
-button[name="checkAnswer"] {
+button#backToFinds {
+	color: #333;
+    background: #fff;
+}
+
+button#checkAnswer {
+	color: #FFF;
     background: #0085FF; 	
 }
 
-button[name="backToFinds"] {
-    background: #757575;
-}
-
-button#question:hover {
+button#backToFinds:hover, button#checkAnswer:hover {
+	color: #FFF;
 	background: #FFA800;
 }
 
@@ -317,32 +342,51 @@ footer {
   top: 0;
   width: 100%; /* Полная ширина */
   height: 100%; /* Полная высота */
-  overflow: auto; /* Включите прокрутку, если это необходимо */
-  background-color: rgb(0,0,0); /* Цвет запасной вариант */
   background-color: rgba(0,0,0,0.4); /* Черный с непрозрачностью */
 }
 
 /* Модальное содержание/коробка */
 .modal-content {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
   border-radius: 50px;
   border: 1px solid #FFF;
   background-color: #333;
-  padding: 20px;
-  margin: 50px;
-  margin-top: 30%;
+  padding: 10px;
+  margin: 300px;
+  margin-top: 15%;
 }
 
-/* Кнопка закрытия */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+h1#result {
+	font-size: 40px;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+button#exit, button#toMyFindings {
+	width: 100px;
+	height: 50px;
+	border: none;
+	border-radius: 50px;
+	font-size: 17px;
+	transition: transform 0.5s;
+	text-align: center;
+	background: #fff;
+	color: #333;
+	margin-left: 15px;
+	margin-bottom: 20px;
 }
+
+button#toMyFindings {
+	width: 200px;
+	height: 50px;
+}
+
+
+button#exit:hover, button#toMyFindings:hover {
+  	color: #fff;
+	background: #0085FF;
+	transform: scale(1.3);
+}
+
