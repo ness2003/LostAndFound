@@ -1,7 +1,4 @@
 package datalayer.data;
-
-import java.sql.Date;
-
 public class FinalQuestion {
 	
 	private int id;

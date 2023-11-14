@@ -1,11 +1,10 @@
 package command;
 
 import javax.servlet.http.HttpServletRequest;
-
-import datalayer.data.SystemUser;
+import logic.BlockUserLogic;
+import logic.UsersLogic;
 import resource.ConfigurationManager;
-import temporary.data.SystemUsers;
-
+//РАБОТАЕТ С БД
 public class BlockUserCommand implements ActionCommand {
 
 	@Override
@@ -13,33 +12,16 @@ public class BlockUserCommand implements ActionCommand {
 
 		String userID = request.getParameter("userid");
 		if (userID != null) {
-
-			this.changeUserStatus(Integer.parseInt(userID));
+			BlockUserLogic.changeUserStatus((Integer.parseInt(userID)));
 		}
 		String page = null;
 		if (request.getParameter("client").equals("admin")) {
-			request.setAttribute("foundUsers", SystemUsers.userList);
+			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
 			page = ConfigurationManager.getProperty("path.page.users_admin");
-
 		} else if (request.getParameter("client").equals("moderator")) {
-			request.setAttribute("foundUsers", SystemUsers.clientsList);
+			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
 			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}
-
 		return page;
 	}
-
-	private void changeUserStatus(int userID) {
-		for (SystemUser user : SystemUsers.userList) {
-			if (user.getUserID() == userID) {
-				if (user.getStatus().equals("Активен")) {
-					user.setStatus("Заблокирован");
-				} else {
-					user.setStatus("Активен");
-				}
-				break;
-			}
-		}
-	}
-
 }

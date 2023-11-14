@@ -1,11 +1,7 @@
 package command;
-
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import resource.ConfigurationManager;
 import temporary.data.FinalQuestions;
-import temporary.data.QuestionAnswer;
 public class FinalQuestionsCommand implements ActionCommand{
 	@Override
 	public String execute(HttpServletRequest request) {

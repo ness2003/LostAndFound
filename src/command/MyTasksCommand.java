@@ -3,9 +3,8 @@ package command;
 import javax.servlet.http.HttpServletRequest;
 
 import resource.ConfigurationManager;
-
+//НЕ ТРЕБУЕТ РАБОТЫ С БД
 public class MyTasksCommand implements ActionCommand {
-
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
