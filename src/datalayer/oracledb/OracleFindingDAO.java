@@ -113,6 +113,48 @@ public class OracleFindingDAO implements FindingDAO {
 	}
 
 	@Override
+	public List<Finding> getFindingsForUser(int userId) {
+		PreparedStatement ps = null;
+		ResultSet resultSet = null;
+		ArrayList<Finding> findingsList = new ArrayList<Finding>();
+		Finding newFinding = null;
+		try {
+			ps = connection.prepareStatement(resourcer.getString("select.findings.for.user"));
+			ps.setInt(1, userId);
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int findingID = resultSet.getInt(1);
+				String name = resultSet.getString(2);
+				Date date = resultSet.getDate(3);
+				String place = resultSet.getString(4);
+				String description = resultSet.getString(5);
+				String receiver = resultSet.getString(6);
+				String owner = resultSet.getString(7);
+				String status = resultSet.getString(8);
+				String category = resultSet.getString(9);
+				newFinding = new Finding(findingID, name, date, place, description, receiver, owner, status,
+						category);
+				findingsList.add(newFinding);
+			}
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return findingsList;
+	}
+	
+	@Override
 	public List<Finding> getFindingsForReceiver(int receiverID) {
 		PreparedStatement ps = null;
 		ResultSet resultSet = null;
@@ -154,12 +196,12 @@ public class OracleFindingDAO implements FindingDAO {
 	}
 
 	@Override
-	public Finding getFindingForFindingID(int findingID) {
+	public Finding getFindingForFindingID(int findingId) {
 		PreparedStatement ps = null;
 		ResultSet resultSet = null;
 		try {
 			ps = connection.prepareStatement(resourcer.getString("select.finding.for.findingid"));
-			ps.setInt(1, findingID);
+			ps.setInt(1, findingId);
 			resultSet = ps.executeQuery();
 			resultSet.next();
 			int ID = resultSet.getInt(1);

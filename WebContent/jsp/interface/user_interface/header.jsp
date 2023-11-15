@@ -21,6 +21,7 @@
           <form name="MyFinds" method="POST" action="myfindings">
 			<input type="hidden" name="command" value="myfindings" /> 
 			<input type="hidden" name="client" value="user" />
+			<input type="hidden" name="setOwnershipForUser" value="false" />
 			<button id="myFindings" type="submit">Мои находки</button>
 		</form>
           </td>

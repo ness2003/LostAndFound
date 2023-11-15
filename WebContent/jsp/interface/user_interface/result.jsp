@@ -22,6 +22,7 @@
 	        <form name="MyFinds" method="POST" action="/Lost-And-Found/myfindings">
 				<input type="hidden" name="command" value="myfindings" /> 
 				<input type="hidden" name="client" value="user" />
+				<input type="hidden" name="setOwnershipForUser" value="true" />
 				<button id="toMyFindings" type="submit">К моим находкам</button>
 			</form>
 		</td>

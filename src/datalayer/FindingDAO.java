@@ -8,7 +8,8 @@ public interface FindingDAO {
 	List<Finding> getFindings();
 	List<Finding> getFreeFindings();
 	List<Finding> getFindingsForReceiver(int receiverID);
-	Finding getFindingForFindingID(int findingID);
+	List<Finding> getFindingsForUser(int userId);
+	Finding getFindingForFindingID(int findingId);
 	void changeFinding(int findingID, String findingName, Date findingDate, String findingPlace, String findingDescription, int category);
 	void addNewFinding(String findingName, Date findingDate, String findingPlace, String findingDescription,int receiver, int category);
 }

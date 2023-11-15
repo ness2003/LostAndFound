@@ -51,7 +51,7 @@ public class FinalQuestions {
 		List<QuestionAnswers> questionsForFinding = new ArrayList<>();
 		for (FinalQuestion question : finalQuestionsList) {
 			if (question.getFindingId() == findingId) {
-				questionAnswer = new QuestionAnswers(question.getQuestion());
+				questionAnswer = new QuestionAnswers(1, question.getQuestion());
 				questionAnswer.addAnswer(question.getRightAnswer(), true);
 				questionAnswer.addAnswer(question.getAlternativeAnswer1(), false);
 				questionAnswer.addAnswer(question.getAlternativeAnswer2(), false);

@@ -5,8 +5,15 @@ import java.util.List;
 
 public class QuestionAnswers {
 
+	private int findingId;
 	private String question;
 	private List<Answer> answers;
+	
+	public QuestionAnswers(int findingId, String question) {
+		this.setFindingId(findingId);
+		this.question = question;
+		this.answers = new ArrayList<>();
+	}
 
 	public QuestionAnswers(String question) {
 		this.question = question;
@@ -24,6 +31,14 @@ public class QuestionAnswers {
 
 	public List<Answer> getAnswers() {
 		return answers;
+	}
+
+	public int getFindingId() {
+		return findingId;
+	}
+
+	public void setFindingId(int findingId) {
+		this.findingId = findingId;
 	}
 
 	public static class Answer {
