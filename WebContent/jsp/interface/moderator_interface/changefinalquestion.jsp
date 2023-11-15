@@ -16,6 +16,7 @@
         <input type="hidden" name="command" value="RefreshFinalQuestion" />
         <input type="hidden" name="client" value="moderator" />
         <input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId() %>" />
+        <input type="hidden" name="findingId" value="<%= finalQuestion.getFindingId() %>" />
         <!-- Вопрос -->
         <label for="question">Вопрос:</label>
         <input id="question" type="text" required name="question" value="<%= finalQuestion.getQuestion() %>" /><br />

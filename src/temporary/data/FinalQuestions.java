@@ -7,6 +7,7 @@ import java.util.List;
 
 import datalayer.data.FinalQuestion;
 import datalayer.data.Finding;
+import datalayer.data.QuestionAnswers;
 
 public class FinalQuestions {
 	public static List<FinalQuestion> finalQuestionsList = new ArrayList<FinalQuestion>();
@@ -45,12 +46,12 @@ public class FinalQuestions {
 		return questionsForFinding;
 	}
 
-	public static List<QuestionAnswer> getQuestionsByFinding(int findingId) {
-		QuestionAnswer questionAnswer;
-		List<QuestionAnswer> questionsForFinding = new ArrayList<>();
+	public static List<QuestionAnswers> getQuestionsByFinding(int findingId) {
+		QuestionAnswers questionAnswer;
+		List<QuestionAnswers> questionsForFinding = new ArrayList<>();
 		for (FinalQuestion question : finalQuestionsList) {
 			if (question.getFindingId() == findingId) {
-				questionAnswer = new QuestionAnswer(question.getQuestion());
+				questionAnswer = new QuestionAnswers(question.getQuestion());
 				questionAnswer.addAnswer(question.getRightAnswer(), true);
 				questionAnswer.addAnswer(question.getAlternativeAnswer1(), false);
 				questionAnswer.addAnswer(question.getAlternativeAnswer2(), false);
@@ -62,9 +63,9 @@ public class FinalQuestions {
 		return questionsForFinding;
 	}
 
-	public static void shuffleAnswers(List<QuestionAnswer> quizQuestions) {
-		for (QuestionAnswer question : quizQuestions) {
-			List<QuestionAnswer.Answer> answers = question.getAnswers();
+	public static void shuffleAnswers(List<QuestionAnswers> quizQuestions) {
+		for (QuestionAnswers question : quizQuestions) {
+			List<QuestionAnswers.Answer> answers = question.getAnswers();
 			Collections.shuffle(answers);
 		}
 	}

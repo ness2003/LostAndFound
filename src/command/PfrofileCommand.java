@@ -11,10 +11,11 @@ public class PfrofileCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
+		
 		if (request.getParameter("data").equals("refresh")) {
-			changeUser(request);
-			request.setAttribute("saveMessage", "yes");
+			changeUser(request);	
 		}
+		
 		request.setAttribute("profileData", ProfileLogic.getSystemUserForID(UserIdInSystem.userID));
 		request.setAttribute("saveMessage", "no");
 		if (request.getParameter("client").equals("user")) {
@@ -26,6 +27,11 @@ public class PfrofileCommand implements ActionCommand {
 		} else if (request.getParameter("client").equals("receiver")){
 			page = ConfigurationManager.getProperty("path.page.receiver.profile");
 		}
+		
+		if (request.getParameter("data").equals("refresh")) {
+			request.setAttribute("saveMessage", "yes");			
+		}
+		
 		return page;
 	}
 

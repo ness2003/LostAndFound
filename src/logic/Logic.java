@@ -10,6 +10,8 @@ public class Logic {
 	private static FindingDAO finding = factory.getFindingDAO();
 	private static FindingStatusDAO findingStatus = factory.getFindingStatusDAO();
 	private static FindingCategoryDAO findingCategory = factory.getFindingCategoryDAO();
+	private static FinalQuestionDAO finalQuestion = factory.getFinalQuestionDAO();
+
 	public static DAOFactory getFactory() {
 		return factory;
 	}
@@ -64,6 +66,14 @@ public class Logic {
 
 	public static void setFindingCategory(FindingCategoryDAO findingCategory) {
 		Logic.findingCategory = findingCategory;
+	}
+
+	public static FinalQuestionDAO getFinalQuestion() {
+		return finalQuestion;
+	}
+
+	public static void setFinalQuestion(FinalQuestionDAO finalQuestionCategory) {
+		Logic.finalQuestion = finalQuestionCategory;
 	}
 
 }

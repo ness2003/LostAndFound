@@ -3,6 +3,7 @@ package command;
 import javax.servlet.http.HttpServletRequest;
 
 import datalayer.data.FinalQuestion;
+import logic.FinalQuestionsLogic;
 import resource.ConfigurationManager;
 import temporary.data.FinalQuestions;
 
@@ -11,10 +12,8 @@ public class ChangeFinalQuestionCommand implements ActionCommand{
 	public String execute(HttpServletRequest request) {
 		String page = null;
 		
-		String finalQuestionID = request.getParameter("finalquestionid");
-		if (finalQuestionID != null) {
-			request.setAttribute("finalQuestion", this.getFinalQuestionForFinalQuestionID(Integer.parseInt(finalQuestionID)));
-		}
+		String finalQuestionID = request.getParameter("finalquestionid");		
+		request.setAttribute("finalQuestion", FinalQuestionsLogic.getFinalQuestionById(Integer.parseInt(finalQuestionID)));
 		
 		if (request.getParameter("client").equals("moderator")) {
 			page = ConfigurationManager.getProperty("path.page.changefinalquestion_moderator");
@@ -25,15 +24,6 @@ public class ChangeFinalQuestionCommand implements ActionCommand{
 		}
 		
 		return page;
-	}
-	
-	private FinalQuestion getFinalQuestionForFinalQuestionID(int finalQuestionID) {
-		for (FinalQuestion finalQuestion : FinalQuestions.finalQuestionsList ) {
-			if (finalQuestion.getId() == finalQuestionID) {
-				return finalQuestion;
-			}
-		}
-		return null;
 	}
 
 }

@@ -14,5 +14,6 @@ public abstract class DAOFactory {
 	public abstract FindingDAO getFindingDAO();
 	public abstract FindingStatusDAO getFindingStatusDAO();
 	public abstract FindingCategoryDAO getFindingCategoryDAO();
+	public abstract FinalQuestionDAO getFinalQuestionDAO();
 	public abstract void closeConnection();
 }

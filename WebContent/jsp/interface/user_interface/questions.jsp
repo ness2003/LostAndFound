@@ -3,8 +3,8 @@
     
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="temporary.data.QuestionAnswer"%>
-<%@ page import="temporary.data.QuestionAnswer.Answer"%>
+<%@ page import="datalayer.data.QuestionAnswers"%>
+<%@ page import="datalayer.data.QuestionAnswers.Answer"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 
 <!DOCTYPE html>
@@ -21,13 +21,13 @@
 	<h1>Пожалуйста, ответьте на контрольные вопросы</h1>
 	
 	
-	<% 
-		List<QuestionAnswer> foundItems = (List<QuestionAnswer>) request.getAttribute("foundQuestionAnswer");
-		//List<Boolean> answerResult = new ArrayList();
-		int count = 1;
-		int group = 1;
-		for (QuestionAnswer questionAnswer : foundItems) {
-	 %>
+	<%
+				List<QuestionAnswers> foundItems = (List<QuestionAnswers>) request.getAttribute("foundQuestionAnswer");
+					//List<Boolean> answerResult = new ArrayList();
+					int count = 1;
+					int group = 1;
+					for (QuestionAnswers questionAnswer : foundItems) {
+			%>
 
 
 	<table>

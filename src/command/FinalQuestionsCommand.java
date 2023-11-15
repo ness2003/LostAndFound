@@ -1,30 +1,33 @@
 package command;
+
 import javax.servlet.http.HttpServletRequest;
+
+import logic.FinalQuestionsLogic;
 import resource.ConfigurationManager;
-import temporary.data.FinalQuestions;
-public class FinalQuestionsCommand implements ActionCommand{
+
+public class FinalQuestionsCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		int finalquestionId = Integer.parseInt(request.getParameter("finalquestionid"));
-		
+		int findingId = Integer.parseInt(request.getParameter("finalquestionid"));
+
 		if (request.getParameter("client").equals("moderator")) {
-			request.setAttribute("foundItems", FinalQuestions.getQuestionsForFinding(finalquestionId));
+			request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
 			page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");
 		}
-		
+
 		if (request.getParameter("client").equals("user")) {
-			request.setAttribute("foundQuestionAnswer", FinalQuestions.getQuestionsByFinding(finalquestionId));
+			request.setAttribute("foundQuestionAnswer",
+					FinalQuestionsLogic.getQuestionsWithAnswersByFindingId(findingId));
 			page = ConfigurationManager.getProperty("path.page.user.final_questions");
 		}
-		
+
 		if (request.getParameter("client").equals("receiver")) {
-			request.setAttribute("foundItems", FinalQuestions.getQuestionsForFinding(finalquestionId));
+			request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
 			page = ConfigurationManager.getProperty("path.page.receiver.finalquestions");
 		}
-		
+
 		return page;
 	}
-	
 
 }

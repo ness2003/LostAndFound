@@ -1,14 +1,14 @@
-package temporary.data;
+package datalayer.data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionAnswer {
+public class QuestionAnswers {
 
 	private String question;
 	private List<Answer> answers;
 
-	public QuestionAnswer(String question) {
+	public QuestionAnswers(String question) {
 		this.question = question;
 		this.answers = new ArrayList<>();
 	}
