@@ -40,10 +40,9 @@
 			for (Answer answer : answers) { %>
 			
 					<%//answerResult.add(answer.isCorrect());%>
-					<input id="answer<%= count%>" name="AnswerGroup<%= group%>" type="radio"/>
-					<label id="answer" for="answer<%= count%>"><%= answer.getText()%></label><br>
-					
-					<script>var answer<%= count%> = document.getElementById("answer<%= count++%>");</script>
+					<input id="answer<%= count%>" name="AnswerGroup<%= group%>" type="radio" value="<%= answer.isCorrect()%>"/>
+					<label id="answer" for="answer<%= count++%>"><%= answer.getText()%></label><br>
+				
 	
 			<% } %>
 			</td>	
@@ -66,7 +65,6 @@
 			</td>
 		</tr>
 	</table>
-
 	
 	<jsp:include page="/jsp/interface/user_interface/result.jsp" />
 </body>

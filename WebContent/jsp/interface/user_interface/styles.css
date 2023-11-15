@@ -380,7 +380,7 @@ h1#result {
 	font-size: 40px;
 }
 
-button#exit, button#toMyFindings {
+button#exit, button#toMyFindings, button#logoutAndBlockUser {
 	width: 100px;
 	height: 50px;
 	border: none;
@@ -394,13 +394,13 @@ button#exit, button#toMyFindings {
 	margin-bottom: 20px;
 }
 
-button#toMyFindings {
+button#toMyFindings, button#logoutAndBlockUser {
 	width: 200px;
 	height: 50px;
 }
 
 
-button#exit:hover, button#toMyFindings:hover {
+button#exit:hover, button#toMyFindings:hover, button#logoutAndBlockUser:hover{
   	color: #fff;
 	background: #0085FF;
 	transform: scale(1.3);
