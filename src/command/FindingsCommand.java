@@ -2,6 +2,7 @@ package command;
 
 import javax.servlet.http.HttpServletRequest;
 
+import logic.BlockUserLogic;
 import logic.FindingsLogic;
 import resource.ConfigurationManager;
 import cache.UserIdInSystem;
@@ -12,8 +13,12 @@ public class FindingsCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 		String page = null;	
 		if (request.getParameter("client").equals("user")) {
-			if (request.getParameter("setOwnershipForUser").equals("true")) {
-				FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
+			try {
+				if (request.getParameter("setOwnershipForUser").equals("true")) {
+					FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
+				}
+			} catch (Exception e) {
+				//
 			}
 			
 			request.setAttribute("foundItems", FindingsLogic.getFreeFindings());

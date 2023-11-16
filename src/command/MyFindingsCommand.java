@@ -11,9 +11,14 @@ public class MyFindingsCommand implements ActionCommand{
 	public String execute(HttpServletRequest request) {
 		String page = null;
 		
-		if (request.getParameter("setOwnershipForUser").equals("true")) {
-			FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
+		try {
+			if (request.getParameter("setOwnershipForUser").equals("true")) {
+				FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
+			}
+		} catch (Exception e) {
+			//
 		}
+		
 		
 		request.setAttribute("foundItems", FindingsLogic.getFindingForUser(UserIdInSystem.userID));
 		page = ConfigurationManager.getProperty("path.page.myfindings_user");
