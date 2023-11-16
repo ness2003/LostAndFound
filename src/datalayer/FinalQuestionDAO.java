@@ -9,6 +9,6 @@ public interface FinalQuestionDAO {
 
 	FinalQuestion getFinalQuestionById(int currentQuestionId);
 
-	void refreshFinalQuestion(int questionId, String question, String rightAnswer, String alternativeAnswer1,
+	void refreshFinalQuestion(int findingId, int questionId, String question, String rightAnswer, String alternativeAnswer1,
 			String alternativeAnswer2);
 }

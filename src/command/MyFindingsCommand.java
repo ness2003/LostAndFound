@@ -12,8 +12,7 @@ public class MyFindingsCommand implements ActionCommand{
 		String page = null;
 		
 		if (request.getParameter("setOwnershipForUser").equals("true")) {
-			//System.out.println("ues!!!");
-			//FindingsLogic.setUserForFinding(UserIdInSystem.userID))
+			FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
 		}
 		
 		request.setAttribute("foundItems", FindingsLogic.getFindingForUser(UserIdInSystem.userID));

@@ -23,12 +23,11 @@ public class LoginCommand implements ActionCommand {
 		// проверка логина и пароля
 		if (LoginLogic.checkLogin(login, pass)) {
 			UserIdInSystem.userID = LoginLogic.getUserIdForLogin(login);
-			System.out.print(UserIdInSystem.userID);
+			System.out.println("ID текущего пользователя = " + UserIdInSystem.userID);
 			int groupID = LoginLogic.getGroupIdForLogin(login);
 			if (groupID == LoginLogic.getGroupIdForGroupName("Клиент")) {
 				page = ConfigurationManager.getProperty("path.page.main_user");
 			} else if (groupID == LoginLogic.getGroupIdForGroupName("Администратор")) {
-//				System.out.print("aaaaaaaaa");
 				page = ConfigurationManager.getProperty("path.page.main_admin");
 			} else if (groupID == LoginLogic.getGroupIdForGroupName("Модератор")) {
 				page = ConfigurationManager.getProperty("path.page.main_moderator");

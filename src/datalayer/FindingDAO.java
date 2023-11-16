@@ -12,4 +12,5 @@ public interface FindingDAO {
 	Finding getFindingForFindingID(int findingId);
 	void changeFinding(int findingID, String findingName, Date findingDate, String findingPlace, String findingDescription, int category);
 	void addNewFinding(String findingName, Date findingDate, String findingPlace, String findingDescription,int receiver, int category);
+	void setUserForFinding(int findingId, int userId);
 }

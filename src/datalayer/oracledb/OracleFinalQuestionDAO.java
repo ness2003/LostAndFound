@@ -118,7 +118,7 @@ public class OracleFinalQuestionDAO implements FinalQuestionDAO {
 	}
 
 	@Override
-	public void refreshFinalQuestion(int questionId, String question, String rightAnswer, String alternativeAnswer1,
+	public void refreshFinalQuestion(int findingId, int questionId, String question, String rightAnswer, String alternativeAnswer1,
 			String alternativeAnswer2) {
 
 		PreparedStatement ps = null;

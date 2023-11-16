@@ -2,9 +2,6 @@ package logic;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
-import coder.Coder;
 import datalayer.data.Finding;
 
 public class FindingsLogic {
@@ -28,9 +25,7 @@ public class FindingsLogic {
 		return list;
 	}
 
-	public void setUserForFinding(HttpServletRequest request, int userID) {
-
-		// Logic.getFinding().setUserForFinding(questionId, question, rightAnswer,
-		// alternativeAnswer1, alternativeAnswer2);
+	public static void setUserForFinding(int findingId, int userId) {
+		 Logic.getFinding().setUserForFinding(findingId, userId);
 	}
 }

@@ -15,6 +15,8 @@
         	<form name="Finds" method="POST" action="/Lost-And-Found/findings">
 					<input type="hidden" name="command" value="findings" /> 
 					<input type="hidden" name="client" value="user" />
+					<input type="hidden" name="findingId" value="<%= request.getAttribute("findingId") %>" />
+					<input type="hidden" name="setOwnershipForUser" value="true" />
 					<button id="exit" name="backToFinds" type="submit">Назад</button>
 			</form>
         </td>
@@ -22,6 +24,7 @@
 	        <form name="MyFinds" method="POST" action="/Lost-And-Found/myfindings">
 				<input type="hidden" name="command" value="myfindings" /> 
 				<input type="hidden" name="client" value="user" />
+				<input type="hidden" name="findingId" value="<%= request.getAttribute("findingId") %>" />
 				<input type="hidden" name="setOwnershipForUser" value="true" />
 				<button id="toMyFindings" type="submit">К моим находкам</button>
 			</form>
@@ -30,6 +33,7 @@
 	        <form name="Logout" method="POST" action="/Lost-And-Found/home">
 				<input type="hidden" name="command" value="logout" /> 
 				<input type="hidden" name="client" value="user" />
+				<input type="hidden" name="blockUser" value="true" />
 				<button id="logoutAndBlockUser" type="submit">Выйти из системы</button>
 			</form>
 		</td>
@@ -99,6 +103,11 @@
 	btn.onclick = function() {
 		checkAnswers();
 	  	modal.style.display = "block";
+		// Чтобы пользователь не смог вернуться на предыдущую странницу отменяем это
+		history.pushState(null, null, location.href);
+		window.onpopstate = function () {
+		    history.go(1);
+		};
 	}
 
 	// Когда пользователь нажимает на кнопку, закрывается модальное окно

@@ -14,6 +14,7 @@
 			<input type="hidden" name="command" value="findings" /> 
 			<input type="hidden" name="client" value="user" />
 			<input type="hidden" name="isuserfinds" value="" />
+			<input type="hidden" name="setOwnershipForUser" value="false" />
 			<button id="finds" type="submit">Каталог находок</button>
 		</form>
           </td>

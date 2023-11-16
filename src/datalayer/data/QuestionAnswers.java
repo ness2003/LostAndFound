@@ -10,7 +10,7 @@ public class QuestionAnswers {
 	private List<Answer> answers;
 	
 	public QuestionAnswers(int findingId, String question) {
-		this.setFindingId(findingId);
+		this.findingId = findingId;
 		this.question = question;
 		this.answers = new ArrayList<>();
 	}

@@ -287,4 +287,26 @@ public class OracleFindingDAO implements FindingDAO {
 
 	}
 
+	@Override
+	public void setUserForFinding(int findingId, int userId) {
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(resourcer.getString("update.owner.for.finding"));
+			ps.setInt(1, userId);
+			ps.setInt(2, findingId);
+			ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }

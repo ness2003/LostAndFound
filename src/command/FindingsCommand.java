@@ -12,6 +12,10 @@ public class FindingsCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 		String page = null;	
 		if (request.getParameter("client").equals("user")) {
+			if (request.getParameter("setOwnershipForUser").equals("true")) {
+				FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
+			}
+			
 			request.setAttribute("foundItems", FindingsLogic.getFreeFindings());
 			page = ConfigurationManager.getProperty("path.page.findings_user");
 		} else if (request.getParameter("client").equals("moderator")) {
