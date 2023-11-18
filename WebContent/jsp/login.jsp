@@ -6,27 +6,29 @@
 <head>
 <style>
 body {
-	font-family: century gothic;
 	background-color: #333;
+	font-family: century gothic;
+	
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    padding: 0;
 	margin: 0;
-	padding: 0;
 }
 
 h1#lostandfound {
+	margin-top: 10%;
 	font-size: 60px;
 	color: #fff;
-	margin-top: 10%;
-	margin-left: 37%;
 }
 
 form#loginform {
-	max-width: 300px;
-	margin-top: 5%;
-	margin-left: 40%;
+	width: 20%;
 	background-color: #ffffff;
 	padding: 20px;
 	border-radius: 5px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 input#login, input#password {
@@ -38,13 +40,13 @@ input#login, input#password {
 }
 
 input#loginbutton {
-	margin-top: 4%;
 	background-color: #333;
 	color: #fff;
 	border: none;
-	padding: 10px 20px;
+	padding: 10px 40px;
 	border-radius: 3px;
 	cursor: pointer;
+	margin-left: 30%;
 }
 
 input#loginbutton:hover {
@@ -52,14 +54,20 @@ input#loginbutton:hover {
 }
 
 .error-message {
+	font-size: 15px;
+	text-align: center;
 	color: red;
 	font-weight: bold;
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 .invalidPassword {
+	font-size: 15px;
+	text-align: center;
 	color: red;
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 </style>
@@ -74,7 +82,7 @@ input#loginbutton:hover {
 		<input id="password" type="password" required name="password" value="" />
 		<br><div class="invalidPassword"> ${errorLoginPassMessage} </div>
 		<input id="loginbutton" type="submit"
-			value="Log in" />
+			value="Войти" />
 	</form>
 </body>
 

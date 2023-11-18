@@ -20,10 +20,6 @@
     <label for="fullName">ФИО:</label>
     <input id="fullName" type="text" required name="fullName" value="" /><br />
 
-    <!-- Номер телефона (начинается с +7) -->
-    <label for="phoneNumber">Номер телефона:</label>
-    <input id="phoneNumber" type="text" required name="phoneNumber" pattern="^\+7\d{10}$" placeholder="+79991234567" /><br />
-
     <!-- Email -->
     <label for="email">Email:</label>
     <input id="email" type="email" required name="email" value="" /><br />

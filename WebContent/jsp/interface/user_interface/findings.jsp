@@ -22,7 +22,6 @@
 <body>
 	<jsp:include page="/jsp/interface/user_interface/header.jsp" />
 
-
 	<% List<Finding> foundItems = (List<Finding>) request.getAttribute("foundItems");
      for (Finding finding : foundItems) { %>
 
@@ -53,6 +52,5 @@
 	
 	<% } %>
 
-	<jsp:include page="/jsp/interface/user_interface/footer.jsp" />
 </body>
 </html>
