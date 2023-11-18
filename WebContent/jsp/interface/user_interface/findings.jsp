@@ -26,11 +26,10 @@
 	<% List<Finding> foundItems = (List<Finding>) request.getAttribute("foundItems");
      for (Finding finding : foundItems) { %>
 
-
-	<table item="finding" width="90%">
+	<table id="finding">
 		<tr>
-			<td item="category"><%= finding.getCategory() %></td>
-			<td item="description" rowspan="4"><%= finding.getDescription() %></td>
+			<td id="category"><%= finding.getCategory() %></td>
+			<td id="description" rowspan="4"><%= finding.getDescription() %></td>
 
 			<td rowspan="4">
 				<form name="FinalQuestions" method="POST" action="findings/finalquestions">
@@ -42,17 +41,18 @@
 			</td>
 		</tr>
 		<tr>
-			<td item="date"><%= finding.getDate() %></td>
+			<td id="date"><%= finding.getDate() %></td>
 		</tr>
 		<tr>
-			<td item="name"><%= finding.getName() %></td>
+			<td id="name"><%= finding.getName() %></td>
 		</tr>
 		<tr>
-			<td item="place"><%= finding.getPlace() %></td>
+			<td id="place"><%= finding.getPlace() %></td>
 		</tr>
 	</table>
-
+	
 	<% } %>
 
+	<jsp:include page="/jsp/interface/user_interface/footer.jsp" />
 </body>
 </html>

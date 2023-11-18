@@ -17,13 +17,18 @@ body {
 
 /*-------------------------------------------- Стили header -------------------------------------------------*/
 
+header {
+	position: fixed;
+}
+
 table#header {
-	align-self: center;
 	text-align: center;
-	width: 1000px;
-	height: 90px;
-	border: none;
-	margin-top: 10px;
+	width: 70%;
+	padding: 1%;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	border-radius: 51px;
+	
 }
 
 table#header button {
@@ -32,9 +37,10 @@ table#header button {
 	font-size: 20px;
 	font-style: normal;
 	border: none;
-	background-color: #333;
+	background-color: rgb(0,0,0,0);
 	transition: transform 0.5s;
-	height: 70px;
+	height: 50px;
+
 }
 
 table#header button:hover {
@@ -48,33 +54,34 @@ table#header button:hover {
 
 /*-------------------------------------------- Стили окна findings -------------------------------------------------*/
 
-table[item="finding"] {
+
+table#finding {
 	border: none;
-	padding: 10px;
-	margin: 15px;
+	margin-bottom: 30px;
+	width: 80%;
 	border-radius: 30px;
 	background-color: #fff;
 }
 
-td[item="category"] {
-	padding: 10px;
+td#category {
+	padding: 30px 40px 0px;
 	color: #0085FF;
 	font-size: 15px;
 	font-style: normal;
 }
 
-td[item="name"] {
+td#name {
 	max-width: 300px;
 	width: 300px;
-	padding: 10px;
+	padding: 0px 40px 15px;
 	color: #1E1E1E;
 	font-size: 30px;
 	font-style: normal;
 	font-weight: 700;
 }
 
-td[item="description"] {
-	padding: 10px 100px 10px 100px;
+td#description {
+	padding: 15px 0px 15px;
 	color: #1E1E1E;
 	font-size: 20px;
 	font-style: normal;
@@ -82,22 +89,23 @@ td[item="description"] {
 	width: 500px;
 }
 
-td[item="date"] {
+td#date {
 	max-width: 300px;
-	padding: 20px 10px 0px;
+	padding: 15px 40px 15px;
 	color: #1E1E1E;
 	font-size: 15px;
 	font-style: normal;
 }
 
-td[item="place"] {
-	padding: 0px 10px 5px;
+td#place{
+	padding: 0px 40px 30px;
 	color: #333;
 	font-size: 15px;
 	font-style: normal;
 }
 
 button#ownership {
+	mar-left: 50px;
 	width: 150px;
 	height: 100px;
 	border: none;
@@ -337,15 +345,18 @@ input[type="radio"] {
 /*-------------------------------------------- Стили для footer -------------------------------------------------*/
 
 footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	font-size: 24px;
+  	margin-top: auto; /* Поднимает футер вниз после контента */
+	width: 50%;
+	text-align: center; /* Выравнивание текста по центру */
+	border-radius: 50px;
+	font-size: 15px;
 	background-color: #333; /* Цвет фона футера */
 	color: #fff; /* Цвет текста внутри футера */
 	padding: 10px; /* Внутренние отступы */
-	text-align: center; /* Выравнивание текста по центру */
+	transition: bottom 0.3s ease;
+	bottom: 0;
 }
+
 
 
 /*-------------------------------------------- Стили для модального окна -------------------------------------------------*/
