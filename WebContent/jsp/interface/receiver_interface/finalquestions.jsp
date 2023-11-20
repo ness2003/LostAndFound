@@ -17,6 +17,7 @@
 		<style>
 			<jsp:include page="./styles.css"/>
 		</style>
+		<title>Контрольные вопросы</title>
 </head>
 
 <body>
@@ -25,6 +26,13 @@
 	
 	<div class="finalquestionclass ">
 	<h1>Просмотр контрольных вопросов</h1>
+	
+	<form id="addFinalQuestion" name="addFinalQuestion" method="POST" action="/Lost-And-Found/findings/finalquestions/addfinalquestion" accept-charset="UTF-8">
+        <input type="hidden" name="command" value="addFinalQuestion" />
+        <input type="hidden" name="client" value="receiver" />
+        <input type="hidden" name="findingId" value="<%= request.getAttribute("findingId") %>" />
+		<button id="addfinding" type="submit" name="action" value="addfinalquestion">Добавить контрольный вопрос</button>
+	</form>
 
 	<% List<FinalQuestion> foundItems = (List<FinalQuestion>) request.getAttribute("foundItems");
      for (FinalQuestion finalQuestion : foundItems) { %>

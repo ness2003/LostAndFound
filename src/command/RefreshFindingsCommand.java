@@ -46,8 +46,7 @@ public class RefreshFindingsCommand implements ActionCommand {
 						findingDescription, category);
 			}
 			if (request.getParameter("act").equals("add")) {
-				RefreshFindingsLogic.addFinding(findingName, findingDate, findingPlace, findingDescription,
-						category);
+				RefreshFindingsLogic.addFinding(findingName, findingDate, findingPlace, findingDescription, category);
 			}
 			page = ConfigurationManager.getProperty("path.page.receiver.findings");
 			request.setAttribute("foundItems", FindingsLogic.getFindingsForReceiver(UserIdInSystem.userID));

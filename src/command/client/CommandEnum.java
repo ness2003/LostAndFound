@@ -1,6 +1,7 @@
 package command.client;
 
 import command.ActionCommand;
+import command.AddFinalQuestionCommand;
 import command.AddFindingCommand;
 import command.AddUserCommand;
 import command.BlockUserCommand;
@@ -125,6 +126,11 @@ public enum CommandEnum {
 	CHECKANSWER {
 		{
 			this.command = new CheckAnswerCommand();
+		}
+	},
+	ADDFINALQUESTION {
+		{
+			this.command = new AddFinalQuestionCommand();
 		}
 	},
 	REFRESHFINALQUESTION {

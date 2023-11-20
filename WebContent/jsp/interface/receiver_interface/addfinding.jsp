@@ -13,8 +13,8 @@
 	
 	<h1>Добавление находки</h1>
 	
-    <div class="changefinding">
-        <form id="changefindingForm" name="changefindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
+    <div class="addfinding">
+        <form id="addFindingForm" name="addfindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
             <input type="hidden" name="client" value="receiver" />
             <input type="hidden" name="command" value="refreshFindings" />
             <input type="hidden" name="act" value="add" />
@@ -25,7 +25,7 @@
 
             <!-- Описание находки -->
             <label for="findingDescription">Описание находки:</label>
-            <textarea id="findingDescription" required name="findingDescription"></textarea><br />
+            <input id="findingDescription" type="text" required name="findingDescription"><br />
 
             <!-- Дата находки -->
             <label for="findingDate">Дата находки:</label>
@@ -43,7 +43,7 @@
                 <option value="Технические устройства">Технические устройства</option>
             </select><br />
 
-            <button id="saveFindingChanges" type="submit">Добавить находку</button>
+            <button id="addFinding" type="submit">Сохранить</button>
         </form>
     </div>
 

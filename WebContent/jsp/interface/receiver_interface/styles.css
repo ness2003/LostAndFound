@@ -151,6 +151,57 @@ button#actionbutton:hover {
 
 /*-------------------------------------------- Стили окна addfinding -------------------------------------------------*/
 
+.addfinding {
+	color: #0085FF;
+	text-align: left;
+	font-size: 20px;	
+}
+
+#addFindingForm label {
+	display: block;
+	margin: 5px;
+	text-align: left; /* Выравнивание текста внутри label по левому краю */
+}
+
+#addFindingForm {
+	width: 500px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px; /* Задаем радиус скругления углов */
+	background-color: #fff;
+}
+
+#addFindingForm input[type="text"], #addFindingForm input[type="date"],
+	#addFindingForm textarea, #addFindingForm select {
+	font-family: century gothic;
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #333;
+	border-radius: 5px;
+	color: #333;
+	font-size: 15px;
+	background-color: #fff;
+}
+
+button#addFinding {
+	margin-top: 15px; 
+	width: 350px;
+	height: 60px;
+	border: none;
+	border-radius: 50px;
+	background: #0085FF;
+	color: #FFF;
+	font-size: 20px;
+	font-style: normal;
+	transition: transform 0.5s;
+	text-align: center;
+}
+
+button#addFinding:hover {
+	background: #FFA800;
+	transform: scale(1.1);
+}
 
 
 /*-------------------------------------------- Стили окна changefinding -------------------------------------------------*/
@@ -294,6 +345,60 @@ button#changeFinalQuestion:hover {
 	background: #FFA800;
 	transform: scale(1.1);
 }
+
+/* ------------------------------------------- Стили окна addfinalquestion --------------------------------------------------*/
+
+.addfinalquestion {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px; /* Внутренний отступ */
+	color: #333;
+}
+
+
+.addfinalquestion input[type="text"]
+	{
+	width: 90%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	color: #333;
+	background-color: #fff;
+	font-size: 15px;
+}
+
+#addFinalQuestionForm {
+	color: #0085FF;
+	width: 500px;
+	padding: 20px;
+	border: 0px solid #333;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px; /* Задаем радиус скругления углов */
+	background-color: #fff;
+}
+
+button#saveFinalQuestion, button#saveAndAddNextFinalQuestion {
+	margin-top: 15px; 
+	width: 170px;
+	height: 50px;
+	border: none;
+	border-radius: 50px;
+	background: #0085FF;
+	color: #FFF;
+	font-size: 20px;
+	font-style: normal;
+	transition: transform 0.5s;
+	text-align: center;
+}
+
+button#saveFinalQuestion:hover, button#saveAndAddNextFinalQuestion:hover {
+	background: #FFA800;
+	transform: scale(1.1);
+}
+
 
 /* ------------------------------------------- Стили окна changefinalquestion --------------------------------------------------*/
 

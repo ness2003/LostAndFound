@@ -127,6 +127,17 @@
 		<url-pattern>/findings/finalquestions</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet>
+		<servlet-name>AddFinalQuestions</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddFinalQuestions</servlet-name>
+		<url-pattern>/findings/finalquestions/addfinalquestion</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>ChangeFinalQuestion</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>

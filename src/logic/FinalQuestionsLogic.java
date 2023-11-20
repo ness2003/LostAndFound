@@ -13,6 +13,8 @@ import temporary.data.FinalQuestions;
 
 public class FinalQuestionsLogic {
 
+
+
 	public static FinalQuestion getFinalQuestionById(int questionId) {
 		return Logic.getFinalQuestion().getFinalQuestionById(questionId);
 	}
@@ -46,14 +48,19 @@ public class FinalQuestionsLogic {
 	}
 
 	public static void refreshFinalQuestion(HttpServletRequest request) {
-		int findingId = 1;
 		int questionId = Integer.parseInt(request.getParameter("finalquestionid"));
 		String question = Coder.toUTF8(request.getParameter("question"));
 		String rightAnswer = Coder.toUTF8(request.getParameter("rightAnswer"));
 		String alternativeAnswer1 = Coder.toUTF8(request.getParameter("alternativeAnswer1"));
 		String alternativeAnswer2 = Coder.toUTF8(request.getParameter("alternativeAnswer2"));
 
-		Logic.getFinalQuestion().refreshFinalQuestion(findingId, questionId, question, rightAnswer, alternativeAnswer1,
+		Logic.getFinalQuestion().refreshFinalQuestion(questionId, question, rightAnswer, alternativeAnswer1,
+				alternativeAnswer2);
+	}
+	
+	public static void addFinalQuestion(int findingId, String question, String rightAnswer, String alternativeAnswer1,
+			String alternativeAnswer2) {
+		Logic.getFinalQuestion().addFinalQuestion(findingId, question, rightAnswer, alternativeAnswer1,
 				alternativeAnswer2);
 	}
 }

@@ -118,7 +118,7 @@ public class OracleFinalQuestionDAO implements FinalQuestionDAO {
 	}
 
 	@Override
-	public void refreshFinalQuestion(int findingId, int questionId, String question, String rightAnswer, String alternativeAnswer1,
+	public void refreshFinalQuestion(int questionId, String question, String rightAnswer, String alternativeAnswer1,
 			String alternativeAnswer2) {
 
 		PreparedStatement ps = null;
@@ -143,6 +143,32 @@ public class OracleFinalQuestionDAO implements FinalQuestionDAO {
 			}
 		}
 
+	}
+
+	@Override
+	public void addFinalQuestion(int findingId, String question, String rightAnswer, String alternativeAnswer1,
+			String alternativeAnswer2) {
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(resourcer.getString("insert.new.final_question"));
+			ps.setInt(1, findingId);
+			ps.setString(2, question);
+			ps.setString(3, rightAnswer);
+			ps.setString(4, alternativeAnswer1);
+			ps.setString(5, alternativeAnswer2);
+			ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 }

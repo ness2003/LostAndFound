@@ -24,6 +24,7 @@ public class FinalQuestionsCommand implements ActionCommand {
 		}
 
 		if (request.getParameter("client").equals("receiver")) {
+			request.setAttribute("findingId", findingId);
 			request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
 			page = ConfigurationManager.getProperty("path.page.receiver.finalquestions");
 		}
