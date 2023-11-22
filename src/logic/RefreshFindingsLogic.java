@@ -19,7 +19,7 @@ public class RefreshFindingsLogic {
 	}
 
 	public static void deleteFindingForFindingID(int findingID) {
-		Logic.getFinalQuestion().deleteFinalQuestionsForFindingId(findingID);
+		//Logic.getFinalQuestion().deleteFinalQuestionsForFindingId(findingID);
 		Logic.getFinding().deleteFindingForId(findingID);
 		
 	}
