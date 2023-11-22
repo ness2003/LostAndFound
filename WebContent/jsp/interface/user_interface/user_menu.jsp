@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<style>
-			<jsp:include page="./styles.css"/>
+			<jsp:include page="../styles.css"/>
 		</style>
 		
 	</head>

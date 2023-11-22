@@ -44,16 +44,39 @@ table#header button:hover {
 }
 
 /*-------------------------------------------- Стили окна home -------------------------------------------------*/
+@keyframes color-change {
+  from {
+    background-color: #F498AD;
+  }
+  50% {
+    background-color: #7F6EDB;
+  }
+  to {
+    background-color: #2E9AFF;
+  }
+}
 
-.home {
+
+h1#home {
 	font-size: 50px;
 	display: flex;
 	justify-content: center;
-	margin: 10%;
+	margin-top: -10%;
 	color: #fff;
 	text-align: center;
-	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
-		0.00) 100%);
+	filter: blur(0px);
+}
+
+.circle {
+	margin-top: 10%;
+	width: 361px;
+	height: 142px;
+	flex-shrink: 0;
+	border-radius: 561px;
+	background: #0085FF;
+	filter: blur(70px);
+	animation:
+    	color-change 5s alternate linear infinite;
 }
 
 
@@ -348,26 +371,12 @@ button#changeFinalQuestion:hover {
 
 /* ------------------------------------------- Стили окна addfinalquestion --------------------------------------------------*/
 
-.addfinalquestion {
-	position: absolute;
-	top: 45%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	padding: 20px; /* Внутренний отступ */
-	color: #333;
-}
-
-
-.addfinalquestion input[type="text"]
-	{
-	width: 90%;
-	padding: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	color: #333;
-	background-color: #fff;
-	font-size: 15px;
+h1#addFinalQuestion {
+	font-size: 35px;
+	color: #fff;
+	text-align: center;
+	border-radius: 30px;
+	margin-top: 8%;
 }
 
 #addFinalQuestionForm {
@@ -375,9 +384,26 @@ button#changeFinalQuestion:hover {
 	width: 500px;
 	padding: 20px;
 	border: 0px solid #333;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	border-radius: 10px; /* Задаем радиус скругления углов */
 	background-color: #fff;
+}
+
+#addFinalQuestionForm label {
+	margin: 10px;
+}
+
+#addFinalQuestionForm input[type="text"] {
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	color: #333;
+	background-color: #fff;
+	font-size: 15px;
+}
+
+button#saveFinalQuestion{
+	margin-left: 15%; 
 }
 
 button#saveFinalQuestion, button#saveAndAddNextFinalQuestion {
@@ -390,13 +416,11 @@ button#saveFinalQuestion, button#saveAndAddNextFinalQuestion {
 	color: #FFF;
 	font-size: 20px;
 	font-style: normal;
-	transition: transform 0.5s;
 	text-align: center;
 }
 
 button#saveFinalQuestion:hover, button#saveAndAddNextFinalQuestion:hover {
 	background: #FFA800;
-	transform: scale(1.1);
 }
 
 

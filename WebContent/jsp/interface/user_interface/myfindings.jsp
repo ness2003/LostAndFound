@@ -12,7 +12,7 @@
 	<head>
 		<meta charset="UTF-8">
 				<style>
-			<jsp:include page="./styles.css"/>
+			<jsp:include page="../styles.css"/>
 		</style>
 	</head>
 	<body>
@@ -32,7 +32,7 @@
 				<td id="description" rowspan="4"><%= finding.getDescription() %></td>
 	
 				<td rowspan="4">
-					<button id="ownership" type="submit">Является вашей находкой</button>
+					<p id="ownership"p>Является вашей находкой</p>
 				</td>
 			</tr>
 			<tr>

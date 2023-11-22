@@ -21,7 +21,7 @@
 
 <body>
 	<jsp:include page="/jsp/interface/moderator_interface/header.jsp" />
-<div class="content">
+
 		
 
  <button id="scrollToBottomButton"><img src="<%= request.getContextPath() %>/images/down.png" alt="Вниз"></button>
@@ -108,7 +108,6 @@
 
 <% } %>
 
-</div>
 
 
 <jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />

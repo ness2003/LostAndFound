@@ -14,7 +14,8 @@
 	<body>
 		<jsp:include page="header.jsp" />
 		
-		<h1 class="home">Здравствуйте!</h1>
+		<div class="circle"></div>
+		<h1 id="home">Здравствуйте!<br>Что будем искать?</h1>
 		
 	</body>
 </html>

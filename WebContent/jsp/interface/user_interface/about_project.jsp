@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>О проекте</title>
 				<style>
-			<jsp:include page="./styles.css"/>
+			<jsp:include page="../styles.css"/>
 		</style>
 </head>
 <body>

@@ -15,7 +15,7 @@
 <head>
 <meta charset="UTF-8">
 		<style>
-			<jsp:include page="./styles.css"/>
+			<jsp:include page="../styles.css"/>
 		</style>
 </head>
 
@@ -34,7 +34,7 @@
 				<form name="FinalQuestions" method="POST" action="findings/finalquestions">
 					<input type="hidden" name="command" value="finalquestions" /> 
 					<input type="hidden" name="client" value="user" />
-					<input type="hidden" name="finalquestionid" value="<%= finding.getId()%>" />
+					<input type="hidden" name="findingId" value="<%= finding.getId()%>" />
 					<button id="ownership" type="submit">Это моё</button>
 				</form>
 			</td>

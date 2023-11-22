@@ -26,7 +26,8 @@ public class LoginLogic {
 	}
 
 	public static boolean checkStatusNotBlocked(String login) {
-		return (Logic.getSystemUser().getUserStatusID(Logic.getSystemUser().getUserIDforLogin(login))==Logic.getUserStatus().getStatusIdForStatusDescription("Активен"));
+		return (Logic.getSystemUser().getUserStatusID(Logic.getSystemUser().getUserIDforLogin(login)) == Logic
+				.getUserStatus().getStatusIdForStatusDescription("Активен"));
 	}
 
 }

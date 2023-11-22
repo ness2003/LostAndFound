@@ -58,8 +58,13 @@ public class FinalQuestionsLogic {
 				alternativeAnswer2);
 	}
 	
-	public static void addFinalQuestion(int findingId, String question, String rightAnswer, String alternativeAnswer1,
-			String alternativeAnswer2) {
+	public static void addFinalQuestion(HttpServletRequest request) {
+		int findingId = Integer.parseInt(request.getParameter("findingId"));
+		String question = Coder.toUTF8(request.getParameter("question"));
+		String rightAnswer = Coder.toUTF8(request.getParameter("rightAnswer"));
+		String alternativeAnswer1 = Coder.toUTF8(request.getParameter("alternativeAnswer1"));
+		String alternativeAnswer2 = Coder.toUTF8(request.getParameter("alternativeAnswer2"));
+		
 		Logic.getFinalQuestion().addFinalQuestion(findingId, question, rightAnswer, alternativeAnswer1,
 				alternativeAnswer2);
 	}

@@ -27,7 +27,7 @@
      for (Finding finding : foundItems) { %>
 
 
-	<table item="finding" width="90%">
+	<table item="finding">
 		<tr>
 			<td item="category"><%= finding.getCategory() %></td>
 			<td item="description" rowspan="4"><%= finding.getDescription() %></td>
@@ -43,7 +43,7 @@
 						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
 							<input type="hidden" name="command" value="finalquestions" />
 							<input type="hidden" name="client" value="moderator" />
-							<input type="hidden" name="finalquestionid" value="<%= finding.getId() %>" />
+							<input type="hidden" name="findingId" value="<%= finding.getId() %>" />
 							<button item="actionbutton" type="submit" name="action"
 								value="show">Контрольные<br>вопросы</button>
 						</form>

@@ -10,86 +10,86 @@
 <!DOCTYPE html>
 
 
-
-<html>
-<head>
-<meta charset="UTF-8">
-		<style>
-			<jsp:include page="./styles.css"/>
-		</style>
-</head>
-
-<body>
-	<jsp:include page="/jsp/interface/admin_interface/header.jsp" />
-<div class="content">
+	
+	<html>
+	<head>
+	<meta charset="UTF-8">
+			<style>
+				<jsp:include page="./styles.css"/>
+			</style>
+	</head>
+	
+	<body>
+		<jsp:include page="/jsp/interface/admin_interface/header.jsp" />
+	<div class="content">
+			
+	
+	 <button id="scrollToBottomButton"><img src="<%= request.getContextPath() %>/images/down.png" alt="Вниз"></button>
+	
+	    <!-- Другой контент страницы здесь -->
+	
+	 
+			<%
+				List<SystemUser> systemUsers = (List<SystemUser>) request.getAttribute("foundUsers");
+				for (SystemUser user : systemUsers) {
+			%>
 		
-
- <button id="scrollToBottomButton"><img src="<%= request.getContextPath() %>/images/down.png" alt="Вниз"></button>
-
-    <!-- Другой контент страницы здесь -->
-
- 
-		<%
-			List<SystemUser> systemUsers = (List<SystemUser>) request.getAttribute("foundUsers");
-			for (SystemUser user : systemUsers) {
-		%>
+		
 	
-	
-
-    <table item="users" width="50%">
-        <tr>
-            <td><img src="<%= request.getContextPath() %>/images/user.png" alt="Фото пользователя"></td>
-            <td item="itemusers"><%= user.getFullName() %> 
-            <img id="statusImage<%= user.getUserID() %>" src="<%= user.getStatus().equals("Активен") ? request.getContextPath() + "/images/unlock.png" : request.getContextPath() + "/images/lock.png" %>" alt="Статус"></td>
-            <td item="itemusers">Логин</td>
-            <td item="itemusers">Пароль
-                <button item="activity" type="button" onclick="togglePassword(this, '<%= user.getPassword() %>')">
-                    <img src="<%= request.getContextPath() %>/images/seem.png" alt="На главную">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td item="role"><%= user.getGroup() %></td>
-            <td><%= user.getLogin() %></td>
-            <td>
-                <span class="passwordField"><%= new String(new char[user.getPassword().length()]).replace('\0', '*') %></span>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td item="itemusers2"><%= user.getEmail() %></td>
-        </tr>
-			<tr>
-				<td></td>
-				<td colspan="1">
-					<div style="display: flex;">
-						<form name="BlockButton" method="POST" action="users">
-							<input type="hidden" name="command" value="blockuser" /> 
-							<input type="hidden" name="client" value="admin" />
-							<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
-							<button item="actionbutton" type="submit" name="action">
-								<%=user.getStatus().equals("Активен") ? "Заблокировать" : "Разблокировать"%>
-							</button>
-						</form>
-						<form name="DeleteButton" method="POST" action="users">
-							<input type="hidden" name="command" value="deleteuser" />
-							<input type="hidden" name="client" value="admin" />
-							<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
-							<button item="actionbutton" type="submit" name="action"
-								value="delete">Удалить</button>
-						</form>
-						<form name="ChangeButton" method="POST" action="users/changeuser">
-							<input type="hidden" name="command" value="changeuser" />
-							<input type="hidden" name="client" value="admin" />
-							<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
-							<button item="actionbutton" type="submit" name="action"
-								value="delete">Изменить</button>
-						</form>
-					</div>
-				</td>
-			</tr>
-		</table>
+	    <table item="users" width="50%">
+	        <tr>
+	            <td><img src="<%= request.getContextPath() %>/images/user.png" alt="Фото пользователя"></td>
+	            <td item="itemusers"><%= user.getFullName() %> 
+	            <img id="statusImage<%= user.getUserID() %>" src="<%= user.getStatus().equals("Активен") ? request.getContextPath() + "/images/unlock.png" : request.getContextPath() + "/images/lock.png" %>" alt="Статус"></td>
+	            <td item="itemusers">Логин</td>
+	            <td item="itemusers">Пароль
+	                <button item="activity" type="button" onclick="togglePassword(this, '<%= user.getPassword() %>')">
+	                    <img src="<%= request.getContextPath() %>/images/seem.png" alt="На главную">
+	                </button>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td></td>
+	            <td item="role"><%= user.getGroup() %></td>
+	            <td><%= user.getLogin() %></td>
+	            <td>
+	                <span class="passwordField"><%= new String(new char[user.getPassword().length()]).replace('\0', '*') %></span>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td></td>
+	            <td item="itemusers2"><%= user.getEmail() %></td>
+	        </tr>
+				<tr>
+					<td></td>
+					<td colspan="1">
+						<div style="display: flex;">
+							<form id="myForm" name="BlockButton" method="POST" action="users">
+								<input type="hidden" name="command" value="blockuser" /> 
+								<input type="hidden" name="client" value="admin" />
+								<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
+								<button item="actionbutton" type="submit" name="action">
+									<%=user.getStatus().equals("Активен") ? "Заблокировать" : "Разблокировать"%>
+								</button>
+							</form>
+							<form name="DeleteButton" method="POST" action="users">
+								<input type="hidden" name="command" value="deleteuser" />
+								<input type="hidden" name="client" value="admin" />
+								<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
+								<button item="actionbutton" type="submit" name="action"
+									value="delete">Удалить</button>
+							</form>
+							<form name="ChangeButton" method="POST" action="users/changeuser">
+								<input type="hidden" name="command" value="changeuser" />
+								<input type="hidden" name="client" value="admin" />
+								<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
+								<button item="actionbutton" type="submit" name="action"
+									value="delete">Изменить</button>
+							</form>
+						</div>
+					</td>
+				</tr>
+			</table>
 
     <script>
     function togglePassword(button, password) {
@@ -118,6 +118,7 @@
     scrollToBottomButton.addEventListener("click", scrollToBottom);   
   
     </script>
+    
 
 <% } %>
 
@@ -133,7 +134,6 @@
 	</div>
 
 </div>
-
 
 <jsp:include page="/jsp/interface/admin_interface/footer.jsp" />
 </body>

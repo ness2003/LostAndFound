@@ -9,7 +9,7 @@ public class FinalQuestionsCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		int findingId = Integer.parseInt(request.getParameter("finalquestionid"));
+		int findingId = Integer.parseInt(request.getParameter("findingId"));
 
 		if (request.getParameter("client").equals("moderator")) {
 			request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
@@ -24,6 +24,13 @@ public class FinalQuestionsCommand implements ActionCommand {
 		}
 
 		if (request.getParameter("client").equals("receiver")) {
+			try {
+				if (request.getParameter("addFinalQuestion").equals("true")) {
+					FinalQuestionsLogic.addFinalQuestion(request);
+				}
+			} catch (Exception e) {
+				//
+			}
 			request.setAttribute("findingId", findingId);
 			request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
 			page = ConfigurationManager.getProperty("path.page.receiver.finalquestions");
