@@ -40,6 +40,14 @@
 							<button item="actionbutton" type="submit" name="action"
 							value="changefinding">Изменить</button>
 						</form>
+						<form name="DeleteButton" method="POST" action="findings">
+							<input type="hidden" name="command" value="refreshfindings" />
+							<input type="hidden" name="client" value="moderator" />
+							<input type="hidden" name="act" value="delete" />
+							<input type="hidden" name="findingId" value="<%= finding.getId() %>" />
+							<button item="actionbutton" type="submit" name="action"
+								value="show">Удалить<br>находку</button>
+						</form>
 						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
 							<input type="hidden" name="command" value="finalquestions" />
 							<input type="hidden" name="client" value="moderator" />

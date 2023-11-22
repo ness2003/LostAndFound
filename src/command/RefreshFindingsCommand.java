@@ -33,6 +33,11 @@ public class RefreshFindingsCommand implements ActionCommand {
 
 				page = ConfigurationManager.getProperty("path.page.findings_moderator");
 				request.setAttribute("foundItems", FindingsLogic.getAllFindings());
+			}else if (request.getParameter("act").equals("delete")) {
+				int findingID = Integer.parseInt(request.getParameter("findingId"));
+				RefreshFindingsLogic.deleteFindingForFindingID(findingID);
+				page = ConfigurationManager.getProperty("path.page.findings_moderator");
+				request.setAttribute("foundItems", FindingsLogic.getAllFindings());
 			}
 		} else if (request.getParameter("client").equals("receiver")) {
 			String findingName = Coder.toUTF8(request.getParameter("findingName"));

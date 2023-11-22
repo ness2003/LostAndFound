@@ -309,4 +309,25 @@ public class OracleFindingDAO implements FindingDAO {
 		
 	}
 
+	@Override
+	public void deleteFindingForId(int findingID) {
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(resourcer.getString("delete.finding.for.id"));
+			ps.setInt(1, findingID);
+			ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }

@@ -14,4 +14,5 @@ public interface FinalQuestionDAO {
 
 	void addFinalQuestion(int findingId, String question, String rightAnswer, String alternativeAnswer1,
 			String alternativeAnswer2);
+	void deleteFinalQuestionsForFindingId(int findingId);
 }

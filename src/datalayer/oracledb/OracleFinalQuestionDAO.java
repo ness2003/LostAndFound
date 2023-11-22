@@ -171,4 +171,26 @@ public class OracleFinalQuestionDAO implements FinalQuestionDAO {
 		
 	}
 
+	@Override
+	public void deleteFinalQuestionsForFindingId(int findingId) {
+		PreparedStatement ps = null;
+		try {
+			
+			ps = connection.prepareStatement(resourcer.getString("delete.finalquestion.for.finding.id"));
+			ps.setInt(1, findingId);
+			ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }

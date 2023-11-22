@@ -17,5 +17,11 @@ public class RefreshFindingsLogic {
 		int categoryId = Logic.getFindingCategory().getCategoryIdForCategoryName(category);
 		Logic.getFinding().addNewFinding(findingName, findingDate, findingPlace, findingDescription, UserIdInSystem.userID, categoryId);
 	}
+
+	public static void deleteFindingForFindingID(int findingID) {
+		Logic.getFinalQuestion().deleteFinalQuestionsForFindingId(findingID);
+		Logic.getFinding().deleteFindingForId(findingID);
+		
+	}
 	
 }

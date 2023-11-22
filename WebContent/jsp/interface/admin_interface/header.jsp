@@ -12,7 +12,7 @@
           <form name="Users" method="POST" action="/Lost-And-Found/users">
 			<input type="hidden" name="command" value="users" /> 
 			<input type="hidden" name="client" value="admin" />
-			<button id="finds" type="submit">Пользователи</button>
+			<button id="users" type="submit">Пользователи</button>
 		</form>
           </td>
 			<td id="aboutProject">

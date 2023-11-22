@@ -75,6 +75,7 @@
 							<form name="DeleteButton" method="POST" action="users">
 								<input type="hidden" name="command" value="deleteuser" />
 								<input type="hidden" name="client" value="admin" />
+								
 								<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
 								<button item="actionbutton" type="submit" name="action"
 									value="delete">Удалить</button>
