@@ -8,8 +8,8 @@ public class ProfileLogic {
 		return foundedUser;
 	}
 	
-	public static void updateUserProfile(String fullname, String phone, String email, int userId) {
-		Logic.getSystemUser().UpdateFullnamePhoneEmailForUserId(fullname, phone, email, userId);;
+	public static void updateUserProfile(String fullname, String login, String email, int userId) {
+		Logic.getSystemUser().UpdateFullnamePhoneEmailForUserId(fullname, login, email, userId);;
 	}
 
 }

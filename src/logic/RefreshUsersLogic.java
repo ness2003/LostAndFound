@@ -12,6 +12,6 @@ public class RefreshUsersLogic {
 			String status, String group) {
 		int groupId = Logic.getUserGroup().getGroupIdForGroupName(group);
 		int statusId = Logic.getUserStatus().getStatusIdForStatusDescription(status);
-		Logic.getSystemUser().addNewUser(fullname, email, login, password, statusId, groupId);
+		Logic.getSystemUser().changeUser(userID, fullname, email, login, password, statusId, groupId);
 	}
 }

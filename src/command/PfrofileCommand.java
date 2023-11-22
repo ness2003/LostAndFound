@@ -36,7 +36,7 @@ public class PfrofileCommand implements ActionCommand {
 	}
 
 	private void changeUser(HttpServletRequest request) {
-		ProfileLogic.updateUserProfile((Coder.toUTF8(request.getParameter("name"))), (Coder.toUTF8(request.getParameter("phone"))), (Coder.toUTF8(request.getParameter("email"))), Integer.parseInt(request.getParameter("userid")));
+		ProfileLogic.updateUserProfile((Coder.toUTF8(request.getParameter("name"))), (Coder.toUTF8(request.getParameter("login"))), (Coder.toUTF8(request.getParameter("email"))), Integer.parseInt(request.getParameter("userid")));
 	}
 
 }

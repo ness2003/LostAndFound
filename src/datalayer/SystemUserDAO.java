@@ -18,7 +18,7 @@ public interface SystemUserDAO {
 
 	SystemUser getSystemUserForUserID(int userID);
 
-	void UpdateFullnamePhoneEmailForUserId(String fullname, String phone, String email, int userId);
+	void UpdateFullnamePhoneEmailForUserId(String fullname, String login, String email, int userId);
 
 	void UpdateUserStatusForUserId(int userId);
 

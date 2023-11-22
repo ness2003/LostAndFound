@@ -25,4 +25,8 @@ public class LoginLogic {
 		return id;
 	}
 
+	public static boolean checkStatusNotBlocked(String login) {
+		return (Logic.getSystemUser().getUserStatusID(Logic.getSystemUser().getUserIDforLogin(login))==Logic.getUserStatus().getStatusIdForStatusDescription("Активен"));
+	}
+
 }

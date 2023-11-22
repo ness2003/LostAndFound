@@ -3,7 +3,6 @@ package datalayer.data;
 public class SystemUser {
 	private int userID;
 	private String fullName;
-	private String phone;
 	private String email;
 	private String login;
 	private String password;
@@ -13,17 +12,10 @@ public class SystemUser {
 	public static final SystemUser NULL_SYSTEM_USER = new SystemUser() {
 	};
 	
-	
-	public SystemUser(String fullName, String phone, String email) {
-		this.setFullName(fullName);
-		this.setPhone(phone);
-		this.setEmail(email);
-	}
 
-	public SystemUser(int userID, String fullName,String phone, String email, String login, String password, String status, String group) {
+	public SystemUser(int userID, String fullName, String email, String login, String password, String status, String group) {
 		this.setUserID(userID);
 		this.setFullName(fullName);
-		this.setPhone(phone);
 		this.setEmail(email);
 		this.setLogin(login);
 		this.setPassword(password);
@@ -31,14 +23,6 @@ public class SystemUser {
 		this.setGroup(group);
 	}
 	
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
 	private SystemUser() {
 
 	}

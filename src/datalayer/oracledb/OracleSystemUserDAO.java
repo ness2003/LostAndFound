@@ -57,13 +57,12 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 			while (resultSet.next()) {
 				int userID = resultSet.getInt(1);
 				String fullName = resultSet.getString(2);
-				String phone = resultSet.getString(3);
-				String email = resultSet.getString(4);
-				String login = resultSet.getString(5);
-				String password = resultSet.getString(6);
-				String status = resultSet.getString(7);
-				String group = resultSet.getString(8);
-				SystemUser newUser = new SystemUser(userID, fullName, phone, email, login, password, status, group);
+				String email = resultSet.getString(3);
+				String login = resultSet.getString(4);
+				String password = resultSet.getString(5);
+				String status = resultSet.getString(6);
+				String group = resultSet.getString(7);
+				SystemUser newUser = new SystemUser(userID, fullName, email, login, password, status, group);
 				userList.add(newUser);
 			}
 			if (userList.size() == 0) {
@@ -156,13 +155,12 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 			resultSet.next();
 			int ID = resultSet.getInt(1);
 			String fullName = resultSet.getString(2);
-			String phone = resultSet.getString(3);
-			String email = resultSet.getString(4);
-			String login = resultSet.getString(5);
-			String password = resultSet.getString(6);
-			String status = resultSet.getString(7);
-			String group = resultSet.getString(8);
-			SystemUser foundedUser = new SystemUser(ID, fullName, phone, email, login, password, status, group);
+			String email = resultSet.getString(3);
+			String login = resultSet.getString(4);
+			String password = resultSet.getString(5);
+			String status = resultSet.getString(6);
+			String group = resultSet.getString(7);
+			SystemUser foundedUser = new SystemUser(ID, fullName, email, login, password, status, group);
 			return foundedUser;
 		} catch (SQLException e) {
 			System.err.println(e);
@@ -183,12 +181,12 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 	}
 
 	@Override
-	public void UpdateFullnamePhoneEmailForUserId(String fullname, String phone, String email, int userId) {
+	public void UpdateFullnamePhoneEmailForUserId(String fullname, String login, String email, int userId) {
 		PreparedStatement ps = null;
 		try {
-			ps = connection.prepareStatement(resourcer.getString("update.fullname.phone.email.foruserid"));
+			ps = connection.prepareStatement(resourcer.getString("update.fullname.login.email.foruserid"));
 			ps.setString(1, fullname);
-			ps.setString(2, phone);
+			ps.setString(2, login);
 			ps.setString(3, email);
 			ps.setInt(4, userId);
 			ps.executeQuery();
@@ -216,13 +214,12 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 			while (resultSet.next()) {
 				int userID = resultSet.getInt(1);
 				String fullName = resultSet.getString(2);
-				String phone = resultSet.getString(3);
-				String email = resultSet.getString(4);
-				String login = resultSet.getString(5);
-				String password = resultSet.getString(6);
-				String status = resultSet.getString(7);
-				String group = resultSet.getString(8);
-				SystemUser newUser = new SystemUser(userID, fullName, phone, email, login, password, status, group);
+				String email = resultSet.getString(3);
+				String login = resultSet.getString(4);
+				String password = resultSet.getString(5);
+				String status = resultSet.getString(6);
+				String group = resultSet.getString(7);
+				SystemUser newUser = new SystemUser(userID, fullName, email, login, password, status, group);
 				userList.add(newUser);
 			}
 			if (userList.size() == 0) {

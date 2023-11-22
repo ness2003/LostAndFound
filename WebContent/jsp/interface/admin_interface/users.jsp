@@ -60,10 +60,6 @@
             <td></td>
             <td item="itemusers2"><%= user.getEmail() %></td>
         </tr>
-        <tr>
-            <td></td>
-            <td item="itemusers2"><%= user.getPhone() %></td>
-        </tr>
 			<tr>
 				<td></td>
 				<td colspan="1">

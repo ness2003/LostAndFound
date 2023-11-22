@@ -33,8 +33,8 @@
 			<td><input id="profileDataName" name="name" type="text" value="<%= systemUser.getFullName()%>"></td>
 		</tr>
 		<tr>
-			<td><label id="profileTitle" for="profileDataPhone">Телефон</label></td>
-			<td><input id="profileDataPhone" name="phone" type="text" value="<%= systemUser.getPhone() %>"></td>
+			<td><label id="profileTitle" for="profileDataPhone">Логин</label></td>
+			<td><input id="profileDataPhone" name="login" type="text" value="<%= systemUser.getLogin() %>"></td>
 		</tr>
 		<tr>
 			<td><label id="profileTitle" for="profileDataEmail">Email</label></td>
