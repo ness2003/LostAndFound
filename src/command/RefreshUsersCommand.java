@@ -11,7 +11,7 @@ public class RefreshUsersCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		if (request.getParameter("client").equals("admin")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("adminID")) {
 			String fullname = Coder.toUTF8(request.getParameter("fullName"));
 			String email = Coder.toUTF8(request.getParameter("email"));
 			String login = Coder.toUTF8(request.getParameter("login"));
@@ -28,7 +28,7 @@ public class RefreshUsersCommand implements ActionCommand {
 			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
 			page = ConfigurationManager.getProperty("path.page.users_admin");
 
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
 			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}

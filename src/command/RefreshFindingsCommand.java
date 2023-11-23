@@ -1,8 +1,6 @@
 package command;
 
 import javax.servlet.http.HttpServletRequest;
-
-import cache.UserIdInSystem;
 import coder.Coder;
 import logic.FindingsLogic;
 import logic.RefreshFindingsLogic;
@@ -16,11 +14,11 @@ public class RefreshFindingsCommand implements ActionCommand {
 
 		String page = null;
 
-		if (request.getParameter("client").equals("user")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("clientID")) {
 			page = ConfigurationManager.getProperty("path.page.findings_user");
 			request.setAttribute("foundItems", FindingsLogic.getFreeFindings());
 
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			if (request.getParameter("act").equals("edit")) {
 				int findingID = Integer.parseInt(request.getParameter("findingid"));
 				String findingName = Coder.toUTF8(request.getParameter("findingName"));
@@ -39,7 +37,7 @@ public class RefreshFindingsCommand implements ActionCommand {
 				page = ConfigurationManager.getProperty("path.page.findings_moderator");
 				request.setAttribute("foundItems", FindingsLogic.getAllFindings());
 			}
-		} else if (request.getParameter("client").equals("receiver")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
 			String findingName = Coder.toUTF8(request.getParameter("findingName"));
 			Date findingDate = Date.valueOf(Coder.toUTF8(request.getParameter("findingDate")));
 			String findingPlace = Coder.toUTF8(request.getParameter("findingLocation"));
@@ -51,10 +49,10 @@ public class RefreshFindingsCommand implements ActionCommand {
 						findingDescription, category);
 			}
 			if (request.getParameter("act").equals("add")) {
-				RefreshFindingsLogic.addFinding(findingName, findingDate, findingPlace, findingDescription, category);
+				RefreshFindingsLogic.addFinding(findingName, findingDate, findingPlace, findingDescription, category, (int) request.getSession().getAttribute("userId"));
 			}
 			page = ConfigurationManager.getProperty("path.page.receiver.findings");
-			request.setAttribute("foundItems", FindingsLogic.getFindingsForReceiver(UserIdInSystem.userID));
+			request.setAttribute("foundItems", FindingsLogic.getFindingsForReceiver((int)request.getSession().getAttribute("userId")));
 
 		}
 		return page;

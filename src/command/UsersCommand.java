@@ -7,10 +7,10 @@ public class UsersCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		if (request.getParameter("client").equals("admin")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("adminID")) {
 			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
 			page = ConfigurationManager.getProperty("path.page.users_admin");
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
 			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}

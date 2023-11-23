@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import logic.DeleteUserLogic;
 import logic.UsersLogic;
 import resource.ConfigurationManager;
-import cache.UserIdInSystem;
 //РАБОТАЕТ С БД
 public class DeleteUserCommand implements ActionCommand {
 
@@ -12,14 +11,14 @@ public class DeleteUserCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 
 		int userID = Integer.parseInt(request.getParameter("userid"));
-		if ((userID != 0) && (userID != UserIdInSystem.userID)) {
+		if ((userID != 0) && (userID != (int)request.getSession().getAttribute("userId"))) {
 			DeleteUserLogic.deleteUserForUserID((userID));
 		}
 		String page = null;
-		if (request.getParameter("client").equals("admin")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("adminID")) {
 			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
 			page = ConfigurationManager.getProperty("path.page.users_admin");
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
 			page = ConfigurationManager.getProperty("path.page.users_moderator");
 		}

@@ -24,7 +24,6 @@
 	
 	<form name="ChangeButton" method="POST" action="findings/addfinding">
 							<input type="hidden" name="command" value="addfinding" /> 
-							<input type="hidden" name="client" value="receiver" />
 							<button id="addfinding" type="submit" name="action"
 							value="addfinding">Добавить находку</button>
 	</form>
@@ -40,14 +39,12 @@
 					<div style="display: flex;">
 						<form name="ChangeButton" method="POST" action="findings/changefinding">
 							<input type="hidden" name="command" value="changefinding" /> 
-							<input type="hidden" name="client" value="receiver" />
 							<input type="hidden" name="findingid" value="<%= finding.getId()%>" />
 							<button id="actionbutton" type="submit" name="action"
 							value="changefinding">Изменить</button>
 						</form>
 						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
 							<input type="hidden" name="command" value="finalquestions" />
-							<input type="hidden" name="client" value="receiver" />
 							<input type="hidden" name="findingId" value="<%= finding.getId() %>" />
 							<button id="actionbutton" type="submit" name="action"
 								value="show">Контрольные<br>вопросы</button>

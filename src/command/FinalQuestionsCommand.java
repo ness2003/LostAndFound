@@ -11,12 +11,12 @@ public class FinalQuestionsCommand implements ActionCommand {
 		String page = null;
 		int findingId = Integer.parseInt(request.getParameter("findingId"));
 
-		if (request.getParameter("client").equals("moderator")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
 			page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");
 		}
 
-		if (request.getParameter("client").equals("user")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("clientID")) {
 			page = ConfigurationManager.getProperty("path.page.user.final_questions");
 			request.setAttribute("findingId", findingId);
 			request.setAttribute("foundQuestionAnswer",
@@ -25,7 +25,7 @@ public class FinalQuestionsCommand implements ActionCommand {
 			
 		}
 
-		if (request.getParameter("client").equals("receiver")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
 			try {
 				if (request.getParameter("addFinalQuestion").equals("true")) {
 					FinalQuestionsLogic.addFinalQuestion(request);

@@ -75,7 +75,6 @@
 							</button>
 							<form name="ChangeButton" method="POST" action="users/changeuser">
 								<input type="hidden" name="command" value="changeuser" />
-								<input type="hidden" name="client" value="admin" />
 								<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
 								<button id="editUser" type="submit">Изменить</button>
 							</form>
@@ -138,7 +137,6 @@
 		        <td>
 		        	<form name="deleteUserForm" method="POST" action="users">
 						<input type="hidden" name="command" value="deleteuser" />
-						<input type="hidden" name="client" value="admin" />
 						<input id="userIdForDelete" type="hidden" name="userid" value="" />
 						<button id="deleteUser" type="submit">Да</button>
 					</form>
@@ -161,7 +159,6 @@
 		        <td>
 		        	<form id="myForm" name="BlockButton" method="POST" action="users">
 						<input type="hidden" name="command" value="blockuser" /> 
-						<input type="hidden" name="client" value="admin" />
 						<input id="userIdForBlock" type="hidden" name="userid" value="" />
 						<button id="blockUser" type="submit">Да</button>
 					</form>

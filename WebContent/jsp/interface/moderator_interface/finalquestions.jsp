@@ -51,7 +51,6 @@
 					<div style="text-align: center;">
 						<form name="ChangeButton" method="POST" action=finalquestions/changefinalquestion>
 							<input type="hidden" name="command" value="changefinalquestion" /> 
-							<input type="hidden" name="client" value="moderator" />
 							<input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId()%>" />
 							<button item="actionbutton" type="submit" name="action"
 							value="changefinding">Изменить</button>

@@ -29,7 +29,6 @@
 	
 	<form id="addFinalQuestion" name="addFinalQuestion" method="POST" action="/Lost-And-Found/findings/finalquestions/addfinalquestion" accept-charset="UTF-8">
         <input type="hidden" name="command" value="addFinalQuestion" />
-        <input type="hidden" name="client" value="receiver" />
         <input type="hidden" name="findingId" value="<%= request.getAttribute("findingId") %>" />
 		<button id="addfinding" type="submit" name="action" value="addfinalquestion">Добавить контрольный вопрос</button>
 	</form>
@@ -60,7 +59,6 @@
 					<div style="text-align: center;">
 						<form name="ChangeButton" method="POST" action=finalquestions/changefinalquestion>
 							<input type="hidden" name="command" value="changefinalquestion" /> 
-							<input type="hidden" name="client" value="receiver" />
 							<input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId()%>" />
 							<button id="changeFinalQuestion" type="submit" name="action"
 							value="changefinding">Изменить</button>

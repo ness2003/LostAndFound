@@ -13,7 +13,6 @@
     <% Finding finding = (Finding)request.getAttribute("finding"); %>
     <div class="changefinding">
         <form id="changefindingForm" name="changefindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
-            <input type="hidden" name="client" value="moderator" />
             <input type="hidden" name="command" value="refreshFindings" />
             <input type="hidden" name="act" value="edit" />
             <input type="hidden" name="findingid" value="<%=finding.getId()%>" />

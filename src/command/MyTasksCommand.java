@@ -8,9 +8,9 @@ public class MyTasksCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		if (request.getParameter("client").equals("admin")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("adminID")) {
 			page = ConfigurationManager.getProperty("path.page.admintasks");
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			page = ConfigurationManager.getProperty("path.page.moderatortasks");
 		} 
 

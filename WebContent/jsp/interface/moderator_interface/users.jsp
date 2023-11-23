@@ -100,7 +100,6 @@
 			        <td>
 			        	<form name="BlockButton" method="POST" action="users">
 							<input type="hidden" name="command" value="blockuser" /> 
-							<input type="hidden" name="client" value="moderator" />
 							<input id="userIdForBlock" type="hidden" name="userid" value="" />
 							<button id="blockUser" type="submit">Да</button>
 						</form>

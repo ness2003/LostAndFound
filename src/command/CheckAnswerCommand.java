@@ -10,7 +10,7 @@ public class CheckAnswerCommand implements ActionCommand{
 	public String execute(HttpServletRequest request) {
 		String page = null;
 
-		if (request.getParameter("client").equals("user")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("clientID")) {
 			request.setAttribute("foundItems", FinalQuestions.getQuestionsForFinding(1));
 			page = ConfigurationManager.getProperty("path.page.user.final_questions");
 		}

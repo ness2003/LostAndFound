@@ -16,7 +16,6 @@
 
 	<form id="addFinalQuestionForm" method="POST" action="" accept-charset="UTF-8">
 		<input id="commandField" type="hidden" name="command" value="" />
-		<input type="hidden" name="client" value="receiver" />
 		<input type="hidden" name="addFinalQuestion" value="true" />
 		<input type="hidden" name="findingId" value="<%= request.getAttribute("findingId") %>">
 		

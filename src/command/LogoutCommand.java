@@ -2,9 +2,7 @@ package command;
 
 import javax.servlet.http.HttpServletRequest;
 import resource.ConfigurationManager;
-import cache.UserIdInSystem;
 import logic.BlockUserLogic;
-import logic.FindingsLogic;
 
 //РАБОТАЕТ С БД
 public class LogoutCommand implements ActionCommand {
@@ -13,7 +11,7 @@ public class LogoutCommand implements ActionCommand {
 
 		try {
 			if (request.getParameter("blockUser").equals("true")) {
-				BlockUserLogic.changeUserStatus(UserIdInSystem.userID);
+				BlockUserLogic.changeUserStatus((int)request.getSession().getAttribute("userId"));
 			}
 		} catch (Exception e) {
 			//
@@ -22,8 +20,7 @@ public class LogoutCommand implements ActionCommand {
 		String page = ConfigurationManager.getProperty("path.page.index");
 		// уничтожение сессии
 		request.getSession().invalidate();
-		// Logic.getFactory().closeConnection();
-		UserIdInSystem.userID = 0;
+		System.out.print("Session invalidate");
 		return page;
 	}
 

@@ -70,11 +70,41 @@ input#loginbutton:hover {
 	margin-bottom: 20px;
 }
 
+        /* CSS стили для сообщения */
+.timeout-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: white; /* Белый цвет текста */
+    z-index: 9999;
+    background: radial-gradient(circle at center, rgba(255,0,0,1) 0%, rgba(255,0,0,0) 100%); /* Рассеивающийся красный фон из центра */
+    border: none; /* Убираем границу */
+}
 </style>
 <title>Login</title>
 </head>
 
 <body>
+<div id="timeoutMessage" class="timeout-message" style="display: none;">
+    Время ожидания превышено
+</div>
+<% 
+        if (session.getAttribute("showTimeoutMessage") != null && (Boolean) session.getAttribute("showTimeoutMessage")) {
+            session.setAttribute("showTimeoutMessage", false);
+    %>
+    <script>
+        // Закрываем окно с сообщением через 3 секунды
+       setTimeout(function() {
+    var timeoutMessage = document.getElementById('timeoutMessage');
+    timeoutMessage.style.display = 'block'; // Изменяем стиль на 'block' для отображения элемента
+    setTimeout(function() {
+        timeoutMessage.style.display = 'none'; // Скрываем элемент после 3 секунд
+    }, 3000);
+}, 0);
+    </script>
+    <% } %>
 	<h1 id="lostandfound">Бюро находок</h1>
 	<form id="loginform" name="loginForm" method="POST" action="home">
 		<input type="hidden" name="command" value="login" /> Login:<br /> <input

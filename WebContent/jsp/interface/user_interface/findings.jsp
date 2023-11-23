@@ -33,7 +33,6 @@
 			<td rowspan="4">
 				<form name="FinalQuestions" method="POST" action="findings/finalquestions">
 					<input type="hidden" name="command" value="finalquestions" /> 
-					<input type="hidden" name="client" value="user" />
 					<input type="hidden" name="findingId" value="<%= finding.getId()%>" />
 					<button id="ownership" type="submit">Это моё</button>
 				</form>

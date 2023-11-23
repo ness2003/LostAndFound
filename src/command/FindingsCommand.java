@@ -1,21 +1,18 @@
 package command;
 
 import javax.servlet.http.HttpServletRequest;
-
-import logic.BlockUserLogic;
 import logic.FindingsLogic;
 import resource.ConfigurationManager;
-import cache.UserIdInSystem;
 //РАБОТАЕТ С БД
 public class FindingsCommand implements ActionCommand {
 
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;	
-		if (request.getParameter("client").equals("user")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("clientID")) {
 			try {
 				if (request.getParameter("setOwnershipForUser").equals("true")) {
-					FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), UserIdInSystem.userID);
+					FindingsLogic.setUserForFinding(Integer.parseInt(request.getParameter("findingId")), (int)request.getSession().getAttribute("userId"));
 				}
 			} catch (Exception e) {
 				//
@@ -23,11 +20,11 @@ public class FindingsCommand implements ActionCommand {
 			
 			request.setAttribute("foundItems", FindingsLogic.getFreeFindings());
 			page = ConfigurationManager.getProperty("path.page.findings_user");
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			request.setAttribute("foundItems", FindingsLogic.getAllFindings());
 			page = ConfigurationManager.getProperty("path.page.findings_moderator");
-		} else if (request.getParameter("client").equals("receiver")) {
-			request.setAttribute("foundItems", FindingsLogic.getFindingsForReceiver(UserIdInSystem.userID));
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
+			request.setAttribute("foundItems", FindingsLogic.getFindingsForReceiver((int)request.getSession().getAttribute("userId")));
 			page = ConfigurationManager.getProperty("path.page.receiver.findings");
 		}
 		return page;

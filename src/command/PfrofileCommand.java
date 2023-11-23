@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import coder.Coder;
 import logic.ProfileLogic;
 import resource.ConfigurationManager;
-import cache.UserIdInSystem;
 //РАБОТАЕТ С БД
 public class PfrofileCommand implements ActionCommand {
 
@@ -16,15 +15,15 @@ public class PfrofileCommand implements ActionCommand {
 			changeUser(request);	
 		}
 		
-		request.setAttribute("profileData", ProfileLogic.getSystemUserForID(UserIdInSystem.userID));
+		request.setAttribute("profileData", ProfileLogic.getSystemUserForID((int)request.getSession().getAttribute("userId")));
 		request.setAttribute("saveMessage", "no");
-		if (request.getParameter("client").equals("user")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("clientID")) {
 			page = ConfigurationManager.getProperty("path.page.userprofile");		
-		} else if (request.getParameter("client").equals("admin")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("adminID")) {
 			page = ConfigurationManager.getProperty("path.page.adminprofile");
-		} else if (request.getParameter("client").equals("moderator")){
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")){
 			page = ConfigurationManager.getProperty("path.page.moderatorprofile");
-		} else if (request.getParameter("client").equals("receiver")){
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")){
 			page = ConfigurationManager.getProperty("path.page.receiver.profile");
 		}
 		

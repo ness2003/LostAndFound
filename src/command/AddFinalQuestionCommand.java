@@ -10,8 +10,7 @@ public class AddFinalQuestionCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 		String page = null;
 		int findingId = Integer.parseInt(request.getParameter("findingId"));
-		
-		if (request.getParameter("client").equals("receiver")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
 			try {
 				if (request.getParameter("addFinalQuestion").equals("true")) {
 					FinalQuestionsLogic.addFinalQuestion(request);

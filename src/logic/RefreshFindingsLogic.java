@@ -1,7 +1,6 @@
 package logic;
 
 import java.sql.Date;
-import cache.UserIdInSystem;
 
 public class RefreshFindingsLogic {
 
@@ -13,9 +12,9 @@ public class RefreshFindingsLogic {
 	}
 	
 	public static void addFinding( String findingName, Date findingDate, String findingPlace,
-			String findingDescription, String category) {
+			String findingDescription, String category, int userId) {
 		int categoryId = Logic.getFindingCategory().getCategoryIdForCategoryName(category);
-		Logic.getFinding().addNewFinding(findingName, findingDate, findingPlace, findingDescription, UserIdInSystem.userID, categoryId);
+		Logic.getFinding().addNewFinding(findingName, findingDate, findingPlace, findingDescription,userId, categoryId);
 	}
 
 	public static void deleteFindingForFindingID(int findingID) {

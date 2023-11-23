@@ -15,7 +15,6 @@
 	
     <div class="addfinding">
         <form id="addFindingForm" name="addfindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
-            <input type="hidden" name="client" value="receiver" />
             <input type="hidden" name="command" value="refreshFindings" />
             <input type="hidden" name="act" value="add" />
             

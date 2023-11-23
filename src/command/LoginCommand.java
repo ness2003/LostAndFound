@@ -1,11 +1,11 @@
 package command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import logic.LoginLogic;
 import resource.ConfigurationManager;
 import resource.MessageManager;
-import cache.UserIdInSystem;
 
 //РАБОТАЕТ С БД
 public class LoginCommand implements ActionCommand {
@@ -19,20 +19,23 @@ public class LoginCommand implements ActionCommand {
 		// извлечение из запроса логина и пароля
 		String login = request.getParameter(PARAM_NAME_LOGIN);
 		String pass = request.getParameter(PARAM_NAME_PASSWORD);
-
 		// проверка логина и пароля
 		if (LoginLogic.checkLogin(login, pass)) {
 			if(LoginLogic.checkStatusNotBlocked(login)) {
-				UserIdInSystem.userID = LoginLogic.getUserIdForLogin(login);
-				System.out.println("ID текущего пользователя = " + UserIdInSystem.userID);
-				int groupID = LoginLogic.getGroupIdForLogin(login);
-				if (groupID == LoginLogic.getGroupIdForGroupName("Клиент")) {
+				HttpSession session = request.getSession(true);
+				session.setAttribute("userId", LoginLogic.getUserIdForLogin(login));
+				session.setAttribute("role", LoginLogic.getGroupIdForLogin(login));
+				session.setAttribute("adminID", LoginLogic.getGroupIdForGroupName("Администратор"));
+				session.setAttribute("moderatorID", LoginLogic.getGroupIdForGroupName("Модератор"));
+				session.setAttribute("receiverID", LoginLogic.getGroupIdForGroupName("Приемщик"));
+				session.setAttribute("clientID", LoginLogic.getGroupIdForGroupName("Клиент"));
+				if ((int)session.getAttribute("role") == (int)session.getAttribute("clientID")) {
 					page = ConfigurationManager.getProperty("path.page.main_user");
-				} else if (groupID == LoginLogic.getGroupIdForGroupName("Администратор")) {
+				} else if ((int)session.getAttribute("role") ==(int)session.getAttribute("adminID")) {
 					page = ConfigurationManager.getProperty("path.page.main_admin");
-				} else if (groupID == LoginLogic.getGroupIdForGroupName("Модератор")) {
+				} else if ((int)session.getAttribute("role") == (int)session.getAttribute("moderatorID")) {
 					page = ConfigurationManager.getProperty("path.page.main_moderator");
-				} else if (groupID == LoginLogic.getGroupIdForGroupName("Приемщик")) {
+				} else if ((int)session.getAttribute("role") == (int)session.getAttribute("receiverID")) {
 					page = ConfigurationManager.getProperty("path.page.main_receiver");
 				}
 			}else {
@@ -44,8 +47,7 @@ public class LoginCommand implements ActionCommand {
 			request.setAttribute("errorLoginPassMessage", MessageManager.getProperty("message.loginerror"));
 			page = ConfigurationManager.getProperty("path.page.login");
 		}
-
-		return page;
+	return page;
 	}
 
 }

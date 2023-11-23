@@ -13,7 +13,6 @@
 <body>
 <div class="adduser">
 <form id="addUserForm" name="addUserForm" method="POST" action="/Lost-And-Found/users" accept-charset="UTF-8">
-	<input type="hidden" name="client" value="admin" />
 	<input type="hidden" name="command" value="refreshUsers" />
 	<input type="hidden" name="act" value="add" />  
     <!-- ФИО -->

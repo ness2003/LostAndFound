@@ -8,11 +8,11 @@ public class InformationAboutProjectCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		if (request.getParameter("client").equals("user")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("clientID")) {
 			page = ConfigurationManager.getProperty("path.page.useraboutproject");
-		} else if (request.getParameter("client").equals("moderator")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			page = ConfigurationManager.getProperty("path.page.moderatoraboutproject");
-		} else if (request.getParameter("client").equals("receiver")) {
+		} else if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
 			page = ConfigurationManager.getProperty("path.page.receiver.about_project");
 		}
 

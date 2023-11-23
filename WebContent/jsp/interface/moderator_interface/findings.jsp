@@ -35,14 +35,12 @@
 					<div style="display: flex;">
 						<form name="ChangeButton" method="POST" action="findings/changefinding">
 							<input type="hidden" name="command" value="changefinding" /> 
-							<input type="hidden" name="client" value="moderator" />
 							<input type="hidden" name="findingid" value="<%= finding.getId()%>" />
 							<button id="edit" type="submit">Изменить</button>
 						</form>
 						<button id="openModalDeleteFinding" onclick="openModal('<%= finding.getId() %>', '<%= finding.getName() %>')" type="submit" >Удалить</button>
 						<form name="QuestionsButton" method="POST" action="findings/finalquestions">
 							<input type="hidden" name="command" value="finalquestions" />
-							<input type="hidden" name="client" value="moderator" />
 							<input type="hidden" name="findingId" value="<%= finding.getId() %>" />
 							<button id="finalquestion" type="submit">Контрольные<br>вопросы</button>
 						</form>

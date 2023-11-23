@@ -22,7 +22,6 @@
 
 	<form name="saveProfileData" method="POST" action="myprofile" accept-charset="UTF-8">
     <input type="hidden" name="command" value="myprofile" />
-    <input type="hidden" name="client" value="user" />
     <input type="hidden" name="data" value="refresh" />
     <input type="hidden" name="userid" value="<%=systemUser.getUserID()%>" />
   

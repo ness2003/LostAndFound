@@ -55,7 +55,6 @@
 			<td>
 				<form name="Finds" method="POST" action="/Lost-And-Found/findings">
 					<input type="hidden" name="command" value="findings" /> 
-					<input type="hidden" name="client" value="user" />
 					<button id="backToFinds" type="submit">Назад</button>
 				</form>
 			</td>

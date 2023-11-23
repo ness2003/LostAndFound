@@ -1,11 +1,9 @@
 package command;
 
 import javax.servlet.http.HttpServletRequest;
-import coder.Coder;
-import datalayer.data.FinalQuestion;
 import logic.FinalQuestionsLogic;
 import resource.ConfigurationManager;
-import temporary.data.FinalQuestions;
+
 
 public class RefreshFinalQuestion implements ActionCommand {
 
@@ -18,10 +16,10 @@ public class RefreshFinalQuestion implements ActionCommand {
 		int findingId = Integer.parseInt(request.getParameter("findingId"));
 		request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
 
-		if (request.getParameter("client").equals("moderator")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");
 		}
-		if (request.getParameter("client").equals("receiver")) {
+		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
 			page = ConfigurationManager.getProperty("path.page.receiver.finalquestions");
 		}
 		
