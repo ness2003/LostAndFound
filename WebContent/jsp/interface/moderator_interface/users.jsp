@@ -22,10 +22,6 @@
 <body>
 	<jsp:include page="/jsp/interface/moderator_interface/header.jsp" />
 
-		
-
- <button id="scrollToBottomButton"><img src="<%= request.getContextPath() %>/images/down.png" alt="Вниз"></button>
-
     <!-- Другой контент страницы здесь -->
 
  
@@ -36,21 +32,21 @@
 	
 	
 
-    <table item="users" width="50%">
+    <table id="users">
         <tr>
             <td><img src="<%= request.getContextPath() %>/images/user.png" alt="Фото пользователя"></td>
-            <td item="itemusers"><%= user.getFullName() %> 
+            <td id="itemusers"><%= user.getFullName() %> 
             <img id="statusImage<%= user.getUserID() %>" src="<%= user.getStatus().equals("Активен") ? request.getContextPath() + "/images/unlock.png" : request.getContextPath() + "/images/lock.png" %>" alt="Статус"></td>
-            <td item="itemusers">Логин</td>
-            <td item="itemusers">Пароль
-                <button item="activity" type="button" onclick="togglePassword(this, '<%= user.getPassword() %>')">
+            <td id="itemusers">Логин</td>
+            <td id="itemusers">Пароль
+                <button id="activity" type="button" onclick="togglePassword(this, '<%= user.getPassword() %>')">
                     <img src="<%= request.getContextPath() %>/images/seem.png" alt="На главную">
                 </button>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td item="role"><%= user.getGroup() %></td>
+            <td id="role"><%= user.getGroup() %></td>
             <td><%= user.getLogin() %></td>
             <td>
                 <span class="passwordField"><%= new String(new char[user.getPassword().length()]).replace('\0', '*') %></span>
@@ -58,27 +54,22 @@
         </tr>
         <tr>
             <td></td>
-            <td item="itemusers2"><%= user.getEmail() %></td>
+            <td id="itemusers2"><%= user.getEmail() %></td>
         </tr>
 			<tr>
 				<td></td>
 				<td colspan="1">
 					<div style="display: flex;">
-						<form name="BlockButton" method="POST" action="users">
-							<input type="hidden" name="command" value="blockuser" /> 
-							<input type="hidden" name="client" value="moderator" />
-							<input type="hidden" name="userid" value="<%=user.getUserID()%>" />
-							<button item="actionbutton" type="submit" name="action">
-								<%=user.getStatus().equals("Активен") ? "Заблокировать" : "Разблокировать"%>
-							</button>
-						</form>
-
+						<% String currentStatus =  user.getStatus().equals("Активен") ? "Заблокировать" : "Разблокировать";%>
+						<button id="openModalBlockUser" type="submit" onclick="openModal('<%=user.getUserID()%>', '<%=currentStatus %>', '<%= user.getFullName() %>')">
+							<%=currentStatus %>
+						</button>
 					</div>
 				</td>
 			</tr>
 		</table>
-
-    <script>
+		
+	<script>
     function togglePassword(button, password) {
         var passwordField = button.closest('table').querySelector('.passwordField');
         var passwordImage = button.querySelector('img');
@@ -93,23 +84,73 @@
             passwordField.innerText = password;
             passwordImage.src = '<%= request.getContextPath() %>/images/seem.png';
         }
-    }
-    function scrollToBottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    // Получаем кнопку
-    var scrollToBottomButton = document.getElementById("scrollToBottomButton");
-
-    // Назначаем обработч  ик события при нажатии на кнопку
-    scrollToBottomButton.addEventListener("click", scrollToBottom);   
+    }  
   
     </script>
 
-<% } %>
+<% } %>		
+		<!-- Модальное окно -->
+	<div id="blockUserModal" class="modal">
+	  	<!-- Модальное содержание -->
+	  	<div class="modal-content">
+	    <h1 id="blockUser">Действие над пользователем</h1>
+	    <p>Вы действительно хотите <span id="statusUser"></span> пользователя <span id="nameUser"></span>?</p>
+		    <table>
+			    <tr>
+			        <td>
+			        	<form name="BlockButton" method="POST" action="users">
+							<input type="hidden" name="command" value="blockuser" /> 
+							<input type="hidden" name="client" value="moderator" />
+							<input id="userIdForBlock" type="hidden" name="userid" value="" />
+							<button id="blockUser" type="submit">Да</button>
+						</form>
+			        </td>
+			        <td>
+						<button id="exit" type="submit">Нет</button>
+					</td>
+			    </tr>
+			</table> 
+		</div>
+	</div>
+
+<script>
+		// Получить модальное окно
+	var modal = document.getElementById("blockUserModal");
+	// Получить кнопку, которая закрывает модальное окно
+	var btnExit = document.getElementById("exit");
+	
+	// Обработчик нажатия события, когда открывается модальное окно
+	function openModal(id, status, name) {
+		var userId = document.getElementById('userIdForBlock');
+		userId.value = id;
+    	var statusText = document.getElementById("statusUser");
+    	statusText.innerHTML = status.toLowerCase();
+    	var userNameText = document.getElementById("nameUser");
+    	userNameText.innerHTML = name;
+	  	modal.style.display = "block";
+		// Чтобы пользователь не смог вернуться на предыдущую странницу отменяем это
+		history.pushState(null, null, location.href);
+		window.onpopstate = function () {
+		    history.go(1);
+		}
+	}
+	
+	// Когда пользователь нажимает на кнопку, закрывается модальное окно
+	btnExit.onclick = function() {
+	  modal.style.display = "none";
+	}
+	
+	// Когда пользователь щелкает в любом месте за пределами модального, все блокируется
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "block";
+	  }
+	}
+</script>
 
 
 
-<jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
+
+
 </body>
 </html>

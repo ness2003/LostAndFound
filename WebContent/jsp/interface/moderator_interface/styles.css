@@ -1,22 +1,19 @@
 @charset "UTF-8";
 
-
-body{
+body {
 	background-color: #333;
 	font-family: century gothic;
 	font-size: 15px;
 	color: #fff;
-	
 	display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
-    padding: 0;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 0;
 	margin: 0;
 }
 
-
+/* -------------------------------------------- стили final question ------------------------------------------------ */
 table[item="finalquestion"] {
 	border: 2px solid rgba(255, 168, 0, 0);
 	/* Обводка с цветом rgba(255, 168, 0, 0) (полностью прозрачная) */
@@ -25,7 +22,7 @@ table[item="finalquestion"] {
 	border-radius: 30px;
 	background-color: #fff;
 	width: 50%; /* Установите ширину в 90% */
-	  table-layout: fixed; 
+	table-layout: fixed;
 	word-wrap: break-word;
 }
 
@@ -34,42 +31,41 @@ table[item="finalquestion"]:hover {
 	/* Обводка с цветом rgba(255, 168, 0, 1) (полностью непрозрачная) при наведении */
 }
 
-
 table[item="finalquestion"] td {
-    padding: 10px;
-    text-align: center;
+	padding: 10px;
+	text-align: center;
 }
 
 table[item="finalquestion"] td[item="question"] {
-    text-align: center; /* Центрирование текста по горизонтали */
-    font-weight: bold;
+	text-align: center; /* Центрирование текста по горизонтали */
+	font-weight: bold;
 }
 
 table[item="finalquestion"] td[item="rightanswer"] {
-    color: green; /* Зеленый цвет текста */
-    transition: color 0.3s, background 0.3s; /* Анимация цвета и фона */
-    background-image: radial-gradient(rgba(0, 128, 0, 0.3), transparent); /* Радиальный градиент с центральной точкой */
+	color: green; /* Зеленый цвет текста */
+	transition: color 0.3s, background 0.3s; /* Анимация цвета и фона */
+	background-image: radial-gradient(rgba(0, 128, 0, 0.3), transparent);
+	/* Радиальный градиент с центральной точкой */
 }
 
 table[item="finalquestion"] td[item="rightanswer"]:hover {
-    color: black; /* Черный цвет текста при наведении */
-    background: green; /* Зеленый фон при наведении */
+	color: black; /* Черный цвет текста при наведении */
+	background: green; /* Зеленый фон при наведении */
 }
 
 table[item="finalquestion"] td[item="alternativeanswer"] {
-    color: red; /* Красный цвет текста */
-    transition: color 0.3s, background 0.3s; /* Анимация цвета и фона */
-    background-image: radial-gradient(rgba(255, 0, 0, 0.3), transparent); /* Радиальный градиент с центральной точкой */
+	color: red; /* Красный цвет текста */
+	transition: color 0.3s, background 0.3s; /* Анимация цвета и фона */
+	background-image: radial-gradient(rgba(255, 0, 0, 0.3), transparent);
+	/* Радиальный градиент с центральной точкой */
 }
 
 table[item="finalquestion"] td[item="alternativeanswer"]:hover {
-    color: black; /* Черный цвет текста при наведении */
-    background: red; /* Красный фон при наведении */
+	color: black; /* Черный цвет текста при наведении */
+	background: red; /* Красный фон при наведении */
 }
 
-
 /*-------------------------------------------- Стили header -------------------------------------------------*/
-
 header {
 	position: fixed;
 }
@@ -80,7 +76,7 @@ table#header {
 	width: 70%;
 	margin-top: 20px;
 	margin-bottom: 30px;
-	padding: 1%;	
+	padding: 1%;
 }
 
 table#header button {
@@ -89,10 +85,9 @@ table#header button {
 	font-size: 20px;
 	font-style: normal;
 	border: none;
-	background-color: rgb(0,0,0,0);
+	background-color: rgb(0, 0, 0, 0);
 	transition: transform 0.5s;
 	height: 50px;
-
 }
 
 table#header button:hover {
@@ -103,32 +98,32 @@ table#header button:hover {
 
 /*-------------------------------------------- Стили users -------------------------------------------------*/
 
-
-table[item="users"] {
+table#users {
+	width: 50%;
 	border: 4px solid rgba(0, 0, 0, 0);
 	padding: 10px;
-	margin-top: 15px; 
 	border-radius: 30px;
 	background-color: #fff;
+	margin-bottom: 20px;
 }
 
-table[item="users"]:hover {
+table#users:hover {
 	border: 4px solid rgba(255, 168, 0, 1);
 }
 
-td[item="itemusers"] {
+td#itemusers {
 	color: #0085FF;
 	font-size: 15px;
 	font-style: normal;
 }
 
-td[item="role"] {
+td#role {
 	color: #0085FF;
 	font-size: 15px;
 	font-style: normal;
 }
 
-td[item="e-mail"] {
+td#e-mail {
 	max-width: 300px;
 	width: 300px;
 	padding: 10px;
@@ -138,7 +133,7 @@ td[item="e-mail"] {
 	font-weight: 700;
 }
 
-td[item="login"] {
+td#login {
 	padding: 10px 100px 10px 100px;
 	color: #1E1E1E;
 	font-size: 20px;
@@ -147,7 +142,7 @@ td[item="login"] {
 	width: 500px;
 }
 
-td[item="password"] {
+td#password {
 	max-width: 300px;
 	padding: 20px 10px 0px;
 	color: #1E1E1E;
@@ -162,7 +157,7 @@ td {
 	font-style: normal;
 }
 
-td[item="category"] {
+td#category {
 	padding: 0px 10px 5px;
 	color: #333;
 	font-size: 15px;
@@ -176,86 +171,104 @@ th {
 	font-style: normal;
 }
 
-/*-------------------------------------------- Стили findings -------------------------------------------------*/
 
-button[item="actionbutton"] {
-	width: 130px;
-	height: 50px;
-	border: none;
-	border-radius: 50px;
-	background: #0085FF;
-	color: #FFF;
-	font-size: 15px;
-	font-style: normal;
-	transition: transform 0.5s;
-	text-align: center;
-}
-
-button[item="actionbutton2"] {
-	 margin-top: 10px; 
-	width: 130px;
-	height: 50px;
-	border: none;
-	border-radius: 50px;
-	background: #0085FF;
-	color: #FFF;
-	font-size: 15px;
-	font-style: normal;
-	transition: transform 0.5s;
-	text-align: center;
-}
-
-button[item="actionbutton"]:hover {
-	background: #FFA800;
-	transform: scale(1.1);
-}
-button[item="actionbutton2"]:hover {
-	background: #FFA800;
-	transform: scale(1.1);
-}
-
-button[item="activity"] {
+button#activity {
 	background-color: rgba(0, 0, 0, 0.0);
 	transition: transform 0.5s;
 	border: 1px solid rgba(0, 0, 0, 0.0);
 }
 
-button[item="adduserbutton"] {
-	width: 130px;
-	height: 50px;
+button#openModalBlockUser {
+	width: 120px;
+	height: 40px;
 	border: none;
 	border-radius: 50px;
 	background: #0085FF;
 	color: #FFF;
 	font-size: 15px;
-	font-style: normal;
 	transition: transform 0.5s;
-	text-align: center;
 }
 
-button[item="adduserbutton"]:hover {
+button#openModalBlockUser:hover {
+	background: #FFA800;
+	transform: scale(1.1);
+}
+
+/*-------------------------------------------- Стили findings -------------------------------------------------*/
+
+table#finding {
+	border: none;
+	border-radius: 30px;
+	background-color: #fff;
+	margin-bottom: 30px;
+}
+
+td#category {
+	padding: 30px 40px 0px;
+	color: #0085FF;
+	font-size: 15px;
+	font-style: normal;
+}
+
+td#name {
+	max-width: 300px;
+	width: 300px;
+	padding: 0px 40px 15px;
+	color: #1E1E1E;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+}
+
+td#description {
+	padding: 15px 0px 15px;
+	color: #1E1E1E;
+	font-size: 20px;
+	font-style: normal;
+	max-width: 500px;
+	width: 500px;
+}
+
+td#date {
+	max-width: 300px;
+	padding: 15px 40px 15px;
+	color: #1E1E1E;
+	font-size: 15px;
+	font-style: normal;
+}
+
+td#place{
+	padding: 0px 40px 30px;
+	color: #333;
+	font-size: 15px;
+	font-style: normal;
+}
+
+button#openModalDeleteFinding, button#edit, button#finalquestion {
+	width: 100px;
+	height: 60px;
+	border: none;
+	border-radius: 50px;
+	background: #0085FF;
+	color: #FFF;
+	font-size: 15px;
+	transition: transform 0.5s;
+	text-align: center;
+	margin-left: 5px;
+}
+
+button#finalquestion {
+	width: 130px;
+}
+
+
+button#openModalDeleteFinding:hover, button#edit:hover, button#finalquestion:hover {
 	background: #FFA800;
 	transform: scale(1.1);
 }
 
 
-button[id="scrollToBottomButton"] {
-	position: fixed;
-	top: 20;
-	right: 0;
-	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
-		0.00) 80%);
-	border: none;
-	outline: none;
-	transform: scale(1.1);
-}
-
-button[id="scrollToBottomButton"]:hover {
-	background: radial-gradient(50.01% 50% at 50% 50%, #FFA800 0%, rgba(255, 168, 0,
-		0.00) 80%);
-	transform: scale(1.15);
-	cursor: pointer;
-}
+/* ------------------------------ стили chancge finding, finalquestion -------------------------------------------- */
 
 .changefinalquestion {
 	position: absolute;
@@ -265,6 +278,7 @@ button[id="scrollToBottomButton"]:hover {
 	padding: 20px; /* Внутренний отступ */
 	color: #333;
 }
+
 .changefinding {
 	position: absolute;
 	top: 45%;
@@ -274,17 +288,18 @@ button[id="scrollToBottomButton"]:hover {
 	color: #333;
 }
 
-
 #changeFinalQuestionForm label {
 	display: block;
 	margin-bottom: 5px;
 	text-align: left; /* Выравнивание текста внутри label по левому краю */
 }
+
 #changefindingForm label {
 	display: block;
 	margin-bottom: 5px;
 	text-align: left; /* Выравнивание текста внутри label по левому краю */
 }
+
 #changeFinalQuestionForm {
 	width: 500px;
 	padding: 20px;
@@ -296,6 +311,7 @@ button[id="scrollToBottomButton"]:hover {
 	border-radius: 10px; /* Задаем радиус скругления углов */
 	background-color: #fff;
 }
+
 #changefindingForm {
 	width: 500px;
 	padding: 20px;
@@ -317,8 +333,7 @@ button[id="scrollToBottomButton"]:hover {
 	border-radius: 5px;
 }
 
-#changeFinalQuestionForm  input[type="text"]
-	{
+#changeFinalQuestionForm  input[type="text"] {
 	width: 90%;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -348,7 +363,6 @@ button[id="scrollToBottomButton"]:hover {
   }
 }
 
-
 h1#home {
 	font-size: 50px;
 	display: flex;
@@ -367,8 +381,7 @@ h1#home {
 	border-radius: 561px;
 	background: #0085FF;
 	filter: blur(70px);
-	animation:
-    	color-change 5s alternate linear infinite;
+	animation: color-change 5s alternate linear infinite;
 }
 
 /* ------------------------------------------- Стили окна myprofile --------------------------------------------------*/
@@ -386,10 +399,9 @@ table#profile {
 	text-align: center;
 }
 
-
 label#profileTitle {
-	width: 200px; 
-    display: inline-block;
+	width: 200px;
+	display: inline-block;
 	margin: 5px;
 	padding: 20px;
 	font-size: 30px;
@@ -399,9 +411,9 @@ label#profileTitle {
 	background: #0085FF;
 }
 
-input[type="text"]{
-	width: 500px; 
-    display: inline-block;
+input[type="text"] {
+	width: 500px;
+	display: inline-block;
 	margin: 5px;
 	padding: 20px;
 	font-size: 30px;
@@ -446,6 +458,7 @@ p#saveMessage {
 	color: #52ff33;
 }
 
+/* --------------------------------------------------- стили about_project ----------------------------------- */
 
 .mytasks {
 	font-size: 24px;
@@ -464,78 +477,6 @@ p#saveMessage {
 }
 
 
-
-table[item="finding"] {
-	border: none;
-	padding: 10px;
-	margin: 2%;
-	margin-left: 4%;
-	margin-right: 4%;
-	border-radius: 30px;
-	background-color: #fff;
-	margin-right: 4%;
-}
-
-
-
-td[item="category"] {
-	padding: 10px;
-	color: #0085FF;
-	font-size: 15px;
-	font-style: normal;
-}
-
-td[item="name"] {
-	max-width: 300px;
-	width: 300px;
-	padding: 10px;
-	color: #1E1E1E;
-	font-size: 30px;
-	font-style: normal;
-	font-weight: 700;
-}
-
-td[item="description"] {
-	padding: 10px 100px 10px 100px;
-	color: #1E1E1E;
-	font-size: 20px;
-	font-style: normal;
-	max-width: 500px;
-	width: 500px;
-}
-
-td[item="date"] {
-	max-width: 300px;
-	padding: 20px 10px 0px;
-	color: #1E1E1E;
-	font-size: 15px;
-	font-style: normal;
-}
-
-td[item="place"] {
-	padding: 0px 10px 5px;
-	color: #333;
-	font-size: 15px;
-	font-style: normal;
-}
-
-button[item="actionfinding"] {
-	width: 150px;
-	height: 100px;
-	border: none;
-	border-radius: 50px;
-	background: #0085FF;
-	color: #FFF;
-	font-size: 15px;
-	font-style: normal;
-	transition: transform 0.5s;
-	text-align: center;
-}
-
-button[item="actionfinding"]:hover {
-	background: #FFA800;
-	transform: scale(1.3);
-}
 
 #addUserForm label {
 	display: block;
@@ -596,3 +537,63 @@ footer {
 	padding: 10px; /* Внутренние отступы */
 	text-align: center; /* Выравнивание текста по центру */
 }
+
+/* ------------------------------------------- Стили модального окна deleteFinding --------------------------------------------------*/
+.modal {
+	display: none; /* Скрыто по умолчанию */
+	position: fixed; /* Оставаться на месте */
+	z-index: 1; /* Сидеть на вершине */
+	left: 0;
+	top: 0;
+	width: 100%; /* Полная ширина */
+	height: 100%; /* Полная высота */
+	background-color: rgba(0, 0, 0, 0.4); /* Черный с непрозрачностью */
+}
+
+.modal-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 50px;
+	border: 1px solid #FFF;
+	background-color: #333;
+	padding: 10px;
+	margin: 300px;
+	margin-top: 15%;
+}
+
+span#deleteFindingText {
+	font-weight: bold;
+	border-bottom: 2px solid red; /* Замените "red" на нужный вам цвет */
+}
+
+span#statusUser, span#nameUser {
+	font-weight: bold;
+	border-bottom: 2px solid #0085FF; /* Замените "red" на нужный вам цвет */
+}
+
+button#exit, button#deleteFinding, button#blockUser {
+	width: 100px;
+	height: 50px;
+	border: none;
+	border-radius: 50px;
+	font-size: 17px;
+	text-align: center;
+	background: #fff;
+	color: #333;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+button#exit:hover, button#blockUser:hover {
+	color: #fff;
+	background: #0085FF;
+}
+
+button#deleteFinding:hover {
+	color: #fff;
+	background: red;
+}
+
+
