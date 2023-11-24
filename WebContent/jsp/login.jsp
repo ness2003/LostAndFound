@@ -79,7 +79,8 @@ input#loginbutton:hover {
     padding: 20px;
     color: white; /* Белый цвет текста */
     z-index: 9999;
-    background: radial-gradient(circle at center, rgba(255,0,0,1) 0%, rgba(255,0,0,0) 100%); /* Рассеивающийся красный фон из центра */
+    background: radial-gradient(50.01% 50% at 50% 50%, #FF0000 0%, rgba(255, 0, 0,
+		0.00) 100%); /* Рассеивающийся красный фон из центра */
     border: none; /* Убираем границу */
 }
 </style>
