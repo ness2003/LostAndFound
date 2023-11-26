@@ -31,7 +31,7 @@ public class SessionTimeoutFilter implements Filter {
 		String loginPage = "/Lost-And-Found/";
 		String currentURI = httpRequest.getRequestURI();
 		long inactiveInterval = currentTime - lastAccessedTime;
-		if (inactiveInterval > timeout * 5 * 1000 && session.getAttribute("userId") != null && currentURI!=loginPage) {
+		if (inactiveInterval > timeout * 60 * 1000 && session.getAttribute("userId") != null && currentURI!=loginPage) {
 			session.invalidate();
 			httpRequest.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
 			httpRequest.getSession().setAttribute("showTimeoutMessage", true);

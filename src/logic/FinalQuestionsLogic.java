@@ -68,4 +68,10 @@ public class FinalQuestionsLogic {
 		Logic.getFinalQuestion().addFinalQuestion(findingId, question, rightAnswer, alternativeAnswer1,
 				alternativeAnswer2);
 	}
+
+	public static void deleteFinalQuestion(HttpServletRequest request) {
+		int questionId = Integer.parseInt(request.getParameter("finalquestionid"));
+		Logic.getFinalQuestion().deleteFinalQuestion(questionId);
+		
+	}
 }

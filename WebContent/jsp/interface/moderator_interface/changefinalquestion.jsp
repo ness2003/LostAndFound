@@ -15,6 +15,7 @@
     	<form id="changeFinalQuestionForm" name="changeFinalQuestionForm" method="POST" action="/Lost-And-Found/findings/finalquestions" accept-charset="UTF-8">
         <input type="hidden" name="command" value="RefreshFinalQuestion" />
         <input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId() %>" />
+        <input type="hidden" name="actiontype" value="saverefresh" />
         <input type="hidden" name="findingId" value="<%= finalQuestion.getFindingId() %>" />
         <!-- Вопрос -->
         <label for="question">Вопрос:</label>

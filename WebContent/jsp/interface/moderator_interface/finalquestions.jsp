@@ -29,38 +29,56 @@
      for (FinalQuestion finalQuestion : foundItems) { %>
 
 
-	<table item="finalquestion" width="50%" >
-		<tr>
-			<td item="question"><%= finalQuestion.getQuestion()%></td>
-			
-		
-		</tr>
-		<tr>
-			<td item="rightanswer"><%= finalQuestion.getRightAnswer() %></td>
-		</tr>
-		<tr>
-			<td item="alternativeanswer"><%= finalQuestion.getAlternativeAnswer1() %></td>
+		<table item="finalquestion" width="50%">
+			<tr>
+				<td item="question"><%=finalQuestion.getQuestion()%></td>
 
-		</tr>
-		<tr>
-			<td item="alternativeanswer"><%= finalQuestion.getAlternativeAnswer2() %></td>
-						
-		</tr>
-		<tr>
-			<td colspan="1">
+
+			</tr>
+			<tr>
+				<td item="rightanswer"><%=finalQuestion.getRightAnswer()%></td>
+			</tr>
+			<tr>
+				<td item="alternativeanswer"><%=finalQuestion.getAlternativeAnswer1()%></td>
+
+			</tr>
+			<tr>
+				<td item="alternativeanswer"><%=finalQuestion.getAlternativeAnswer2()%></td>
+
+			</tr>
+			<tr>
+				<td colspan="1">
 					<div style="text-align: center;">
-						<form name="ChangeButton" method="POST" action=finalquestions/changefinalquestion>
-							<input type="hidden" name="command" value="changefinalquestion" /> 
-							<input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId()%>" />
+						<form name="ChangeButton" method="POST"
+							action=finalquestions/changefinalquestion>
+							<input type="hidden" name="command" value="changefinalquestion" />
+							<input type="hidden" name="finalquestionid"
+								value="<%=finalQuestion.getId()%>" />
 							<button item="actionbutton" type="submit" name="action"
-							value="changefinding">Изменить</button>
+								value="changefinding">Изменить</button>
 						</form>
+						
 					</div>
 				</td>
-		</tr>
-	</table>
+			</tr>
+			<tr>
+			<td>
+			<form id="deleteFinalQuestion"
+							method="POST" action="finalquestions"
+							accept-charset="UTF-8">
+							<input type="hidden" name="command" value="RefreshFinalQuestion" />
+							<input type="hidden" name="actiontype" value="delete" />
+							<input type="hidden" name="finalquestionid"
+								value="<%=finalQuestion.getId()%>" />
+								<input type="hidden" name="findingId"
+								value="<%=finalQuestion.getFindingId()%>" />
+							<button item="actionbutton" type="submit">Удалить</button>
+						</form>
+					</td>
+			</tr>
+		</table>
 
-	<% } %>
+		<% } %>
 </div>
 <jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
 </body>

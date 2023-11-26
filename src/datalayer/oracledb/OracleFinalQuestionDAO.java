@@ -190,4 +190,26 @@ public class OracleFinalQuestionDAO implements FinalQuestionDAO {
 		
 	}
 
+	@Override
+	public void deleteFinalQuestion(int questionId) {
+		PreparedStatement ps = null;
+		try {
+			
+			ps = connection.prepareStatement(resourcer.getString("delete.finalquestion.for.questionid"));
+			ps.setInt(1, questionId);
+			ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }

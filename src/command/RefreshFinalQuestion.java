@@ -10,8 +10,12 @@ public class RefreshFinalQuestion implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-
-		FinalQuestionsLogic.refreshFinalQuestion(request);
+		if (request.getParameter("actiontype").equals("saverefresh")){
+			FinalQuestionsLogic.refreshFinalQuestion(request);
+		}else if (request.getParameter("actiontype").equals("delete")) {
+			FinalQuestionsLogic.deleteFinalQuestion(request);
+		}
+		
 
 		int findingId = Integer.parseInt(request.getParameter("findingId"));
 		request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
