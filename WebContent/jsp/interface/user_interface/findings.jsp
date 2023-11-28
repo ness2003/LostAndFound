@@ -14,9 +14,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-		<style>
-			<jsp:include page="../styles.css"/>
-		</style>
+	<style>
+		<jsp:include page="../styles.css"/>
+	</style>
+	<title>Находки</title>
 </head>
 
 <body>

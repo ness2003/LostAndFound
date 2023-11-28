@@ -45,6 +45,12 @@
 		<% if(request.getAttribute("saveMessage").equals("yes")) {%>
 		<tr>
 			<td colspan="2"><p id="saveMessage">Данные успешно сохранены!</p></td>
+			<script>
+		        // Скрываем сообщение через 2 секунды 
+		        setTimeout(function(){
+		            document.getElementById("saveMessage").style.display = "none";
+		        }, 2000);
+			</script>
 		</tr>
 		<%}%>
 		</table>

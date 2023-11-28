@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<h1>Добавление находки</h1>
+	<h1 id="titleAddFinfingText">Добавление находки</h1>
 	
     <div class="addfinding">
         <form id="addFindingForm" name="addfindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
@@ -45,8 +45,6 @@
             <button id="addFinding" type="submit">Сохранить</button>
         </form>
     </div>
-
-    <jsp:include page="/jsp/interface/receiver_interface/footer.jsp" />
 
 </body>
 </html>

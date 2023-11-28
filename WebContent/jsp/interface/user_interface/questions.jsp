@@ -12,9 +12,10 @@
 <head>
 <meta charset="UTF-8">
 
-		<style>
-			<jsp:include page="../styles.css"/>
-		</style>
+	<style>
+		<jsp:include page="../styles.css"/>
+	</style>
+	<title>Контрольные вопросы</title>
 </head>
 <body>
 

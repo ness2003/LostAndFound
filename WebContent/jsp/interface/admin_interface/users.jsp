@@ -21,12 +21,17 @@
 	
 	<body>
 		<jsp:include page="/jsp/interface/admin_interface/header.jsp" />
-	<div class="content">
 			
-	
-	 <button id="scrollToBottomButton"><img src="<%= request.getContextPath() %>/images/down.png" alt="Вниз"></button>
-	
-	    <!-- Другой контент страницы здесь -->
+
+	<form name="AddButton" method="POST" action="users/adduser">
+		<input type="hidden" name="command" value="adduser" /> <input
+			type="hidden" name="btn" value="block" /> <input type="hidden"
+			name="client" value="admin" />
+		<button id="addUser" type="submit" name="action">
+			Добавить пользователя</button>
+	</form>
+
+		<!-- Другой контент страницы здесь -->
 	
 	 
 			<%
@@ -44,7 +49,7 @@
 	            <td id="itemusers">Логин</td>
 	            <td id="itemusers">Пароль
 	                <button id="activity" type="button" onclick="togglePassword(this, '<%= user.getPassword() %>')">
-	                    <img src="<%= request.getContextPath() %>/images/seem.png" alt="На главную">
+	                    <img src="<%= request.getContextPath() %>/images/notseem.png" alt="На главную">
 	                </button>
 	            </td>
 	        </tr>
@@ -98,34 +103,12 @@
             passwordField.innerText = password;
             passwordImage.src = '<%= request.getContextPath() %>/images/seem.png';
         }
-    }
-    function scrollToBottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    // Получаем кнопку
-    var scrollToBottomButton = document.getElementById("scrollToBottomButton");
-
-    // Назначаем обработч  ик события при нажатии на кнопку
-    scrollToBottomButton.addEventListener("click", scrollToBottom);   
-  
+    }  
     </script>
     
 
 <% } %>
 
-
-	<div class="addusercontainer">
-		<form name="AddButton" method="POST" action="users/adduser">
-			<input type="hidden" name="command" value="adduser" /> <input
-				type="hidden" name="btn" value="block" /> <input type="hidden"
-				name="client" value="admin" />
-			<button id="adduserbutton" type="submit" name="action">
-				Добавить пользователя</button>
-		</form>
-	</div>
-
-</div>
 
 <!-- Модальное окно -->
 <div id="deleteUserModal" class="modal">

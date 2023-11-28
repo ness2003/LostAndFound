@@ -10,8 +10,10 @@
     <title>Изменение вопроса</title>
 </head>
 <body>
+<h1 id="titleChangeFinalQuestionText">Редактировние контрольного вопроса</h1>
+
 <% FinalQuestion finalQuestion = (FinalQuestion) request.getAttribute("finalQuestion"); %>
-<div class="changefinalquestion">
+
     	<form id="changeFinalQuestionForm" name="changeFinalQuestionForm" method="POST" action="/Lost-And-Found/findings/finalquestions" accept-charset="UTF-8">
         <input type="hidden" name="command" value="RefreshFinalQuestion" />
         <input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId() %>" />
@@ -33,11 +35,9 @@
         <label for="alternativeAnswer2">Альтернативный ответ 2:</label>	
         <input id="alternativeAnswer2" type="text" required name="alternativeAnswer2" value="<%= finalQuestion.getAlternativeAnswer2() %>" /><br />
 
-        <button item="actionbutton" type="submit">Сохранить изменения</button>
+        <button id="saveFinalQuestionChanges" type="submit">Сохранить изменения</button>
     </form>
-</div>
 
-<jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
 
 </body>
 </html>

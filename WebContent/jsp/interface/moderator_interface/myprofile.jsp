@@ -8,9 +8,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
-<jsp:include page="./styles.css"/>
-</style>
+	<style>
+	<jsp:include page="./styles.css"/>
+	</style>
+	<title>Мой профиль</title>
 </head>
 
 <body id="new">
@@ -45,6 +46,12 @@
 		<% if(request.getAttribute("saveMessage").equals("yes")) {%>
 		<tr>
 			<td colspan="2"><p id="saveMessage">Данные успешно сохранены!</p></td>
+			<script>
+		        // Скрываем сообщение через 2 секунды 
+		        setTimeout(function(){
+		            document.getElementById("saveMessage").style.display = "none";
+		        }, 2000);
+			</script>
 		</tr>
 		<%}%>
 		</table>

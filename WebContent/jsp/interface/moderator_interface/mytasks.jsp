@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>О проекте</title>
-				<style>
+		<style>
 			<jsp:include page="./styles.css"/>
 		</style>
+		<title>О проекте</title>
 </head>
 <body>
 	<jsp:include page="/jsp/interface/moderator_interface/header.jsp" />
@@ -30,6 +31,6 @@
 		</ul>
 	</div>
 
-	<jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
+
 </body>
 </html>

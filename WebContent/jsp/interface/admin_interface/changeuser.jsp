@@ -11,8 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1 id="titleChangeUserText">Добавление пользователя</h1>
   <% SystemUser user = (SystemUser)request.getAttribute("user"); %>
-<div class="adduser">
+
 <form id="addUserForm" name="addUserForm" method="POST" action="/Lost-And-Found/users" accept-charset="UTF-8">
 	<input type="hidden" name="command" value="refreshUsers" />
 	<input type="hidden" name="act" value="change" />
@@ -47,12 +48,10 @@
         <option value="Клиент" <% if (user.getGroup().equals("Клиент")) { %>selected<% } %>>Клиент</option>
         <option value="Приемщик" <% if (user.getGroup().equals("Приемщик")) { %>selected<% } %>>Приемщик</option>
     </select><br />
-	<button item="actionbutton" type="submit">Сохранить изменения</button>
+	<button id="SaveUserChanges" type="submit">Сохранить изменения</button>
     <!-- <input id="loginbutton" type="submit" value="Добавить пользователя" /> -->
 </form>
-</div>
 
-<jsp:include page="/jsp/interface/admin_interface/footer.jsp" />
 
 </body>
 </html>
