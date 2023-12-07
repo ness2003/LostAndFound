@@ -8,10 +8,12 @@
 <style>
 	<jsp:include page="./styles.css"/>
 </style>
-<title>Insert title here</title>
+<title>Добавить пользователя</title>
 </head>
 <body>
-<div class="adduser">
+
+<h1 id="titleAddUserText">Добавление пользователя</h1>
+
 <form id="addUserForm" name="addUserForm" method="POST" action="/Lost-And-Found/users" accept-charset="UTF-8">
 	<input type="hidden" name="command" value="refreshUsers" />
 	<input type="hidden" name="act" value="add" />  
@@ -46,12 +48,10 @@
         <option value="Клиент">Клиент</option>
         <option value="Приемщик">Приемщик</option>
     </select><br />
-	<button item="actionbutton" type="submit">Добавить пользователя</button>
+	<button id="saveAndAddUser" type="submit">Добавить пользователя</button>
     <!-- <input id="loginbutton" type="submit" value="Добавить пользователя" /> -->
 </form>
-</div>
 
-<jsp:include page="/jsp/interface/admin_interface/footer.jsp" />
 
 </body>
 </html>

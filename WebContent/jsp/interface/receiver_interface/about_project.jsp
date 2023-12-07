@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>О проекте</title>
-				<style>
+		<style>
 			<jsp:include page="./styles.css"/>
 		</style>
 </head>
@@ -31,6 +31,5 @@
 		</ul>
 	</div>
 
-	<jsp:include page="/jsp/interface/user_interface/footer.jsp" />
 </body>
 </html>

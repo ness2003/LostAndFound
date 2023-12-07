@@ -9,6 +9,7 @@
 			<jsp:include page="./styles.css"/>
 		</style>
 		
+		<title>Главная</title>
 	</head>
 	
 	<body>
@@ -17,5 +18,6 @@
 		<div class="circle"></div>
 		<h1 id="home">Здравствуйте!<br>Что будем искать?</h1>
 		
+		<jsp:include page="/jsp/interface/user_interface/footer.jsp" />		
 	</body>
 </html>

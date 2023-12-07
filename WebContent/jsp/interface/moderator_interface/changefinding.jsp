@@ -10,8 +10,10 @@
     <title>Редактирование находки</title>
 </head>
 <body>
+    <h1 id="titleText">Редактировние находки</h1>
+	
     <% Finding finding = (Finding)request.getAttribute("finding"); %>
-    <div class="changefinding">
+
         <form id="changefindingForm" name="changefindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
             <input type="hidden" name="command" value="refreshFindings" />
             <input type="hidden" name="act" value="edit" />
@@ -22,7 +24,7 @@
 
             <!-- Описание находки -->
             <label for="findingDescription">Описание находки:</label>
-            <textarea id="findingDescription" required name="findingDescription"><%= finding.getDescription() %></textarea><br />
+            <input id="findingDescription" type="text" required name="findingDescription" value="<%= finding.getDescription() %>"><br />
 
             <!-- Дата находки -->
             <label for="findingDate">Дата находки:</label>
@@ -38,14 +40,11 @@
                 <option value="Драгоценности и ювелирные изделия" <% if (finding.getCategory().equals("Драгоценности и ювелирные изделия")) { %>selected<% } %>>Драгоценности и ювелирные изделия</option>
                 <option value="Личные вещи" <% if (finding.getCategory().equals("Личные вещи")) { %>selected<% } %>>Личные вещи</option>
                 <option value="Технические устройства" <% if (finding.getCategory().equals("Технические устройства")) { %>selected<% } %>>Технические устройства</option>
-                <!-- Добавьте остальные категории здесь -->
             </select><br />
 
-            <button item="actionbutton2" type="submit">Сохранить изменения</button>
+            <button id="saveFindingChanges" type="submit">Сохранить изменения</button>
         </form>
-    </div>
 
-    <jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
 
 </body>
 </html>

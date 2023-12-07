@@ -17,6 +17,7 @@
 		<style>
 			<jsp:include page="./styles.css"/>
 		</style>
+		<title>Находки</title>
 </head>
 
 <body>
@@ -46,6 +47,7 @@
 						</form>
 					</div>
 				</td>
+			<td>
 		</tr>
 		<tr>
 			<td id="date"><%= finding.getDate() %></td>
@@ -116,7 +118,6 @@
 	
 </script>
 
-<jsp:include page="/jsp/interface/moderator_interface/footer.jsp" />
 
 </body>
 </html>

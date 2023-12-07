@@ -70,28 +70,25 @@ input#loginbutton:hover {
 	margin-bottom: 20px;
 }
 
-        /* CSS стили для сообщения */
-.timeout-message {
+#timeoutMessage {
+	font-size: 40px;
     position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 30px;
+    margin-bottom: 25%;
     color: white; /* Белый цвет текста */
-    z-index: 9999;
-    background: radial-gradient(50.01% 50% at 50% 50%, #FF0000 0%, rgba(255, 0, 0,
-		0.00) 100%); /* Рассеивающийся красный фон из центра */
+	border-radius: 50px;
+	background: #FF5E5E;
     border: none; /* Убираем границу */
 }
 </style>
-<title>Login</title>
+<title>Login - Бюро находок</title>
 </head>
 
 <body>
-<div id="timeoutMessage" class="timeout-message" style="display: none;">
-    Время ожидания превышено
-</div>
-<% 
+	<div id="timeoutMessage" style="display: none;" >
+	    Время ожидания превышено
+	</div>
+	<% 
         if (session.getAttribute("showTimeoutMessage") != null && (Boolean) session.getAttribute("showTimeoutMessage")) {
             session.setAttribute("showTimeoutMessage", false);
     %>

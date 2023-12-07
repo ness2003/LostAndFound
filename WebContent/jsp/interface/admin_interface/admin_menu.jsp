@@ -14,7 +14,9 @@
 	<body>
 		<jsp:include page="header.jsp" />
 		
+		<div class="circle"></div>
 		<h1 id="home">Здравствуйте!<br>Что будем искать?</h1>
-	<jsp:include page="/jsp/interface/admin_interface/footer.jsp" />
+			
+		<jsp:include page="/jsp/interface/admin_interface/footer.jsp" />
 	</body>
 </html>

@@ -8,9 +8,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
-<jsp:include page="../styles.css"/>
-</style>
+	<style>
+		<jsp:include page="../styles.css"/>
+	</style>
+	<title>Мой профиль</title>
 </head>
 
 <body>

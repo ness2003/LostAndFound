@@ -11,10 +11,10 @@
 </head>
 <body>
 	
-	<h1>Редактировние находки</h1>
+	<h1 id="titleText">Редактировние находки</h1>
 	
     <% Finding finding = (Finding)request.getAttribute("finding"); %>
-    <div class="changefinding">
+
         <form id="changefindingForm" name="changefindingForm" method="POST" action="/Lost-And-Found/findings" accept-charset="UTF-8">
             <input type="hidden" name="command" value="refreshFindings" />
             <input type="hidden" name="act" value="edit" />
@@ -25,7 +25,7 @@
 
             <!-- Описание находки -->
             <label for="findingDescription">Описание находки:</label>
-            <textarea id="findingDescription" required name="findingDescription"><%= finding.getDescription() %></textarea><br />
+            <input id="findingDescription" type="text" required name="findingDescription" value="<%= finding.getDescription() %>"><br />
 
             <!-- Дата находки -->
             <label for="findingDate">Дата находки:</label>
@@ -45,9 +45,8 @@
 
             <button id="saveFindingChanges" type="submit">Сохранить изменения</button>
         </form>
-    </div>
 
-    <jsp:include page="/jsp/interface/receiver_interface/footer.jsp" />
+
 
 </body>
 </html>

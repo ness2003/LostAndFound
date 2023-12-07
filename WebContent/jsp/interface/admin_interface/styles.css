@@ -57,6 +57,7 @@ table#users {
     margin-bottom: 20px;
     border-radius: 30px;
     background-color: #fff;
+    width: 60%;
 }
 table#users:hover {
     border: 3px solid rgba(255, 168, 0, 1);
@@ -121,52 +122,29 @@ th {
 	font-style: normal;
 }
 
-
-
 button#activity {
 	 background-color: rgba(0, 0, 0, 0.0);
 	transition: transform 0.5s;
 	 border: 1px solid rgba(0, 0, 0, 0.0);
 }
 
-button#adduserbutton {
-	width: 130px;
-	height: 50px;
+button#addUser {
+	width: 800px;
+	height: 60px;
 	border: none;
 	border-radius: 50px;
 	background: #0085FF;
 	color: #FFF;
-	font-size: 15px;
+	font-size: 20px;
 	font-style: normal;
-	transition: transform 0.5s;
 	text-align: center;
+	margin-bottom: 20px;	
+	transition: transform 0.5s;
 }
 
-button#adduserbutton:hover {
+button#addUser:hover {
 	background: #FFA800;
-	transform: scale(1.1);
-}
-
-button#scrollToBottomButton {
-	position: fixed; top: 20; right: 0;
-	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
-		0.00) 80%);
-		border: none; outline: none;
-	transform: scale(1.1);
-}
-
-button#scrollToBottomButton:hover{
-	background: radial-gradient(50.01% 50% at 50% 50%, #FFA800 0%, rgba(255, 168, 0,
-		0.00) 80%);
-	transform: scale(1.15);
-	cursor: pointer;
-}
-
-
-.addusercontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	transform: scale(1.03);
 }
 
 button#openModalBlockUser, button#openModalDeleteUser, button#editUser {
@@ -188,6 +166,65 @@ button#openModalBlockUser:hover, button#openModalDeleteUser:hover, button#editUs
 	transform: scale(1.1);
 }
 
+
+/*-------------------------------------------- Стили окна adduser -------------------------------------------------*/
+
+#titleAddUserText, #titleChangeUserText {
+	margin-top: 1%;
+}
+
+#addUserForm label {
+	color: #0085FF;
+	font-size: 20px;	
+	margin: 5px;
+	text-align: left; 
+}
+
+#addUserForm {
+	width: 500px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px; 
+	background-color: #fff;
+}
+
+#addUserForm input[type="text"],
+#addUserForm input[type="email"],
+#addUserForm select {
+	font-family: century gothic;
+	margin-left: 1%;
+	margin-bottom: 10px;
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #333;
+	border-radius: 5px;
+	color: #333;
+	font-size: 15px;
+	background-color: #fff;
+}
+
+button#saveAndAddUser, button#SaveUserChanges {
+	margin-top: 15px; 
+	margin-left: 25%;
+	width: 250px;
+	height: 60px;
+	border: none;
+	border-radius: 50px;
+	background: #0085FF;
+	color: #FFF;
+	font-size: 20px;
+	font-style: normal;
+	transition: transform 0.5s;
+	text-align: center;
+}
+
+button#saveAndAddUser:hover, button#SaveUserChanges:hover {
+	background: #FFA800;
+	transform: scale(1.1);
+}
+
+
 h1#myfindings {
 	display: flex;
 	justify-content: center;
@@ -198,16 +235,43 @@ h1#myfindings {
 		0.00) 70%);
 }
 
+/*-------------------------------------------- Стили окна home -------------------------------------------------*/
+
+@keyframes color-change {
+  from {
+    background-color: #F498AD;
+  }
+  50% {
+    background-color: #7F6EDB;
+  }
+  to {
+    background-color: #2E9AFF;
+  }
+}
+
+
 h1#home {
 	font-size: 50px;
 	display: flex;
 	justify-content: center;
-	margin: 10%;
+	margin-top: -10%;
 	color: #fff;
 	text-align: center;
-	background: radial-gradient(50.01% 50% at 50% 50%, #0085FF 0%, rgba(0, 133, 255,
-		0.00) 70%);
+	filter: blur(0px);
 }
+
+.circle {
+	margin-top: 10%;
+	width: 361px;
+	height: 142px;
+	flex-shrink: 0;
+	border-radius: 561px;
+	background: #0085FF;
+	filter: blur(70px);
+	animation:
+    	color-change 5s alternate linear infinite;
+}
+
 
 /* ------------------------------------------- Стили окна myprofile --------------------------------------------------*/
 h1#profile {
@@ -217,7 +281,7 @@ h1#profile {
 	text-align: center;
 	border-radius: 30px;
 	background: #FFF;
-	margin-top: 3%;
+	margin-top: 2%;
 }
 
 table#profile {
@@ -262,27 +326,40 @@ input[type="text"]:focus {
 
 button#saveProfileData {
 	text-align: center;
-	width: 170px;
-	height: 80px;
+	width: 370px;
+	height: 70px;
 	border: none;
 	border-radius: 50px;
 	font-size: 25px;
 	font-style: normal;
-	transition: transform 0.5s;
 	text-align: center;
 	margin: 10px;
 	background: #FFA800;
+	color: #fff;
 }
 
 button#saveProfileData:hover {
-	background: #FFA800;
-	transform: scale(1.3);
+	background: #52ff33;
 }
 
 p#saveMessage {
 	font-size: 25px;
 	color: #52ff33;
+	animation: slideUp 1s ease-in-out;
 }
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
 
 .mytasks {
 	font-size: 24px;
@@ -348,15 +425,19 @@ li:hover {
 	cursor: pointer;
 }
 
+/* ------------------------------------------- Стили footer --------------------------------------------------*/
+
+
 footer {
 	position: fixed;
-	bottom: 0;
-	width: 100%;
-	font-size: 24px;
-	background-color: #333; /* Цвет фона футера */
+	bottom: 20px;
+	width: 30%;
+	font-size: 15px;
 	color: #fff; /* Цвет текста внутри футера */
-	padding: 10px; /* Внутренние отступы */
+	padding: 5px; /* Внутренние отступы */
 	text-align: center; /* Выравнивание текста по центру */
+	border-radius: 50px;
+	border: 1px solid #FFF;
 }
 
 /* ------------------------------------------- Стили модальных окон --------------------------------------------------*/

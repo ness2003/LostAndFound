@@ -7,19 +7,20 @@
     <style>
         <jsp:include page="./styles.css"/>
     </style>
-    <title>Изменение вопроса</title>
+    <title>Изменение контрольного вопроса</title>
 </head>
 <body>
 
-<h1>Изменение вопроса</h1>
+<h1 id="titleChangeFinalQuestionText">Редактировние контрольного вопроса</h1>
 
 <% FinalQuestion finalQuestion = (FinalQuestion) request.getAttribute("finalQuestion"); %>
-<div class="changefinalquestion">
-    	<form id="changeFinalQuestionForm" name="changeFinalQuestionForm" method="POST" action="/Lost-And-Found/findings/finalquestions" accept-charset="UTF-8">
+
+		<form id="changeFinalQuestionForm" name="changeFinalQuestionForm" method="POST" action="/Lost-And-Found/findings/finalquestions" accept-charset="UTF-8">
         <input type="hidden" name="command" value="RefreshFinalQuestion" />
         <input type="hidden" name="finalquestionid" value="<%= finalQuestion.getId() %>" />
         <input type="hidden" name="findingId" value="<%= finalQuestion.getFindingId() %>" />
-        
+        <input type="hidden" name="actiontype" value="saverefresh" />
+
         <!-- Вопрос -->
         <label for="question">Вопрос:</label>
         <input id="question" type="text" required name="question" value="<%= finalQuestion.getQuestion() %>" /><br />
@@ -36,11 +37,9 @@
         <label for="alternativeAnswer2">Альтернативный ответ 2:</label>	
         <input id="alternativeAnswer2" type="text" required name="alternativeAnswer2" value="<%= finalQuestion.getAlternativeAnswer2() %>" /><br />
 
-        <button id="saveQuestionChanges" type="submit">Сохранить изменения</button>
-    </form>
-</div>
+        <button id="saveFinalQuestionChanges" type="submit">Сохранить изменения</button>
+    	</form>
 
-<jsp:include page="/jsp/interface/receiver_interface/footer.jsp" />
 
 </body>
 </html>

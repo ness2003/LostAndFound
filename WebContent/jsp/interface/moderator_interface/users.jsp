@@ -17,6 +17,7 @@
 		<style>
 			<jsp:include page="./styles.css"/>
 		</style>
+		<title>Пользователи</title>
 </head>
 
 <body>
@@ -113,7 +114,7 @@
 	</div>
 
 <script>
-		// Получить модальное окно
+	// Получить модальное окно
 	var modal = document.getElementById("blockUserModal");
 	// Получить кнопку, которая закрывает модальное окно
 	var btnExit = document.getElementById("exit");

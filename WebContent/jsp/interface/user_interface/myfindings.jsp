@@ -11,9 +11,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-				<style>
+		<style>
 			<jsp:include page="../styles.css"/>
 		</style>
+		<title>Мои находки</title>
 	</head>
 	<body>
 		<jsp:include page="/jsp/interface/user_interface/header.jsp" />
