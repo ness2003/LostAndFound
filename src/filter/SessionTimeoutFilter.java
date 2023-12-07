@@ -38,7 +38,9 @@ public class SessionTimeoutFilter implements Filter {
 			httpResponse.sendRedirect(httpRequest.getContextPath());
 			return;
 		}
-		chain.doFilter(request, response);
+		if (((HttpServletRequest)request).getSession(false)!=null) {
+			chain.doFilter(request, response);
+			}
 	}
 
 	@Override

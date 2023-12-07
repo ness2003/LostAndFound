@@ -14,6 +14,19 @@
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
+	
+	<filter>
+		<filter-name>securityfilter</filter-name>
+		<filter-class>filter.PageRedirectSecurityFilter</filter-class>
+		<init-param>
+			<param-name>INDEX_PATH</param-name>
+			<param-value>/index.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>securityfilter</filter-name>
+		<url-pattern>/jsp/*</url-pattern>
+	</filter-mapping>
 	<filter>
 		<filter-name>SessionTimeoutFilter</filter-name>
 		<filter-class>filter.SessionTimeoutFilter</filter-class>
@@ -27,16 +40,52 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-<!--	<filter> -->
-<!--		<filter-name>AuthenticationFilter</filter-name>  -->
-<!--		<filter-class>filter.AuthenticationFilter</filter-class>  --><!-- Замените на ваш пакет и имя класса -->
-<!--	</filter> -->
-<!--	<filter-mapping> -->
-<!--		<filter-name>AuthenticationFilter</filter-name> -->
-<!--		<url-pattern>/*</url-pattern> -->
-<!--	</filter-mapping> -->
-	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<filter>
+		<filter-name>encodingfilter</filter-name>
+		<filter-class>filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	
+	<filter>
+		<filter-name>rolesecurityfilter</filter-name>
+		<filter-class>filter.ServletSecurityFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>rolesecurityfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
 
+	<!-- <filter> -->
+	<!-- <filter-name>AuthenticationFilter</filter-name> -->
+	<!-- <filter-class>filter.AuthenticationFilter</filter-class> --><!-- Замените на ваш пакет и имя класса -->
+	<!-- </filter> -->
+	<!-- <filter-mapping> -->
+	<!-- <filter-name>AuthenticationFilter</filter-name> -->
+	<!-- <url-pattern>/*</url-pattern> -->
+	<!-- </filter-mapping> -->
+	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	
+	<servlet>
+		<servlet-name>Root</servlet-name>
+		<servlet-class>controller.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Root</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>Main</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>
