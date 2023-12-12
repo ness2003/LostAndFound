@@ -22,10 +22,7 @@ public class SessionTimeoutFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		HttpSession session = httpRequest.getSession(false);
-		if (session == null) {
-			session = httpRequest.getSession(true);
-		}
+		HttpSession session = httpRequest.getSession(true);
 		long currentTime = System.currentTimeMillis();
 		long lastAccessedTime = session.getLastAccessedTime();
 		String loginPage = "/Lost-And-Found/";

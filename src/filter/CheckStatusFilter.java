@@ -11,9 +11,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import datalayer.data.SystemUser;
+import logic.*;
 
-public class PageRedirectSecurityFilter implements Filter {
-	private String indexPath;
+public class CheckStatusFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
@@ -22,13 +23,27 @@ public class PageRedirectSecurityFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		// переход на заданную страницу
-		//chain.doFilter(request, response);
-		((HttpServletRequest)request).getSession().invalidate();
-		httpResponse.sendRedirect(httpRequest.getContextPath());
-		
+		if (httpRequest.getSession(false) != null) {
+			if ((httpRequest.getSession().getAttribute("userId")!=null) ) {
+			SystemUser user = Logic.getSystemUser()
+					.getSystemUserForUserID(((int) httpRequest.getSession().getAttribute("userId")));
+			//System.out.print(user.getStatus());
+			if (user== null || user.getStatus().equals("Заблокирован")) {
+				
+				((HttpServletRequest)request).getSession().invalidate();
+				httpResponse.sendRedirect(httpRequest.getContextPath());
+				return;
+			}
+		}
+			
+	}
+		chain.doFilter(request,response);
+
+	
+
 	}
 
 	public void destroy() {
 	}
+
 }

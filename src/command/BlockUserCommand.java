@@ -12,7 +12,8 @@ public class BlockUserCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 
 		String userID = request.getParameter("userid");
-		if (userID != null) {
+		if (userID != null && ((Integer.parseInt(userID) != (int)request.getSession().getAttribute("userId")))) {
+			System.out.print("one" + userID + "two"+(request.getSession().getAttribute("userId") +"end"));
 			BlockUserLogic.changeUserStatus((Integer.parseInt(userID)));
 		}
 		String page = null;

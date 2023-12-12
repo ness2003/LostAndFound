@@ -26,10 +26,8 @@ public class ServletSecurityFilter implements Filter {
 	    String homePage = "/Lost-And-Found/home";
 	    String currentURI = req.getRequestURI();
 	    Object role = session.getAttribute("role");
-	    System.out.println(role);
 	    if ((role == null) && (!currentURI.equals(loginPage)) && (!currentURI.equals(homePage))&&(!currentURI.startsWith("/Lost-And-Found/jsp"))) {
-	        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/index.jsp");
-	        dispatcher.forward(req, resp);
+	    	resp.sendRedirect(req.getContextPath());
 	        return;
 	    }
 	    chain.doFilter(request, response);
