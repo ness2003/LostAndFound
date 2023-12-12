@@ -41,6 +41,13 @@
                 <option value="Драгоценности и ювелирные изделия" <% if (finding.getCategory().equals("Драгоценности и ювелирные изделия")) { %>selected<% } %>>Драгоценности и ювелирные изделия</option>
                 <option value="Личные вещи" <% if (finding.getCategory().equals("Личные вещи")) { %>selected<% } %>>Личные вещи</option>
                 <option value="Технические устройства" <% if (finding.getCategory().equals("Технические устройства")) { %>selected<% } %>>Технические устройства</option>
+                <option value="Искусство и антиквариат" <% if (finding.getCategory().equals("Искусство и антиквариат")) { %>selected<% } %>>Искусство и антиквариат</option>
+                <option value="Одежда, обувь, аксессуары" <% if (finding.getCategory().equals("Одежда, обувь, аксессуары")) { %>selected<% } %>>Одежда, обувь, аксессуары</option>
+                <option value="Спортивное снаряжение" <% if (finding.getCategory().equals("Спортивное снаряжение")) { %>selected<% } %>>Спортивное снаряжение</option>
+                <option value="Инструменты" <% if (finding.getCategory().equals("Инструменты")) { %>selected<% } %>>Инструменты</option>
+                <option value="Животные" <% if (finding.getCategory().equals("Животные")) { %>selected<% } %>>Животные</option>
+                <option value="Автомобильные ключи" <% if (finding.getCategory().equals("Автомобильные ключи")) { %>selected<% } %>>Автомобильные ключи</option>
+                <option value="Другое" <% if (finding.getCategory().equals("Другое")) { %>selected<% } %>>Другое</option>
             </select><br />
 
             <button id="saveFindingChanges" type="submit">Сохранить изменения</button>

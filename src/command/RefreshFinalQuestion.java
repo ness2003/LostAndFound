@@ -19,6 +19,7 @@ public class RefreshFinalQuestion implements ActionCommand {
 
 		int findingId = Integer.parseInt(request.getParameter("findingId"));
 		request.setAttribute("foundItems", FinalQuestionsLogic.getFinalQuestionsByFindingId(findingId));
+		request.setAttribute("findingId", findingId);
 
 		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("moderatorID")) {
 			page = ConfigurationManager.getProperty("path.page.finaquestions_moderator");

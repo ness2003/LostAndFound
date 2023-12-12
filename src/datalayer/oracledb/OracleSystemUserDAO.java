@@ -249,7 +249,6 @@ public class OracleSystemUserDAO implements SystemUserDAO {
 		PreparedStatement ps = null;
 		try {
 			ps = connection.prepareStatement(resourcer.getString("update.status.foruserid"));
-			System.out.print(getUserStatusID(userId));
 			if (getUserStatusID(userId) == 1) {
 				ps.setInt(1, 2);
 			} else {

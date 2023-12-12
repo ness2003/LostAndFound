@@ -53,5 +53,60 @@ public class OracleFindingStatusDAO implements FindingStatusDAO{
 		}
 		return 0;
 	}
+	
+	@Override
+	public void updateFindingStatus(int findingId) {
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(resourcer.getString("update.status.for.finding"));
+			if (getFindingStatusId(findingId) == 1) {
+				ps.setInt(1, 2);
+			} else {
+				ps.setInt(1, 1);
+			}
+			ps.setInt(2, findingId);
+			ps.executeQuery();
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (ps != null) {
+					ps.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	@Override
+	public int getFindingStatusId(int findingId) {
+		PreparedStatement ps = null;
+		ResultSet resultSet = null;
+		try {
+			ps = connection.prepareStatement(resourcer.getString("select.finding.status.for.id"));
+			ps.setInt(1, findingId);
+			resultSet = ps.executeQuery();
+			resultSet.next();
+			return resultSet.getInt(1);
+		} catch (SQLException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
 
 }

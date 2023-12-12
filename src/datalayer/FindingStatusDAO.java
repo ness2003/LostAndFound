@@ -12,4 +12,19 @@ public interface FindingStatusDAO {
      * @return The finding status ID associated with the given status description.
      */
     int getFindingStatusIdForStatusDescription(String statusDescription);
+    
+    /**
+     * Updates the finding status for a specific finding ID.
+     *
+     * @param findingId The ID of the finding to update.
+     */
+    void updateFindingStatus(int findingId);
+    
+    /**
+     * Retrieves the finding status ID for a specific finding ID.
+     *
+     * @param findingId The ID of the finding.
+     * @return The finding status ID associated with the given finding ID.
+     */
+    int getFindingStatusId(int findingId);
 }

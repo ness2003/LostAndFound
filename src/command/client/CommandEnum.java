@@ -7,6 +7,7 @@ import command.AddUserCommand;
 import command.BlockUserCommand;
 import command.ChangeFinalQuestionCommand;
 import command.ChangeFindingCommand;
+import command.ChangeFindingStatusCommand;
 import command.ChangeUserCommand;
 import command.CheckAnswerCommand;
 import command.DeleteUserCommand;
@@ -106,6 +107,11 @@ public enum CommandEnum {
 	CHANGEFINDING {
 		{
 			this.command = new ChangeFindingCommand();
+		}
+	},
+	CHANGEFINDINGSTATUS {
+		{
+			this.command = new ChangeFindingStatusCommand();
 		}
 	},
 	REFRESHFINDINGS {

@@ -40,6 +40,13 @@
                 <option value="Драгоценности и ювелирные изделия" >Драгоценности и ювелирные изделия</option>
                 <option value="Личные вещи">Личные вещи</option>
                 <option value="Технические устройства">Технические устройства</option>
+                <option value="Искусство и антиквариат" >Искусство и антиквариат</option>
+                <option value="Одежда, обувь, аксессуары">Одежда, обувь, аксессуары</option>
+                <option value="Спортивное снаряжение">Спортивное снаряжение</option>
+                <option value="Инструменты" >Инструменты</option>
+                <option value="Животные">Животные</option>
+                <option value="Автомобильные ключи">Автомобильные ключи</option>
+                <option value="Другое">Другое</option>
             </select><br />
 
             <button id="addFinding" type="submit">Сохранить</button>
