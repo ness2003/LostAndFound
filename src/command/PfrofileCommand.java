@@ -11,6 +11,7 @@ public class PfrofileCommand implements ActionCommand {
 	public String execute(HttpServletRequest request) {
 		String page = null;
 		
+		if (request.getSession().getAttribute("role")!=null)
 		if (request.getParameter("data").equals("refresh")) {
 			changeUser(request);	
 		}

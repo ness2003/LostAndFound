@@ -17,9 +17,7 @@ public class FindingsCommand implements ActionCommand {
 							(int) request.getSession().getAttribute("userId"));
 				}
 			} catch (Exception e) {
-				//
 			}
-
 			request.setAttribute("foundItems", FindingsLogic.getFreeFindings());
 			page = ConfigurationManager.getProperty("path.page.findings_user");
 		} else if ((int) request.getSession().getAttribute("role") == (int) request.getSession()

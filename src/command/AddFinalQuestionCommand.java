@@ -9,16 +9,14 @@ public class AddFinalQuestionCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		int findingId = Integer.parseInt(request.getParameter("findingId"));
-		if ((int)request.getSession().getAttribute("role") ==(int)request.getSession().getAttribute("receiverID")) {
+		if ((int) request.getSession().getAttribute("role") == (int) request.getSession().getAttribute("receiverID")) {
+			int findingId = Integer.parseInt(request.getParameter("findingId"));
 			try {
 				if (request.getParameter("addFinalQuestion").equals("true")) {
 					FinalQuestionsLogic.addFinalQuestion(request);
 				}
 			} catch (Exception e) {
-				//
 			}
-			
 			request.setAttribute("findingId", findingId);
 			page = ConfigurationManager.getProperty("path.page.receiver.add_final_question");
 		}

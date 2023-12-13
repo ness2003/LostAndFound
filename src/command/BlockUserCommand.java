@@ -11,18 +11,28 @@ public class BlockUserCommand implements ActionCommand {
 	@Override
 	public String execute(HttpServletRequest request) {
 
-		String userID = request.getParameter("userid");
-		if (userID != null && ((Integer.parseInt(userID) != (int)request.getSession().getAttribute("userId")))) {
-			BlockUserLogic.changeUserStatus((Integer.parseInt(userID)));
-		}
 		String page = null;
-		if ((int) request.getSession().getAttribute("role") == (int) request.getSession().getAttribute("adminID")) {
-			request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
-			page = ConfigurationManager.getProperty("path.page.users_admin");
-		} else if ((int) request.getSession().getAttribute("role") == (int) request.getSession()
-				.getAttribute("moderatorID")) {
-			request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
-			page = ConfigurationManager.getProperty("path.page.users_moderator");
+		if (request.getSession().getAttribute("role") != null) {
+			
+			if ((int) request.getSession().getAttribute("role") == (int) request.getSession().getAttribute("adminID")
+					|| (int) request.getSession().getAttribute("role") == (int) request.getSession()
+							.getAttribute("moderatorID")) {
+				String userID = request.getParameter("userid");
+				if (userID != null
+						&& ((Integer.parseInt(userID) != (int) request.getSession().getAttribute("userId")))) {
+					BlockUserLogic.changeUserStatus((Integer.parseInt(userID)));
+				} else
+					return page;
+				if ((int) request.getSession().getAttribute("role") == (int) request.getSession()
+						.getAttribute("adminID")) {
+					request.setAttribute("foundUsers", UsersLogic.getUsersForAdmin());
+					page = ConfigurationManager.getProperty("path.page.users_admin");
+				} else if ((int) request.getSession().getAttribute("role") == (int) request.getSession()
+						.getAttribute("moderatorID")) {
+					request.setAttribute("foundUsers", UsersLogic.getUsersForModerator());
+					page = ConfigurationManager.getProperty("path.page.users_moderator");
+				}
+			}
 		}
 		return page;
 	}
