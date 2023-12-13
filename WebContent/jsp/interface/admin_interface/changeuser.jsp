@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 id="titleChangeUserText">Добавление пользователя</h1>
+<h1 id="titleChangeUserText">Изменение информации о пользователе	</h1>
   <% SystemUser user = (SystemUser)request.getAttribute("user"); %>
 
 <form id="addUserForm" name="addUserForm" method="POST" action="/Lost-And-Found/users" accept-charset="UTF-8">

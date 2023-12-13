@@ -16,7 +16,7 @@
 			<td id="aboutProject">
               <form name="MyTasks" method="POST" action="/Lost-And-Found/mytasks">
 			<input type="hidden" name="command" value="mytasks" /> 
-			<button id="mytasks" type="submit">Мои задачи</button>
+			<button id="mytasks" type="submit">О проекте</button>
 		</form>
           </td>
 			<td id="profile">
